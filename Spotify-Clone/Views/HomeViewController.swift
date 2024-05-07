@@ -77,6 +77,22 @@ class HomeViewController : UIViewController{
 
     }
     
+    func navigateToPlaylistScreen(){
+       // let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+
+        let playlistViewController = PlaylistViewController()
+        self.navigationController?.pushViewController(playlistViewController, animated: true)
+    }
+    
+    func loadData(){
+         Task{
+            artistList =  await homeViewModel.getArtists()
+             trendingList =  await homeViewModel.refresh()
+             forYouCV.reloadData()
+             trendingVC.reloadData()
+         }
+     }
+    
 }
 
 extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSource{
@@ -118,15 +134,9 @@ extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSou
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("selected: \(artistList[indexPath.row].name)")
+        navigateToPlaylistScreen()
+        print("selected: \(String(describing: artistList[indexPath.row].name))")
     }
 
-   func loadData(){
-        Task{
-           artistList =  await homeViewModel.getArtists()
-            trendingList =  await homeViewModel.refresh()
-            forYouCV.reloadData()
-            trendingVC.reloadData()
-        }
-    }
+   
 }
