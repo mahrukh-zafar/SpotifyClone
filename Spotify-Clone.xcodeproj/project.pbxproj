@@ -14,15 +14,26 @@
 		D737F4AA2BE4F34D00230DA6 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D737F4A92BE4F34C00230DA6 /* SearchViewController.swift */; };
 		D737F4AC2BE515CF00230DA6 /* Artist.swift in Sources */ = {isa = PBXBuildFile; fileRef = D737F4AB2BE515CF00230DA6 /* Artist.swift */; };
 		D737F4AE2BE52EB900230DA6 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D737F4AD2BE52EB900230DA6 /* HomeViewModel.swift */; };
-		D737F4B12BE8C60C00230DA6 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = D737F4B02BE8C60C00230DA6 /* Alamofire */; };
 		D737F4B32BE8DB3600230DA6 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D737F4B22BE8DB3600230DA6 /* NetworkManager.swift */; };
 		D737F4B62BE90B7100230DA6 /* ThemeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D737F4B52BE90B7100230DA6 /* ThemeProtocol.swift */; };
 		D737F4B82BE90EE900230DA6 /* LightTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = D737F4B72BE90EE900230DA6 /* LightTheme.swift */; };
 		D737F4BA2BE90EF700230DA6 /* DarkTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = D737F4B92BE90EF700230DA6 /* DarkTheme.swift */; };
 		D737F4BD2BEA197A00230DA6 /* PlaylistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D737F4BB2BEA197A00230DA6 /* PlaylistViewController.swift */; };
 		D737F4BE2BEA197A00230DA6 /* PlaylistViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D737F4BC2BEA197A00230DA6 /* PlaylistViewController.xib */; };
-		D745315C2BDFED420074AD7D /* FacebookCore in Frameworks */ = {isa = PBXBuildFile; productRef = D745315B2BDFED420074AD7D /* FacebookCore */; };
-		D745315E2BDFED420074AD7D /* FacebookLogin in Frameworks */ = {isa = PBXBuildFile; productRef = D745315D2BDFED420074AD7D /* FacebookLogin */; };
+		D737F4C02BEA3E4500230DA6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D737F4BF2BEA3E4500230DA6 /* GoogleService-Info.plist */; };
+		D737F4C32BEA3F5900230DA6 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = D737F4C22BEA3F5900230DA6 /* Alamofire */; };
+		D737F4C62BEA3FF600230DA6 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = D737F4C52BEA3FF600230DA6 /* FirebaseAuth */; };
+		D737F4C82BEA3FF600230DA6 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = D737F4C72BEA3FF600230DA6 /* FirebaseDatabase */; };
+		D737F4CA2BEA3FF600230DA6 /* FirebaseDatabaseSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D737F4C92BEA3FF600230DA6 /* FirebaseDatabaseSwift */; };
+		D737F4CC2BEA3FF600230DA6 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = D737F4CB2BEA3FF600230DA6 /* FirebaseFirestore */; };
+		D737F4CE2BEA3FF600230DA6 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D737F4CD2BEA3FF600230DA6 /* FirebaseFirestoreSwift */; };
+		D737F4D02BEA3FF600230DA6 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = D737F4CF2BEA3FF600230DA6 /* FirebaseStorage */; };
+		D737F4D42BEA44E700230DA6 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = D737F4D32BEA44E700230DA6 /* GoogleSignIn */; };
+		D737F4D62BEA44E700230DA6 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D737F4D52BEA44E700230DA6 /* GoogleSignInSwift */; };
+		D737F4D92BEA453600230DA6 /* FacebookCore in Frameworks */ = {isa = PBXBuildFile; productRef = D737F4D82BEA453600230DA6 /* FacebookCore */; };
+		D737F4DB2BEA453600230DA6 /* FacebookLogin in Frameworks */ = {isa = PBXBuildFile; productRef = D737F4DA2BEA453600230DA6 /* FacebookLogin */; };
+		D737F4DE2BEA6C2F00230DA6 /* PlayListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D737F4DC2BEA6C2F00230DA6 /* PlayListCollectionViewCell.swift */; };
+		D737F4DF2BEA6C2F00230DA6 /* PlayListCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D737F4DD2BEA6C2F00230DA6 /* PlayListCollectionViewCell.xib */; };
 		D7CDE84D2BDF801F00A4AB8A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7CDE84C2BDF801F00A4AB8A /* AppDelegate.swift */; };
 		D7CDE84F2BDF801F00A4AB8A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7CDE84E2BDF801F00A4AB8A /* SceneDelegate.swift */; };
 		D7CDE8512BDF801F00A4AB8A /* GetStartedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7CDE8502BDF801F00A4AB8A /* GetStartedViewController.swift */; };
@@ -31,15 +42,6 @@
 		D7CDE8592BDF802100A4AB8A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D7CDE8582BDF802100A4AB8A /* Assets.xcassets */; };
 		D7CDE85C2BDF802100A4AB8A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7CDE85A2BDF802100A4AB8A /* LaunchScreen.storyboard */; };
 		D7CDE8642BDF929800A4AB8A /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7CDE8632BDF929800A4AB8A /* CustomButton.swift */; };
-		D7CDE8682BDFCF5900A4AB8A /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = D7CDE8672BDFCF5900A4AB8A /* GoogleSignIn */; };
-		D7CDE86A2BDFCF5A00A4AB8A /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D7CDE8692BDFCF5A00A4AB8A /* GoogleSignInSwift */; };
-		D7CDE8702BDFD2EF00A4AB8A /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = D7CDE86F2BDFD2EF00A4AB8A /* FirebaseAuth */; };
-		D7CDE8722BDFD2EF00A4AB8A /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = D7CDE8712BDFD2EF00A4AB8A /* FirebaseDatabase */; };
-		D7CDE8742BDFD2EF00A4AB8A /* FirebaseDatabaseSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D7CDE8732BDFD2EF00A4AB8A /* FirebaseDatabaseSwift */; };
-		D7CDE8762BDFD2EF00A4AB8A /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = D7CDE8752BDFD2EF00A4AB8A /* FirebaseFirestore */; };
-		D7CDE8782BDFD2EF00A4AB8A /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D7CDE8772BDFD2EF00A4AB8A /* FirebaseFirestoreSwift */; };
-		D7CDE87A2BDFD2EF00A4AB8A /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = D7CDE8792BDFD2EF00A4AB8A /* FirebaseStorage */; };
-		D7CDE87C2BDFD41600A4AB8A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D7CDE87B2BDFD41600A4AB8A /* GoogleService-Info.plist */; };
 		D7D49BC52BE101AE005C1BEA /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7D49BC32BE101AE005C1BEA /* LoginViewController.swift */; };
 		D7D49BC62BE101AE005C1BEA /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D7D49BC42BE101AE005C1BEA /* LoginViewController.xib */; };
 		D7D49BC92BE10F26005C1BEA /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7D49BC72BE10F26005C1BEA /* SignUpViewController.swift */; };
@@ -68,6 +70,9 @@
 		D737F4B92BE90EF700230DA6 /* DarkTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkTheme.swift; sourceTree = "<group>"; };
 		D737F4BB2BEA197A00230DA6 /* PlaylistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistViewController.swift; sourceTree = "<group>"; };
 		D737F4BC2BEA197A00230DA6 /* PlaylistViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlaylistViewController.xib; sourceTree = "<group>"; };
+		D737F4BF2BEA3E4500230DA6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		D737F4DC2BEA6C2F00230DA6 /* PlayListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayListCollectionViewCell.swift; sourceTree = "<group>"; };
+		D737F4DD2BEA6C2F00230DA6 /* PlayListCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlayListCollectionViewCell.xib; sourceTree = "<group>"; };
 		D745315F2BDFEEEA0074AD7D /* Spotify-Clone.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Spotify-Clone.entitlements"; sourceTree = "<group>"; };
 		D7CDE8492BDF801F00A4AB8A /* Spotify-Clone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Spotify-Clone.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7CDE84C2BDF801F00A4AB8A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -79,7 +84,6 @@
 		D7CDE85B2BDF802100A4AB8A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D7CDE85D2BDF802100A4AB8A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D7CDE8632BDF929800A4AB8A /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
-		D7CDE87B2BDFD41600A4AB8A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D7D49BC32BE101AE005C1BEA /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		D7D49BC42BE101AE005C1BEA /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		D7D49BC72BE10F26005C1BEA /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
@@ -97,18 +101,18 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D7CDE8742BDFD2EF00A4AB8A /* FirebaseDatabaseSwift in Frameworks */,
-				D745315C2BDFED420074AD7D /* FacebookCore in Frameworks */,
-				D7CDE8682BDFCF5900A4AB8A /* GoogleSignIn in Frameworks */,
-				D7CDE8702BDFD2EF00A4AB8A /* FirebaseAuth in Frameworks */,
-				D7CDE8782BDFD2EF00A4AB8A /* FirebaseFirestoreSwift in Frameworks */,
-				D745315E2BDFED420074AD7D /* FacebookLogin in Frameworks */,
-				D7CDE8722BDFD2EF00A4AB8A /* FirebaseDatabase in Frameworks */,
-				D7CDE87A2BDFD2EF00A4AB8A /* FirebaseStorage in Frameworks */,
-				D7CDE86A2BDFCF5A00A4AB8A /* GoogleSignInSwift in Frameworks */,
-				D737F4B12BE8C60C00230DA6 /* Alamofire in Frameworks */,
-				D7CDE8762BDFD2EF00A4AB8A /* FirebaseFirestore in Frameworks */,
+				D737F4CA2BEA3FF600230DA6 /* FirebaseDatabaseSwift in Frameworks */,
 				13448CF1B4CF0A5DA40AB4E7 /* Pods_Spotify_Clone.framework in Frameworks */,
+				D737F4C62BEA3FF600230DA6 /* FirebaseAuth in Frameworks */,
+				D737F4CE2BEA3FF600230DA6 /* FirebaseFirestoreSwift in Frameworks */,
+				D737F4D92BEA453600230DA6 /* FacebookCore in Frameworks */,
+				D737F4C82BEA3FF600230DA6 /* FirebaseDatabase in Frameworks */,
+				D737F4D62BEA44E700230DA6 /* GoogleSignInSwift in Frameworks */,
+				D737F4D02BEA3FF600230DA6 /* FirebaseStorage in Frameworks */,
+				D737F4DB2BEA453600230DA6 /* FacebookLogin in Frameworks */,
+				D737F4C32BEA3F5900230DA6 /* Alamofire in Frameworks */,
+				D737F4CC2BEA3FF600230DA6 /* FirebaseFirestore in Frameworks */,
+				D737F4D42BEA44E700230DA6 /* GoogleSignIn in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -165,7 +169,7 @@
 			isa = PBXGroup;
 			children = (
 				D745315F2BDFEEEA0074AD7D /* Spotify-Clone.entitlements */,
-				D7CDE87B2BDFD41600A4AB8A /* GoogleService-Info.plist */,
+				D737F4BF2BEA3E4500230DA6 /* GoogleService-Info.plist */,
 				D7CDE84C2BDF801F00A4AB8A /* AppDelegate.swift */,
 				D7CDE84E2BDF801F00A4AB8A /* SceneDelegate.swift */,
 				D7D49BD82BE128A8005C1BEA /* View Model */,
@@ -196,6 +200,8 @@
 				D737F4A92BE4F34C00230DA6 /* SearchViewController.swift */,
 				D737F4BB2BEA197A00230DA6 /* PlaylistViewController.swift */,
 				D737F4BC2BEA197A00230DA6 /* PlaylistViewController.xib */,
+				D737F4DC2BEA6C2F00230DA6 /* PlayListCollectionViewCell.swift */,
+				D737F4DD2BEA6C2F00230DA6 /* PlayListCollectionViewCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -248,17 +254,17 @@
 			);
 			name = "Spotify-Clone";
 			packageProductDependencies = (
-				D7CDE8672BDFCF5900A4AB8A /* GoogleSignIn */,
-				D7CDE8692BDFCF5A00A4AB8A /* GoogleSignInSwift */,
-				D7CDE86F2BDFD2EF00A4AB8A /* FirebaseAuth */,
-				D7CDE8712BDFD2EF00A4AB8A /* FirebaseDatabase */,
-				D7CDE8732BDFD2EF00A4AB8A /* FirebaseDatabaseSwift */,
-				D7CDE8752BDFD2EF00A4AB8A /* FirebaseFirestore */,
-				D7CDE8772BDFD2EF00A4AB8A /* FirebaseFirestoreSwift */,
-				D7CDE8792BDFD2EF00A4AB8A /* FirebaseStorage */,
-				D745315B2BDFED420074AD7D /* FacebookCore */,
-				D745315D2BDFED420074AD7D /* FacebookLogin */,
-				D737F4B02BE8C60C00230DA6 /* Alamofire */,
+				D737F4C22BEA3F5900230DA6 /* Alamofire */,
+				D737F4C52BEA3FF600230DA6 /* FirebaseAuth */,
+				D737F4C72BEA3FF600230DA6 /* FirebaseDatabase */,
+				D737F4C92BEA3FF600230DA6 /* FirebaseDatabaseSwift */,
+				D737F4CB2BEA3FF600230DA6 /* FirebaseFirestore */,
+				D737F4CD2BEA3FF600230DA6 /* FirebaseFirestoreSwift */,
+				D737F4CF2BEA3FF600230DA6 /* FirebaseStorage */,
+				D737F4D32BEA44E700230DA6 /* GoogleSignIn */,
+				D737F4D52BEA44E700230DA6 /* GoogleSignInSwift */,
+				D737F4D82BEA453600230DA6 /* FacebookCore */,
+				D737F4DA2BEA453600230DA6 /* FacebookLogin */,
 			);
 			productName = "Spotify-Clone";
 			productReference = D7CDE8492BDF801F00A4AB8A /* Spotify-Clone.app */;
@@ -289,10 +295,10 @@
 			);
 			mainGroup = D7CDE8402BDF801F00A4AB8A;
 			packageReferences = (
-				D7CDE8662BDFCF5900A4AB8A /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
-				D7CDE86E2BDFD2EF00A4AB8A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
-				D745315A2BDFED420074AD7D /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */,
-				D737F4AF2BE8C60C00230DA6 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				D737F4C12BEA3F5800230DA6 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				D737F4C42BEA3FF600230DA6 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				D737F4D22BEA44E700230DA6 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
+				D737F4D72BEA453600230DA6 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */,
 			);
 			productRefGroup = D7CDE84A2BDF801F00A4AB8A /* Products */;
 			projectDirPath = "";
@@ -308,13 +314,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D737F4DF2BEA6C2F00230DA6 /* PlayListCollectionViewCell.xib in Resources */,
 				D7D49BC62BE101AE005C1BEA /* LoginViewController.xib in Resources */,
 				D7CDE85C2BDF802100A4AB8A /* LaunchScreen.storyboard in Resources */,
-				D7CDE87C2BDFD41600A4AB8A /* GoogleService-Info.plist in Resources */,
 				D7CDE8592BDF802100A4AB8A /* Assets.xcassets in Resources */,
 				D737F4BE2BEA197A00230DA6 /* PlaylistViewController.xib in Resources */,
 				D7D49BCA2BE10F26005C1BEA /* SignUpViewController.xib in Resources */,
 				D7CDE8542BDF801F00A4AB8A /* Main.storyboard in Resources */,
+				D737F4C02BEA3E4500230DA6 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -359,6 +366,7 @@
 				D7D49BC52BE101AE005C1BEA /* LoginViewController.swift in Sources */,
 				D7D49BC92BE10F26005C1BEA /* SignUpViewController.swift in Sources */,
 				D737F4BD2BEA197A00230DA6 /* PlaylistViewController.swift in Sources */,
+				D737F4DE2BEA6C2F00230DA6 /* PlayListCollectionViewCell.swift in Sources */,
 				D737F49E2BE3CE9300230DA6 /* HomeViewController.swift in Sources */,
 				D737F4AC2BE515CF00230DA6 /* Artist.swift in Sources */,
 				D7CDE8572BDF801F00A4AB8A /* Spotify_Clone.xcdatamodeld in Sources */,
@@ -595,7 +603,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		D737F4AF2BE8C60C00230DA6 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+		D737F4C12BEA3F5800230DA6 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
 			requirement = {
@@ -603,15 +611,15 @@
 				minimumVersion = 5.0.0;
 			};
 		};
-		D745315A2BDFED420074AD7D /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */ = {
+		D737F4C42BEA3FF600230DA6 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/facebook/facebook-ios-sdk";
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 9.0.0;
 			};
 		};
-		D7CDE8662BDFCF5900A4AB8A /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */ = {
+		D737F4D22BEA44E700230DA6 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/google/GoogleSignIn-iOS";
 			requirement = {
@@ -619,9 +627,9 @@
 				minimumVersion = 7.0.0;
 			};
 		};
-		D7CDE86E2BDFD2EF00A4AB8A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+		D737F4D72BEA453600230DA6 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			repositoryURL = "https://github.com/facebook/facebook-ios-sdk";
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 9.0.0;
@@ -630,60 +638,60 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		D737F4B02BE8C60C00230DA6 /* Alamofire */ = {
+		D737F4C22BEA3F5900230DA6 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = D737F4AF2BE8C60C00230DA6 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			package = D737F4C12BEA3F5800230DA6 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
 		};
-		D745315B2BDFED420074AD7D /* FacebookCore */ = {
+		D737F4C52BEA3FF600230DA6 /* FirebaseAuth */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = D745315A2BDFED420074AD7D /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
-			productName = FacebookCore;
-		};
-		D745315D2BDFED420074AD7D /* FacebookLogin */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = D745315A2BDFED420074AD7D /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
-			productName = FacebookLogin;
-		};
-		D7CDE8672BDFCF5900A4AB8A /* GoogleSignIn */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = D7CDE8662BDFCF5900A4AB8A /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
-			productName = GoogleSignIn;
-		};
-		D7CDE8692BDFCF5A00A4AB8A /* GoogleSignInSwift */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = D7CDE8662BDFCF5900A4AB8A /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
-			productName = GoogleSignInSwift;
-		};
-		D7CDE86F2BDFD2EF00A4AB8A /* FirebaseAuth */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = D7CDE86E2BDFD2EF00A4AB8A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			package = D737F4C42BEA3FF600230DA6 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseAuth;
 		};
-		D7CDE8712BDFD2EF00A4AB8A /* FirebaseDatabase */ = {
+		D737F4C72BEA3FF600230DA6 /* FirebaseDatabase */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = D7CDE86E2BDFD2EF00A4AB8A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			package = D737F4C42BEA3FF600230DA6 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseDatabase;
 		};
-		D7CDE8732BDFD2EF00A4AB8A /* FirebaseDatabaseSwift */ = {
+		D737F4C92BEA3FF600230DA6 /* FirebaseDatabaseSwift */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = D7CDE86E2BDFD2EF00A4AB8A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			package = D737F4C42BEA3FF600230DA6 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseDatabaseSwift;
 		};
-		D7CDE8752BDFD2EF00A4AB8A /* FirebaseFirestore */ = {
+		D737F4CB2BEA3FF600230DA6 /* FirebaseFirestore */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = D7CDE86E2BDFD2EF00A4AB8A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			package = D737F4C42BEA3FF600230DA6 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseFirestore;
 		};
-		D7CDE8772BDFD2EF00A4AB8A /* FirebaseFirestoreSwift */ = {
+		D737F4CD2BEA3FF600230DA6 /* FirebaseFirestoreSwift */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = D7CDE86E2BDFD2EF00A4AB8A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			package = D737F4C42BEA3FF600230DA6 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseFirestoreSwift;
 		};
-		D7CDE8792BDFD2EF00A4AB8A /* FirebaseStorage */ = {
+		D737F4CF2BEA3FF600230DA6 /* FirebaseStorage */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = D7CDE86E2BDFD2EF00A4AB8A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			package = D737F4C42BEA3FF600230DA6 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseStorage;
+		};
+		D737F4D32BEA44E700230DA6 /* GoogleSignIn */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D737F4D22BEA44E700230DA6 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignIn;
+		};
+		D737F4D52BEA44E700230DA6 /* GoogleSignInSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D737F4D22BEA44E700230DA6 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignInSwift;
+		};
+		D737F4D82BEA453600230DA6 /* FacebookCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D737F4D72BEA453600230DA6 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
+			productName = FacebookCore;
+		};
+		D737F4DA2BEA453600230DA6 /* FacebookLogin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D737F4D72BEA453600230DA6 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
+			productName = FacebookLogin;
 		};
 /* End XCSwiftPackageProductDependency section */
 

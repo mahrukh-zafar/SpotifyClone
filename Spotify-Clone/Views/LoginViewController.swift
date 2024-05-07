@@ -15,6 +15,8 @@ class LoginViewController: UIViewController {
     let loginViewModel = LoginViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()
+        emailTextField.text = "mahrukh@gmail.com"
+        passwordTextField.text = "123456"
         
     }
     
@@ -27,18 +29,18 @@ class LoginViewController: UIViewController {
             return
         }
         
-        loginViewModel.login(email: email, password: password) { (result) in
-            if result
-            
-            {
-                self.navigateToHome()
-            }
-            else{
-                print("Error")
-            }
-        }
+//        loginViewModel.login(email: email, password: password) { (result) in
+//            if result
+//
+//            {
+//                self.navigateToHome()
+//            }
+//            else{
+//                print("Error")
+//            }
+//        }
         
-        
+        navigateToHome()
         
     }
     
@@ -49,7 +51,8 @@ class LoginViewController: UIViewController {
     func navigateToHome(){
         let story = UIStoryboard(name: "Main", bundle:nil)
         let vc = story.instantiateViewController(withIdentifier: "homeTabBarController") as! TabBarController
-        UIApplication.shared.windows.first?.rootViewController = vc
+        let navigationController = UINavigationController(rootViewController: vc)
+        UIApplication.shared.windows.first?.rootViewController = navigationController
         UIApplication.shared.windows.first?.makeKeyAndVisible()
     }
     
