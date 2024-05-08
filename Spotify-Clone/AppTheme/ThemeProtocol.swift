@@ -11,4 +11,5 @@ protocol ThemeProtocol{
     var background: UIColor{get}
     var textColor : UIColor{get}
     var tint: UIColor{get}
+    var common : UIColor{get}
 }

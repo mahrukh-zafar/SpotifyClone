@@ -12,7 +12,7 @@ import Alamofire
 
 class HomeViewController : UIViewController{
 
-    var switchTheme = false
+   
     let homeViewModel = HomeViewModel()
     
     @IBOutlet weak var forYouCV: UICollectionView!
@@ -25,6 +25,12 @@ class HomeViewController : UIViewController{
     @IBOutlet weak var forYouLabel: UILabel!
     var artistList : [Artist] = []
     var trendingList : [Artist] = []
+    
+   
+    @IBOutlet weak var bellButton: UIButton!
+    
+    @IBOutlet weak var settingsButton: UIButton!
+    @IBOutlet weak var refreshButton: UIButton!
     
     override func viewDidLoad() {
     
@@ -60,13 +66,15 @@ class HomeViewController : UIViewController{
     }
     func applyTheme(){
         view.backgroundColor = Theme.current.background
-        forYouCV.backgroundColor = Theme.current.background
-        trendingVC.backgroundColor = Theme.current.background
-        
-        forYouLabel.textColor = Theme.current.textColor
-        
-        trendingLabel.textColor = Theme.current.textColor
-
+        forYouCV.applyThemeToCollectionView()
+        trendingVC.applyThemeToCollectionView()
+        bellButton.applyThemeToButton()
+        forYouLabel.applyThemeToLable()
+        refreshButton.applyThemeToButton()
+        trendingLabel.applyThemeToLable()
+        settingsButton.applyThemeToButton()
+        navigationController?.navigationBar.applyThemeToNavBar()
+     
     }
     
     func navigateToPlaylistScreen(artist : Artist){
@@ -107,6 +115,8 @@ extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSou
             }
             cell.label.text = artistList[indexPath.row].songs![0]
             
+            cell.label.applyThemeToLable()
+            
             return cell
            
         }else{
@@ -118,6 +128,8 @@ extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSou
                 
             }
             cell.mylabel.text = artistList[indexPath.row].songs![0]
+            
+            cell.mylabel.applyThemeToLable()
             return cell
         }
     }

@@ -52,6 +52,7 @@
             <size key="customSize" width="654" height="169"/>
             <connections>
                 <outlet property="artistImage" destination="aSC-NS-qsu" id="fdO-6i-kag"/>
+                <outlet property="menuButton" destination="aSg-Vf-bOG" id="bKI-fd-Q3T"/>
                 <outlet property="songName" destination="7Qz-TF-eIy" id="lz0-4o-EaE"/>
             </connections>
             <point key="canvasLocation" x="18.840579710144929" y="138.95089285714286"/>

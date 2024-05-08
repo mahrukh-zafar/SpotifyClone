@@ -12,7 +12,12 @@
             <connections>
                 <outlet property="artistImage" destination="oDn-D9-MqM" id="Bpl-Gp-jFn"/>
                 <outlet property="artistName" destination="Dge-jf-DII" id="S3L-NG-ZLT"/>
+                <outlet property="detailsLabel" destination="Dge-jf-DII" id="j8O-A7-TXK"/>
+                <outlet property="favButton" destination="r3J-xe-Wcj" id="Ilo-AC-Frq"/>
+                <outlet property="likesLabel" destination="JfF-ra-4BF" id="xDR-RQ-mp9"/>
+                <outlet property="menuButton" destination="vsX-B0-Vco" id="daQ-b8-5Ds"/>
                 <outlet property="playlistCV" destination="3rK-rF-h2Y" id="kxa-Wz-ZXs"/>
+                <outlet property="spotifyLabel" destination="teh-D5-iSc" id="TOG-DI-c2Z"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

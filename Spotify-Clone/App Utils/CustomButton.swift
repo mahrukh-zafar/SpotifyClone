@@ -23,7 +23,7 @@ class CustomButton: UIButton {
     
     private func setupButton() {
         
-        tintColor = .white
+        tintColor = Theme.current.textColor
         layer.cornerRadius  = frame.size.height/2
         backgroundColor = .clear
         layer.borderWidth = 1

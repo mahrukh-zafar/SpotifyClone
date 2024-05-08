@@ -11,8 +11,13 @@ class PlaylistViewController: UIViewController {
 
     @IBOutlet weak var playlistCV: UICollectionView!
 
+    @IBOutlet weak var favButton: UIButton!
+    @IBOutlet weak var spotifyLabel: UILabel!
+    @IBOutlet weak var detailsLabel: UILabel!
     @IBOutlet weak var artistName: UILabel!
     
+    @IBOutlet weak var menuButton: UIButton!
+    @IBOutlet weak var likesLabel: UILabel!
     @IBOutlet weak var artistImage: UIImageView!
     
     let playListViewModel = PlayListViewModel()
@@ -48,8 +53,12 @@ class PlaylistViewController: UIViewController {
 
     func applyTheme(){
         view.backgroundColor = Theme.current.background
-        playlistCV.backgroundColor = Theme.current.background
-
+        playlistCV.applyThemeToCollectionView()
+        detailsLabel.applyThemeToLable()
+        spotifyLabel.applyThemeToLable()
+        likesLabel.applyThemeToLable()
+        favButton.applyThemeToButton()
+        menuButton.applyThemeToButton()
     }
     func navigateToPlaySongScreen(){
        
@@ -69,7 +78,7 @@ extension PlaylistViewController : UICollectionViewDelegate, UICollectionViewDat
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "playlistCell", for: indexPath) as! PlayListCollectionViewCell
         
         cell.songName.text = songs[indexPath.row]
-        
+        cell.songName.applyThemeToLable()
         playListViewModel.getImage(imageUrl: artist?.url) { data in
             DispatchQueue.main.async{
                 cell.artistImage.image = UIImage(data: data)

@@ -10,6 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SettingsViewController" customModule="Spotify_Clone" customModuleProvider="target">
             <connections>
+                <outlet property="themeLabel" destination="2at-z8-aAI" id="YAO-hi-0xt"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

@@ -19,15 +19,21 @@ class GetStartedViewController: UIViewController{
     
     @IBOutlet weak var googleSignIn: GIDSignInButton!
     
-
+    @IBOutlet weak var spotifyLabel: UILabel!
+    @IBOutlet weak var loginButton: UIButton!
+    
+    @IBOutlet weak var freeSpotifyLabel: UILabel!
     @IBOutlet weak var facebookSignIn: CustomButton!
     
+    @IBOutlet weak var signUpButton: UIButton!
     let loginViewModel = LoginViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        applyTheme()
         
-        
+        //view.backgroundColor = Theme.current.background
+//        view.overrideUserInterfaceStyle = .dark
         
         //facebookSignIn?.delegate = self
 //        facebookSignIn?.setImage(UIImage(named: "Facebook"), for: .normal)
@@ -52,14 +58,17 @@ class GetStartedViewController: UIViewController{
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        applyTheme()
+       
     }
     
     
     
     func applyTheme(){
         view.backgroundColor = Theme.current.background
-       
+        signUpButton.applyThemeToFilledButton()
+        loginButton.applyThemeToButton()
+        spotifyLabel.applyThemeToLable()
+        freeSpotifyLabel.applyThemeToLable()
     }
     
     

@@ -13,8 +13,10 @@ class PlayListCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var songName: UILabel!
     
+    @IBOutlet weak var menuButton: UIButton!
     override func awakeFromNib() {
         super.awakeFromNib()
+        menuButton.applyThemeToButton()
         // Initialization code
     }
     

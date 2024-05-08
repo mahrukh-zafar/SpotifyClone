@@ -41,6 +41,7 @@
 		D737F4ED2BEB9F4C00230DA6 /* PlaySongViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D737F4EB2BEB9F4C00230DA6 /* PlaySongViewController.xib */; };
 		D737F4EF2BEBA8F100230DA6 /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = D737F4EE2BEBA8F100230DA6 /* Song.swift */; };
 		D737F4F12BEBA94B00230DA6 /* MyArtist.swift in Sources */ = {isa = PBXBuildFile; fileRef = D737F4F02BEBA94B00230DA6 /* MyArtist.swift */; };
+		D737F4F32BEBEECC00230DA6 /* ButtonColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D737F4F22BEBEECC00230DA6 /* ButtonColor.swift */; };
 		D7CDE84D2BDF801F00A4AB8A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7CDE84C2BDF801F00A4AB8A /* AppDelegate.swift */; };
 		D7CDE84F2BDF801F00A4AB8A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7CDE84E2BDF801F00A4AB8A /* SceneDelegate.swift */; };
 		D7CDE8512BDF801F00A4AB8A /* GetStartedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7CDE8502BDF801F00A4AB8A /* GetStartedViewController.swift */; };
@@ -87,6 +88,7 @@
 		D737F4EB2BEB9F4C00230DA6 /* PlaySongViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlaySongViewController.xib; sourceTree = "<group>"; };
 		D737F4EE2BEBA8F100230DA6 /* Song.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
 		D737F4F02BEBA94B00230DA6 /* MyArtist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyArtist.swift; sourceTree = "<group>"; };
+		D737F4F22BEBEECC00230DA6 /* ButtonColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ButtonColor.swift; path = "Spotify-Clone/AppTheme/ButtonColor.swift"; sourceTree = SOURCE_ROOT; };
 		D745315F2BDFEEEA0074AD7D /* Spotify-Clone.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Spotify-Clone.entitlements"; sourceTree = "<group>"; };
 		D7CDE8492BDF801F00A4AB8A /* Spotify-Clone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Spotify-Clone.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7CDE84C2BDF801F00A4AB8A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -228,6 +230,7 @@
 			isa = PBXGroup;
 			children = (
 				D7CDE8632BDF929800A4AB8A /* CustomButton.swift */,
+				D737F4F22BEBEECC00230DA6 /* ButtonColor.swift */,
 			);
 			path = "App Utils";
 			sourceTree = "<group>";
@@ -386,6 +389,7 @@
 				D7D49BE82BE3A117005C1BEA /* SignUpViewModel.swift in Sources */,
 				D7D49BDA2BE128A8005C1BEA /* FirebaseManager.swift in Sources */,
 				D737F4EF2BEBA8F100230DA6 /* Song.swift in Sources */,
+				D737F4F32BEBEECC00230DA6 /* ButtonColor.swift in Sources */,
 				D737F4AA2BE4F34D00230DA6 /* SearchViewController.swift in Sources */,
 				D7D49BC52BE101AE005C1BEA /* LoginViewController.swift in Sources */,
 				D737F4F12BEBA94B00230DA6 /* MyArtist.swift in Sources */,
