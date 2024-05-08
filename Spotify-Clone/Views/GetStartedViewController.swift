@@ -19,22 +19,28 @@ class GetStartedViewController: UIViewController{
     
     @IBOutlet weak var googleSignIn: GIDSignInButton!
     
-
-    @IBOutlet weak var facebookSignIn: FBLoginButton!
+    @IBOutlet weak var spotifyLabel: UILabel!
+    @IBOutlet weak var loginButton: UIButton!
     
+    @IBOutlet weak var freeSpotifyLabel: UILabel!
+    @IBOutlet weak var facebookSignIn: CustomButton!
+    
+    @IBOutlet weak var signUpButton: UIButton!
     let loginViewModel = LoginViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        applyTheme()
         
+        //view.backgroundColor = Theme.current.background
+//        view.overrideUserInterfaceStyle = .dark
         
-        
-        facebookSignIn?.delegate = self
-        facebookSignIn?.setImage(UIImage(named: "Facebook"), for: .normal)
-        
-        let width = 300
-                let height = 50
-        facebookSignIn.frame.size = CGSize(width: width, height: height)
+        //facebookSignIn?.delegate = self
+//        facebookSignIn?.setImage(UIImage(named: "Facebook"), for: .normal)
+//        
+//        let width = 300
+//                let height = 50
+//        facebookSignIn.frame.size = CGSize(width: width, height: height)
 //
 //        facebookSignIn.layer.shadowRadius = 5.0
 //        facebookSignIn.layer.cornerRadius = facebookSignIn.frame.size.height/2
@@ -52,16 +58,25 @@ class GetStartedViewController: UIViewController{
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        applyTheme()
+       
     }
     
     
     
     func applyTheme(){
         view.backgroundColor = Theme.current.background
-       
+        signUpButton.applyThemeToFilledButton()
+        loginButton.applyThemeToButton()
+        spotifyLabel.applyThemeToLable()
+        freeSpotifyLabel.applyThemeToLable()
     }
     
+    
+    @IBAction func addToFireBase(_ sender: UIButton) {
+        Task{
+       await  loginViewModel.addToFirestore()
+        }
+    }
     
     @IBAction func googleSignInPressed(_ sender: UIButton) {
         loginViewModel.authenticateWithGoogle(viewController: self) { (result) in

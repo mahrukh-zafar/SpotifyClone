@@ -14,6 +14,12 @@ class SearchViewController: UIViewController {
     @IBOutlet weak var browseCV: UICollectionView!
     @IBOutlet weak var genreCV: UICollectionView!
     
+    @IBOutlet weak var searchLabel: UILabel!
+    
+    @IBOutlet weak var genreLabel: UILabel!
+    
+    @IBOutlet weak var browseLabel: UILabel!
+    
     @IBOutlet weak var searcTextField: UITextField!
     let genreCell = "genreCell"
     let browseCell = "browseCell"
@@ -22,7 +28,6 @@ class SearchViewController: UIViewController {
         super.viewDidLoad()
         genreCV.delegate = self
         genreCV.dataSource = self
-        
         browseCV.delegate = self
         browseCV.dataSource = self
         
@@ -36,8 +41,11 @@ class SearchViewController: UIViewController {
     
     func applyTheme(){
         view.backgroundColor = Theme.current.background
-        browseCV.backgroundColor = Theme.current.background
-        genreCV.backgroundColor = Theme.current.background
+        browseCV.applyThemeToCollectionView()
+        genreCV.applyThemeToCollectionView()
+        searchLabel.applyThemeToLable()
+        genreLabel.applyThemeToLable()
+        browseLabel.applyThemeToLable()
         
 //        forYouLabel.textColor = Theme.current.textColor
 //        

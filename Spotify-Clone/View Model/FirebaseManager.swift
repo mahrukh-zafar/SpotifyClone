@@ -14,6 +14,7 @@ import FacebookCore
 import FirebaseFirestore
 import FirebaseFirestoreSwift
 import Alamofire
+import SwiftUI
 
 
 class FirebaseManager{
@@ -149,11 +150,12 @@ class FirebaseManager{
               for document in querySnapshot.documents {
                   let artist = Artist(snapshot: document)
                   artists.append(artist)
+                
                   
                   
 //                  let decoder = JSONDecoder()
      //             let pairs = try? decoder.decode(Artist.self, from: document.data())
-                print("\(document.documentID) => \(document.data())")
+               
               }
             } catch {
               print("Error getting documents: \(error)")
@@ -163,4 +165,68 @@ class FirebaseManager{
         }
     
     
+    
+//    func addArtists(){
+//        let song  = Song(name: "Desh Mere", url: "https://cdn.siasat.com/wp-content/uploads/2023/10/arijit-singh.jpg", isFavorite: true, createdAt: 0.0)
+//
+//        let artist = MyArtist(name: "Arjeet Sing", url: "https://cdn.siasat.com/wp-content/uploads/2023/10/arijit-singh.jpg", createdAt: 0.0, songs: [song])
+//
+//        let songs = ["name" : song.name,
+//                                  "url" : song.url,
+//                                  "createdAt" : song.createdAt,
+//                     "isFavorite" : song.isFavorite] as [String : Any]
+//
+//        let mysongs = {
+//            "name" : "",
+//            "isFavorite" : true,
+//            "url" : ""
+//        }
+//
+//
+//        let artistInfo = ["name" : artist.name,
+//                                  "url" : artist.url,
+//                                  "createdAt" : artist.createdAt,
+//                          "songs" : artist.songs] as [String : Any]
+//
+//
+//        db.collection("my-artists").document("Arjeet Singh").setData(artistInfo)
+//    }
+    
+    func getSongs() async {
+        do{
+            let document = try await  db.collection("artists").document("Arjeet Singh").getDocument()
+            let songs = document.data()!["MySongs"].map(String.init(describing:))
+            if let mysongs = songs{
+                
+                let charactersToTrim: CharacterSet = CharacterSet(charactersIn: "( )")
+                let trimmedString2 = mysongs.trimmingCharacters(in: charactersToTrim)
+               
+                
+                let replaced = trimmedString2.replacingOccurrences(of: ";", with: ",")
+                
+                //print(replaced)
+                
+                
+                guard let jsonData = replaced.data(using: .utf8) else {
+                    print("Failed to convert string to data")
+                    return
+                }
+
+                // Parse the JSON data into a JSON object
+                do {
+                    // Deserialize the JSON data into a dictionary
+                    if let jsonObject = try JSONSerialization.jsonObject(with: jsonData, options: []) as? [String: Any] {
+                        // Use the JSON object
+                        print(jsonObject)
+                    } else {
+                        print("Failed to deserialize JSON data")
+                    }
+                } catch {
+                    print("Error parsing JSON data: \(error)")
+                }
+                //mysongs.trimmingCharacters(in:  .p)
+                //print(mysongs)
+            }
+        }catch{}
+    }
 }

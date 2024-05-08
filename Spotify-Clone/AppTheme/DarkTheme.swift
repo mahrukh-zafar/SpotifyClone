@@ -8,7 +8,8 @@
 import UIKit
 
 class DarkTheme : ThemeProtocol{
-    var background: UIColor = .black
-    var textColor: UIColor = .white
-    var tint: UIColor = .white
+    var background: UIColor = (UIColor(named: "Background")?.resolvedColor(with: UITraitCollection(userInterfaceStyle: .dark)))!
+    var textColor: UIColor = (UIColor(named: "TextColor")?.resolvedColor(with: UITraitCollection(userInterfaceStyle: .dark)))!
+    var tint: UIColor = UIColor(named: "Tint")!
+    var common: UIColor = UIColor(named: "Common")!
 }

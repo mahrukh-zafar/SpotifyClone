@@ -12,12 +12,24 @@ class LoginViewController: UIViewController {
     
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    
+    @IBOutlet weak var backButton: UIButton!
+    
+    @IBOutlet weak var loginButton: UIButton!
+    @IBOutlet weak var loginLabel: UILabel!
     let loginViewModel = LoginViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()
         emailTextField.text = "mahrukh@gmail.com"
         passwordTextField.text = "123456"
-        
+        applyTheme()
+    }
+    
+    func applyTheme(){
+        view.backgroundColor = Theme.current.background
+        backButton.applyThemeToButton()
+        loginLabel.applyThemeToLable()
+        loginButton.applyThemeToFilledButton()
     }
     
     @IBAction func loginButtonPressed(_ sender: UIButton)   {

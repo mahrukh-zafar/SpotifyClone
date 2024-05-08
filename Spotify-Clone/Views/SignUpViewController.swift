@@ -16,10 +16,24 @@ class SignUpViewController: UIViewController {
     let signUpViewModel = SignUpViewModel()
     
     let firebaseManager = FirebaseManager()
+    
+    
+    @IBOutlet weak var backButton: UIButton!
+    
+    @IBOutlet weak var signUpLabel: UILabel!
+    
+    @IBOutlet weak var signUpButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+applyTheme()
         // Do any additional setup after loading the view.
+    }
+    func applyTheme(){
+        view.backgroundColor = Theme.current.background
+        backButton.applyThemeToButton()
+        signUpLabel.applyThemeToLable()
+        signUpButton.applyThemeToFilledButton()
     }
 
     @IBAction func goBackButtonPressed(_ sender: UIButton) {

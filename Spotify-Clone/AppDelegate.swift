@@ -21,13 +21,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         FirebaseApp.configure()
         
-        ApplicationDelegate.shared.application(
-                    application,
-                    didFinishLaunchingWithOptions: launchOptions
-                )
+//        ApplicationDelegate.shared.application(
+//                    application,
+//                    didFinishLaunchingWithOptions: launchOptions
+//                )
+//
+       Theme.current = UserDefaults.standard.bool(forKey: "DarkTheme") ? DarkTheme() : LightTheme()
         
-        ThemeManager.applyTheme()
-       
         return true
     }
  

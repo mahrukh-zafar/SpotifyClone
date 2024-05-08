@@ -28,8 +28,8 @@ class LoginViewModel{
         firebaseManager.authenticateWithFacebook(tokenString: tokenString, onComplete: onComplete)
     }
     
-    func addToFirestore(){
-        firebaseManager.addDataToFirestore()
+    func addToFirestore() async {
+      await   firebaseManager.getSongs()
     }
     
 }

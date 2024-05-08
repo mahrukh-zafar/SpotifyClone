@@ -9,7 +9,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController" customModule="Spotify_Clone" customModuleProvider="target">
             <connections>
+                <outlet property="backButton" destination="c2j-7O-KAx" id="FgN-Uz-pbi"/>
                 <outlet property="emailTextField" destination="Z87-pn-cwI" id="GuM-Eh-4q9"/>
+                <outlet property="loginButton" destination="PEQ-nS-BOC" id="GvW-S8-fJW"/>
+                <outlet property="loginLabel" destination="Qjc-oz-xDC" id="bE7-eK-yXU"/>
                 <outlet property="passwordTextField" destination="Cny-kN-oSc" id="dPW-9M-Xha"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -19,20 +22,18 @@
             <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="gAG-VU-aUt">
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="gAG-VU-aUt" userLabel="Parent SV">
                     <rect key="frame" x="16" y="40" width="992" height="305"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c2j-7O-KAx">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c2j-7O-KAx" userLabel="backButton">
                             <rect key="frame" x="0.0" y="0.0" width="992" height="31"/>
                             <state key="normal" title="Button"/>
-                            <buttonConfiguration key="configuration" style="plain" image="arrow.backward" catalog="system">
-                                <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </buttonConfiguration>
+                            <buttonConfiguration key="configuration" style="plain" image="arrow.backward" catalog="system"/>
                             <connections>
                                 <action selector="goBackPressed:" destination="-1" eventType="touchUpInside" id="QaS-sW-euO"/>
                             </connections>
                         </button>
-                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="tSb-0D-beL">
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="tSb-0D-beL" userLabel="Login SV">
                             <rect key="frame" x="0.0" y="71" width="992" height="234"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qjc-oz-xDC">
@@ -64,11 +65,7 @@
                                     </constraints>
                                     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <state key="normal" title="Button"/>
-                                    <buttonConfiguration key="configuration" style="plain" title="Login">
-                                        <backgroundConfiguration key="background">
-                                            <color key="backgroundColor" red="0.0" green="0.56284224989999998" blue="0.31881666180000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </backgroundConfiguration>
-                                    </buttonConfiguration>
+                                    <buttonConfiguration key="configuration" style="plain" title="Login"/>
                                     <connections>
                                         <action selector="loginButtonPressed:" destination="-1" eventType="touchUpInside" id="7z9-iC-prx"/>
                                     </connections>

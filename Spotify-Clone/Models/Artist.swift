@@ -33,5 +33,12 @@ public struct Artist: Codable {
         songs = snapshotValue["songs"] as? [String]
         url = snapshotValue["url"] as? String
         }
+    init(){
+        name = ""
+        songs = []
+        url = ""
+        createdAt = 0.0
+        documentId = ""
+    }
 }
 

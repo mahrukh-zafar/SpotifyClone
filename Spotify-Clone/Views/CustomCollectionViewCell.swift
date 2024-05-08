@@ -21,4 +21,6 @@ class CustomCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var genreLabel: UILabel!
     
+    
+    
 }
