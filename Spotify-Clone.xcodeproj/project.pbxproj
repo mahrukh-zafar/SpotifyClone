@@ -34,6 +34,13 @@
 		D737F4DB2BEA453600230DA6 /* FacebookLogin in Frameworks */ = {isa = PBXBuildFile; productRef = D737F4DA2BEA453600230DA6 /* FacebookLogin */; };
 		D737F4DE2BEA6C2F00230DA6 /* PlayListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D737F4DC2BEA6C2F00230DA6 /* PlayListCollectionViewCell.swift */; };
 		D737F4DF2BEA6C2F00230DA6 /* PlayListCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D737F4DD2BEA6C2F00230DA6 /* PlayListCollectionViewCell.xib */; };
+		D737F4E62BEB7AB000230DA6 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D737F4E42BEB7AB000230DA6 /* SettingsViewController.swift */; };
+		D737F4E72BEB7AB000230DA6 /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D737F4E52BEB7AB000230DA6 /* SettingsViewController.xib */; };
+		D737F4E92BEB916E00230DA6 /* PlayListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D737F4E82BEB916E00230DA6 /* PlayListViewModel.swift */; };
+		D737F4EC2BEB9F4C00230DA6 /* PlaySongViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D737F4EA2BEB9F4C00230DA6 /* PlaySongViewController.swift */; };
+		D737F4ED2BEB9F4C00230DA6 /* PlaySongViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D737F4EB2BEB9F4C00230DA6 /* PlaySongViewController.xib */; };
+		D737F4EF2BEBA8F100230DA6 /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = D737F4EE2BEBA8F100230DA6 /* Song.swift */; };
+		D737F4F12BEBA94B00230DA6 /* MyArtist.swift in Sources */ = {isa = PBXBuildFile; fileRef = D737F4F02BEBA94B00230DA6 /* MyArtist.swift */; };
 		D7CDE84D2BDF801F00A4AB8A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7CDE84C2BDF801F00A4AB8A /* AppDelegate.swift */; };
 		D7CDE84F2BDF801F00A4AB8A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7CDE84E2BDF801F00A4AB8A /* SceneDelegate.swift */; };
 		D7CDE8512BDF801F00A4AB8A /* GetStartedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7CDE8502BDF801F00A4AB8A /* GetStartedViewController.swift */; };
@@ -73,6 +80,13 @@
 		D737F4BF2BEA3E4500230DA6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D737F4DC2BEA6C2F00230DA6 /* PlayListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayListCollectionViewCell.swift; sourceTree = "<group>"; };
 		D737F4DD2BEA6C2F00230DA6 /* PlayListCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlayListCollectionViewCell.xib; sourceTree = "<group>"; };
+		D737F4E42BEB7AB000230DA6 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		D737F4E52BEB7AB000230DA6 /* SettingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
+		D737F4E82BEB916E00230DA6 /* PlayListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayListViewModel.swift; sourceTree = "<group>"; };
+		D737F4EA2BEB9F4C00230DA6 /* PlaySongViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaySongViewController.swift; sourceTree = "<group>"; };
+		D737F4EB2BEB9F4C00230DA6 /* PlaySongViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlaySongViewController.xib; sourceTree = "<group>"; };
+		D737F4EE2BEBA8F100230DA6 /* Song.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
+		D737F4F02BEBA94B00230DA6 /* MyArtist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyArtist.swift; sourceTree = "<group>"; };
 		D745315F2BDFEEEA0074AD7D /* Spotify-Clone.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Spotify-Clone.entitlements"; sourceTree = "<group>"; };
 		D7CDE8492BDF801F00A4AB8A /* Spotify-Clone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Spotify-Clone.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7CDE84C2BDF801F00A4AB8A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -202,6 +216,10 @@
 				D737F4BC2BEA197A00230DA6 /* PlaylistViewController.xib */,
 				D737F4DC2BEA6C2F00230DA6 /* PlayListCollectionViewCell.swift */,
 				D737F4DD2BEA6C2F00230DA6 /* PlayListCollectionViewCell.xib */,
+				D737F4E42BEB7AB000230DA6 /* SettingsViewController.swift */,
+				D737F4E52BEB7AB000230DA6 /* SettingsViewController.xib */,
+				D737F4EA2BEB9F4C00230DA6 /* PlaySongViewController.swift */,
+				D737F4EB2BEB9F4C00230DA6 /* PlaySongViewController.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -219,6 +237,8 @@
 			children = (
 				D7D49BD52BE1283F005C1BEA /* UserProfile.swift */,
 				D737F4AB2BE515CF00230DA6 /* Artist.swift */,
+				D737F4EE2BEBA8F100230DA6 /* Song.swift */,
+				D737F4F02BEBA94B00230DA6 /* MyArtist.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -232,6 +252,7 @@
 				D737F49B2BE3BCD600230DA6 /* ThemeManager.swift */,
 				D737F4AD2BE52EB900230DA6 /* HomeViewModel.swift */,
 				D737F4B22BE8DB3600230DA6 /* NetworkManager.swift */,
+				D737F4E82BEB916E00230DA6 /* PlayListViewModel.swift */,
 			);
 			path = "View Model";
 			sourceTree = "<group>";
@@ -315,6 +336,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				D737F4DF2BEA6C2F00230DA6 /* PlayListCollectionViewCell.xib in Resources */,
+				D737F4ED2BEB9F4C00230DA6 /* PlaySongViewController.xib in Resources */,
+				D737F4E72BEB7AB000230DA6 /* SettingsViewController.xib in Resources */,
 				D7D49BC62BE101AE005C1BEA /* LoginViewController.xib in Resources */,
 				D7CDE85C2BDF802100A4AB8A /* LaunchScreen.storyboard in Resources */,
 				D7CDE8592BDF802100A4AB8A /* Assets.xcassets in Resources */,
@@ -362,8 +385,10 @@
 				D7D49BE42BE13761005C1BEA /* TabBarViewController.swift in Sources */,
 				D7D49BE82BE3A117005C1BEA /* SignUpViewModel.swift in Sources */,
 				D7D49BDA2BE128A8005C1BEA /* FirebaseManager.swift in Sources */,
+				D737F4EF2BEBA8F100230DA6 /* Song.swift in Sources */,
 				D737F4AA2BE4F34D00230DA6 /* SearchViewController.swift in Sources */,
 				D7D49BC52BE101AE005C1BEA /* LoginViewController.swift in Sources */,
+				D737F4F12BEBA94B00230DA6 /* MyArtist.swift in Sources */,
 				D7D49BC92BE10F26005C1BEA /* SignUpViewController.swift in Sources */,
 				D737F4BD2BEA197A00230DA6 /* PlaylistViewController.swift in Sources */,
 				D737F4DE2BEA6C2F00230DA6 /* PlayListCollectionViewCell.swift in Sources */,
@@ -375,11 +400,14 @@
 				D737F4B82BE90EE900230DA6 /* LightTheme.swift in Sources */,
 				D7D49BD62BE1283F005C1BEA /* UserProfile.swift in Sources */,
 				D7CDE8512BDF801F00A4AB8A /* GetStartedViewController.swift in Sources */,
+				D737F4E92BEB916E00230DA6 /* PlayListViewModel.swift in Sources */,
+				D737F4EC2BEB9F4C00230DA6 /* PlaySongViewController.swift in Sources */,
 				D7D49BE62BE3914C005C1BEA /* LoginViewModel.swift in Sources */,
 				D737F4A82BE4202600230DA6 /* CustomCollectionViewCell.swift in Sources */,
 				D737F4B62BE90B7100230DA6 /* ThemeProtocol.swift in Sources */,
 				D7CDE84D2BDF801F00A4AB8A /* AppDelegate.swift in Sources */,
 				D7CDE84F2BDF801F00A4AB8A /* SceneDelegate.swift in Sources */,
+				D737F4E62BEB7AB000230DA6 /* SettingsViewController.swift in Sources */,
 				D7CDE8642BDF929800A4AB8A /* CustomButton.swift in Sources */,
 				D737F49C2BE3BCD600230DA6 /* ThemeManager.swift in Sources */,
 			);

@@ -9,9 +9,14 @@ import UIKit
 
 class PlayListCollectionViewCell: UICollectionViewCell {
 
+    @IBOutlet weak var artistImage: UIImageView!
+    
+    @IBOutlet weak var songName: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
-
+    
+    
 }

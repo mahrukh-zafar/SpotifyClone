@@ -35,12 +35,15 @@ class HomeViewController : UIViewController{
         forYouCV.dataSource = self
         
         loadData()
-        
+       
+    }
+    override func viewDidAppear(_ animated: Bool) {
         applyTheme()
-  
     }
     
+    
     @IBAction func refreshButtonPressed(_ sender: UIButton) {
+        print("refresh pressed")
         
         Task{
            artistList =  await homeViewModel.refresh()
@@ -51,19 +54,8 @@ class HomeViewController : UIViewController{
     }
     
     @IBAction func settingsButtonPressed(_ sender: UIButton) {
-        print("settings pressed : \(switchTheme)")
-        switchTheme = !switchTheme
-        
-        if switchTheme{
-            Theme.current  = LightTheme()
-            print(Theme.current.background)
-        }
-        else{
-            Theme.current  = DarkTheme()
-            print(Theme.current.background)
-        }
-        
-        applyTheme()
+        let settingsViewController = SettingsViewController()
+        self.navigationController?.pushViewController(settingsViewController, animated: true)
         
     }
     func applyTheme(){
@@ -77,10 +69,11 @@ class HomeViewController : UIViewController{
 
     }
     
-    func navigateToPlaylistScreen(){
+    func navigateToPlaylistScreen(artist : Artist){
        // let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
 
         let playlistViewController = PlaylistViewController()
+        playlistViewController.artist = artist
         self.navigationController?.pushViewController(playlistViewController, animated: true)
     }
     
@@ -106,11 +99,9 @@ extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSou
         if collectionView == forYouCV{
             
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseableCellIdentifier, for: indexPath) as! CustomCollectionViewCell
-            if let imageUrl = artistList[indexPath.row].url {
-                AF.request(imageUrl).response { response in
-                    if let data = response.data{
-                        cell.image.image = UIImage(data: data)
-                    }
+            homeViewModel.getImage(imageUrl: artistList[indexPath.row].url) { data in
+                DispatchQueue.main.async{
+                    cell.image.image = UIImage(data: data)
                 }
                 
             }
@@ -120,11 +111,9 @@ extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSou
            
         }else{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: trendingIdentifier, for: indexPath) as! CustomCollectionViewCell
-            if let imageUrl = artistList[indexPath.row].url {
-                AF.request(imageUrl).response { response in
-                    if let data = response.data{
-                        cell.myimage.image = UIImage(data: data)
-                    }
+            homeViewModel.getImage(imageUrl: artistList[indexPath.row].url) { data in
+                DispatchQueue.main.async{
+                    cell.myimage.image = UIImage(data: data)
                 }
                 
             }
@@ -134,8 +123,7 @@ extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSou
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        navigateToPlaylistScreen()
-        print("selected: \(String(describing: artistList[indexPath.row].name))")
+        navigateToPlaylistScreen(artist: artistList[indexPath.row])
     }
 
    

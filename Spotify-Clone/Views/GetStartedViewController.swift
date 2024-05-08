@@ -20,7 +20,7 @@ class GetStartedViewController: UIViewController{
     @IBOutlet weak var googleSignIn: GIDSignInButton!
     
 
-    @IBOutlet weak var facebookSignIn: FBLoginButton!
+    @IBOutlet weak var facebookSignIn: CustomButton!
     
     let loginViewModel = LoginViewModel()
     
@@ -29,12 +29,12 @@ class GetStartedViewController: UIViewController{
         
         
         
-        facebookSignIn?.delegate = self
-        facebookSignIn?.setImage(UIImage(named: "Facebook"), for: .normal)
-        
-        let width = 300
-                let height = 50
-        facebookSignIn.frame.size = CGSize(width: width, height: height)
+        //facebookSignIn?.delegate = self
+//        facebookSignIn?.setImage(UIImage(named: "Facebook"), for: .normal)
+//        
+//        let width = 300
+//                let height = 50
+//        facebookSignIn.frame.size = CGSize(width: width, height: height)
 //
 //        facebookSignIn.layer.shadowRadius = 5.0
 //        facebookSignIn.layer.cornerRadius = facebookSignIn.frame.size.height/2
@@ -62,6 +62,12 @@ class GetStartedViewController: UIViewController{
        
     }
     
+    
+    @IBAction func addToFireBase(_ sender: UIButton) {
+        Task{
+       await  loginViewModel.addToFirestore()
+        }
+    }
     
     @IBAction func googleSignInPressed(_ sender: UIButton) {
         loginViewModel.authenticateWithGoogle(viewController: self) { (result) in

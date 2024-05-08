@@ -8,7 +8,7 @@
 import UIKit
 
 class LightTheme : ThemeProtocol{
-    var background: UIColor = .systemPink
+    var background: UIColor = .systemYellow
     var textColor: UIColor = .white
     var tint: UIColor = .red
     

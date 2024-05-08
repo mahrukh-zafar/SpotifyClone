@@ -20,10 +20,18 @@
                                 <rect key="frame" x="0.0" y="0.0" width="744" height="1133"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="56" translatesAutoresizingMaskIntoConstraints="NO" id="y0Z-T4-3TZ" userLabel="Parent SV">
-                                        <rect key="frame" x="0.0" y="32" width="746" height="482"/>
+                                        <rect key="frame" x="0.0" y="32" width="746" height="569"/>
                                         <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Qk-Ng-60a">
+                                                <rect key="frame" x="312" y="0.0" width="121.5" height="31"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="add to firebase"/>
+                                                <connections>
+                                                    <action selector="addToFireBase:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cep-fo-bB9"/>
+                                                </connections>
+                                            </button>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="9zF-50-whl">
-                                                <rect key="frame" x="263" y="0.0" width="219.5" height="195"/>
+                                                <rect key="frame" x="263" y="87" width="219.5" height="195"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Spotify Logo" translatesAutoresizingMaskIntoConstraints="NO" id="VAO-JY-Vpu">
                                                         <rect key="frame" x="0.0" y="0.0" width="219.5" height="107"/>
@@ -43,7 +51,7 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="isl-Ss-0Fw" userLabel="Login Stack View">
-                                                <rect key="frame" x="242" y="251" width="261.5" height="231"/>
+                                                <rect key="frame" x="242" y="338" width="261.5" height="231"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ngh-YT-RwG">
                                                         <rect key="frame" x="0.0" y="0.0" width="261.5" height="32"/>
@@ -80,7 +88,7 @@
                                                             <action selector="googleSignInPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="flz-Rp-3QC"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hDO-kI-yPZ" userLabel="Login" customClass="FBSDKLoginButton">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hDO-kI-yPZ" userLabel="Login" customClass="CustomButton" customModule="Spotify_Clone" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="146" width="261.5" height="46"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" image="Facebook" title="Continue with Facebook" imagePadding="8"/>
@@ -264,7 +272,7 @@
                         <viewLayoutGuide key="safeArea" id="Mxn-NJ-tN1"/>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="ple-mP-MZs" firstAttribute="top" secondItem="pqt-ka-61p" secondAttribute="top" id="6QM-lP-8Ou"/>
+                            <constraint firstItem="ple-mP-MZs" firstAttribute="top" secondItem="Mxn-NJ-tN1" secondAttribute="top" constant="-24" id="6QM-lP-8Ou"/>
                             <constraint firstAttribute="trailing" secondItem="ple-mP-MZs" secondAttribute="trailing" id="WBn-Rs-Tyo"/>
                             <constraint firstAttribute="bottom" secondItem="ple-mP-MZs" secondAttribute="bottom" id="h9O-Z8-kOZ"/>
                             <constraint firstItem="ple-mP-MZs" firstAttribute="leading" secondItem="pqt-ka-61p" secondAttribute="leading" id="wwp-vd-K0b"/>
@@ -295,51 +303,39 @@
                                 <rect key="frame" x="0.0" y="0.0" width="744" height="1133"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="Bmi-tm-T9U" userLabel="Parent SV">
-                                        <rect key="frame" x="8" y="40" width="728" height="1085"/>
+                                        <rect key="frame" x="8" y="0.0" width="728" height="1125"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="LZH-Fx-yYj" userLabel="For you HSV">
-                                                <rect key="frame" x="0.0" y="0.0" width="728" height="50"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="LZH-Fx-yYj" userLabel="For you HSV">
+                                                <rect key="frame" x="0.0" y="0.0" width="728" height="44"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Made for You" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t9v-QU-5KP">
-                                                        <rect key="frame" x="0.0" y="0.0" width="364" height="50"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="890-aW-Gq1"/>
-                                                        </constraints>
+                                                        <rect key="frame" x="0.0" y="0.0" width="112.5" height="44"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="GIp-xr-oqj" userLabel="Settings HSV">
-                                                        <rect key="frame" x="364" y="0.0" width="364" height="50"/>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="GIp-xr-oqj" userLabel="Settings HSV">
+                                                        <rect key="frame" x="536" y="0.0" width="192" height="44"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0eP-VO-AxJ" userLabel="bell">
-                                                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="width" constant="50" id="zwl-nd-ekt"/>
-                                                                </constraints>
+                                                                <rect key="frame" x="0.0" y="0.0" width="54" height="44"/>
                                                                 <state key="normal" title="Button"/>
                                                                 <buttonConfiguration key="configuration" style="plain" image="Bell"/>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5e0-xz-UuT" userLabel="history">
-                                                                <rect key="frame" x="157" y="0.0" width="50" height="50"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="width" constant="50" id="AnJ-VT-WyP"/>
-                                                                </constraints>
+                                                                <rect key="frame" x="70" y="0.0" width="54" height="44"/>
                                                                 <state key="normal" title="Button"/>
                                                                 <buttonConfiguration key="configuration" style="plain" image="History"/>
                                                                 <connections>
-                                                                    <action selector="refreshButtonPressed:" destination="qlP-Lr-qe4" eventType="touchUpInside" id="pz9-Ns-T6V"/>
+                                                                    <action selector="refreshButtonPressed:" destination="qlP-Lr-qe4" eventType="touchUpInside" id="vyk-To-DZa"/>
                                                                 </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kg1-Ui-2wf" userLabel="settings">
-                                                                <rect key="frame" x="314" y="0.0" width="50" height="50"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="width" constant="50" id="k8K-92-Yk9"/>
-                                                                </constraints>
+                                                                <rect key="frame" x="140" y="0.0" width="52" height="44"/>
                                                                 <state key="normal" title="Button"/>
                                                                 <buttonConfiguration key="configuration" style="plain" image="Settings"/>
                                                                 <connections>
-                                                                    <action selector="settingsButtonPressed:" destination="qlP-Lr-qe4" eventType="touchUpInside" id="zgu-IK-NY3"/>
+                                                                    <action selector="settingsButtonPressed:" destination="qlP-Lr-qe4" eventType="touchUpInside" id="hyB-OW-zxC"/>
                                                                 </connections>
                                                             </button>
                                                         </subviews>
@@ -347,7 +343,7 @@
                                                 </subviews>
                                             </stackView>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="xGY-cO-LEz">
-                                                <rect key="frame" x="0.0" y="66" width="728" height="150"/>
+                                                <rect key="frame" x="0.0" y="60" width="728" height="150"/>
                                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="150" id="rlO-bs-OU1"/>
@@ -398,7 +394,7 @@
                                                 </connections>
                                             </collectionView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Trending Now" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6VQ-or-dz8">
-                                                <rect key="frame" x="0.0" y="232" width="728" height="50"/>
+                                                <rect key="frame" x="0.0" y="226" width="728" height="50"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="yuc-eW-y28"/>
                                                 </constraints>
@@ -407,7 +403,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="V1u-mq-cFJ">
-                                                <rect key="frame" x="0.0" y="298" width="728" height="150"/>
+                                                <rect key="frame" x="0.0" y="292" width="728" height="150"/>
                                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="150" id="Jnh-yo-PPj"/>
@@ -458,7 +454,7 @@
                                                 </connections>
                                             </collectionView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eMK-OU-3Rj">
-                                                <rect key="frame" x="0.0" y="464" width="728" height="621"/>
+                                                <rect key="frame" x="0.0" y="458" width="728" height="667"/>
                                             </view>
                                         </subviews>
                                     </stackView>
@@ -467,16 +463,16 @@
                                     <constraint firstAttribute="trailing" secondItem="Bmi-tm-T9U" secondAttribute="trailing" constant="8" id="QHU-2a-H6D"/>
                                     <constraint firstAttribute="bottom" secondItem="Bmi-tm-T9U" secondAttribute="bottom" constant="8" id="fjV-s8-FWl"/>
                                     <constraint firstItem="Bmi-tm-T9U" firstAttribute="leading" secondItem="PlP-eM-YYR" secondAttribute="leading" constant="8" id="lvf-Jk-Jh0"/>
-                                    <constraint firstItem="Bmi-tm-T9U" firstAttribute="top" secondItem="PlP-eM-YYR" secondAttribute="top" constant="40" id="x9h-M5-b5E"/>
+                                    <constraint firstItem="Bmi-tm-T9U" firstAttribute="top" secondItem="PlP-eM-YYR" secondAttribute="top" id="x9h-M5-b5E"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="JUM-12-0mQ"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="PlP-eM-YYR" secondAttribute="bottom" id="FRD-JG-T1H"/>
-                            <constraint firstItem="PlP-eM-YYR" firstAttribute="top" secondItem="IYE-c7-hUL" secondAttribute="top" id="T7g-hY-d6a"/>
+                            <constraint firstItem="PlP-eM-YYR" firstAttribute="top" secondItem="JUM-12-0mQ" secondAttribute="top" constant="-24" id="T7g-hY-d6a"/>
                             <constraint firstAttribute="trailing" secondItem="PlP-eM-YYR" secondAttribute="trailing" id="gU4-fr-GcQ"/>
-                            <constraint firstItem="PlP-eM-YYR" firstAttribute="leading" secondItem="IYE-c7-hUL" secondAttribute="leading" id="yyR-Jn-8Eg"/>
+                            <constraint firstItem="PlP-eM-YYR" firstAttribute="leading" secondItem="JUM-12-0mQ" secondAttribute="leading" id="yyR-Jn-8Eg"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Home" image="house" catalog="system" id="WzE-Vy-pZ6">

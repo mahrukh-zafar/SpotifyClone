@@ -26,9 +26,9 @@ struct HomeViewModel{
           return artists
     }
     
-    func getImage(imageUrl : String?) -> Data{
-       
-       return networkManager.getImage(imageUrl: imageUrl!)
+    func getImage(imageUrl : String?, onComplete: @escaping (Data) -> Void) {
+        
+        networkManager.getImage(imageUrl: imageUrl!, onComplete: onComplete)
     }
     
     
