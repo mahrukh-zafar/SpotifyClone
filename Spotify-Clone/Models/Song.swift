@@ -6,12 +6,12 @@
 //
 
 import Foundation
+import RealmSwift
 
-
-struct Song : Codable {
+class Song : Object {
     
-    let name: String
-    let url : String
-    let isFavorite : Bool
+    @objc dynamic var name: String = ""
+    @objc dynamic var  url : String = ""
+    @objc dynamic var  isFavorite : Bool = false
    
 }

@@ -23,7 +23,7 @@ class GetStartedViewController: UIViewController{
     @IBOutlet weak var loginButton: UIButton!
     
     @IBOutlet weak var freeSpotifyLabel: UILabel!
-    @IBOutlet weak var facebookSignIn: CustomButton!
+    @IBOutlet weak var facebookSignIn: FBLoginButton!
     
     @IBOutlet weak var signUpButton: UIButton!
     let loginViewModel = LoginViewModel()
@@ -32,10 +32,7 @@ class GetStartedViewController: UIViewController{
         super.viewDidLoad()
         applyTheme()
         
-        //view.backgroundColor = Theme.current.background
-//        view.overrideUserInterfaceStyle = .dark
-        
-        //facebookSignIn?.delegate = self
+    facebookSignIn?.delegate = self
 //        facebookSignIn?.setImage(UIImage(named: "Facebook"), for: .normal)
 //        
 //        let width = 300

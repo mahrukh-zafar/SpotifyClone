@@ -19,6 +19,8 @@ class PlaySongViewController: UIViewController {
     @IBOutlet weak var prevButton: UIButton!
     @IBOutlet weak var shuffleButton: UIButton!
     @IBOutlet weak var progressView: UIProgressView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 applyTheme()
@@ -36,6 +38,12 @@ applyTheme()
         progressView.tintColor = Theme.current.textColor
         
     }
-
+    
+    
+    @IBAction func favButtonPressed(_ sender: UIButton) {
+        
+        
+    }
+    
 
 }

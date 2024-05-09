@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		13448CF1B4CF0A5DA40AB4E7 /* Pods_Spotify_Clone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58BFD3D72065721F51934536 /* Pods_Spotify_Clone.framework */; };
-		D737F49C2BE3BCD600230DA6 /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D737F49B2BE3BCD600230DA6 /* ThemeManager.swift */; };
 		D737F49E2BE3CE9300230DA6 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D737F49D2BE3CE9300230DA6 /* HomeViewController.swift */; };
 		D737F4A82BE4202600230DA6 /* CustomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D737F4A72BE4202600230DA6 /* CustomCollectionViewCell.swift */; };
 		D737F4AA2BE4F34D00230DA6 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D737F4A92BE4F34C00230DA6 /* SearchViewController.swift */; };
@@ -42,6 +41,9 @@
 		D737F4EF2BEBA8F100230DA6 /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = D737F4EE2BEBA8F100230DA6 /* Song.swift */; };
 		D737F4F12BEBA94B00230DA6 /* MyArtist.swift in Sources */ = {isa = PBXBuildFile; fileRef = D737F4F02BEBA94B00230DA6 /* MyArtist.swift */; };
 		D737F4F32BEBEECC00230DA6 /* ButtonColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D737F4F22BEBEECC00230DA6 /* ButtonColor.swift */; };
+		D737F4F52BECE85200230DA6 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D737F4F42BECE85200230DA6 /* SearchViewModel.swift */; };
+		D737F4FD2BED113E00230DA6 /* RealmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D737F4FC2BED113E00230DA6 /* RealmService.swift */; };
+		D737F4FF2BED12CC00230DA6 /* PlayScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D737F4FE2BED12CC00230DA6 /* PlayScreenViewModel.swift */; };
 		D7CDE84D2BDF801F00A4AB8A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7CDE84C2BDF801F00A4AB8A /* AppDelegate.swift */; };
 		D7CDE84F2BDF801F00A4AB8A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7CDE84E2BDF801F00A4AB8A /* SceneDelegate.swift */; };
 		D7CDE8512BDF801F00A4AB8A /* GetStartedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7CDE8502BDF801F00A4AB8A /* GetStartedViewController.swift */; };
@@ -66,7 +68,6 @@
 		58BFD3D72065721F51934536 /* Pods_Spotify_Clone.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Spotify_Clone.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B347FA558B42F7C46DA621B1 /* Pods-Spotify-Clone.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Spotify-Clone.release.xcconfig"; path = "Target Support Files/Pods-Spotify-Clone/Pods-Spotify-Clone.release.xcconfig"; sourceTree = "<group>"; };
 		C3228C18F6A29618E2EB07A1 /* Pods-Spotify-Clone.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Spotify-Clone.debug.xcconfig"; path = "Target Support Files/Pods-Spotify-Clone/Pods-Spotify-Clone.debug.xcconfig"; sourceTree = "<group>"; };
-		D737F49B2BE3BCD600230DA6 /* ThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
 		D737F49D2BE3CE9300230DA6 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		D737F4A72BE4202600230DA6 /* CustomCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewCell.swift; sourceTree = "<group>"; };
 		D737F4A92BE4F34C00230DA6 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -89,6 +90,9 @@
 		D737F4EE2BEBA8F100230DA6 /* Song.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
 		D737F4F02BEBA94B00230DA6 /* MyArtist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyArtist.swift; sourceTree = "<group>"; };
 		D737F4F22BEBEECC00230DA6 /* ButtonColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ButtonColor.swift; path = "Spotify-Clone/AppTheme/ButtonColor.swift"; sourceTree = SOURCE_ROOT; };
+		D737F4F42BECE85200230DA6 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
+		D737F4FC2BED113E00230DA6 /* RealmService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmService.swift; sourceTree = "<group>"; };
+		D737F4FE2BED12CC00230DA6 /* PlayScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayScreenViewModel.swift; sourceTree = "<group>"; };
 		D745315F2BDFEEEA0074AD7D /* Spotify-Clone.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Spotify-Clone.entitlements"; sourceTree = "<group>"; };
 		D7CDE8492BDF801F00A4AB8A /* Spotify-Clone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Spotify-Clone.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7CDE84C2BDF801F00A4AB8A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -252,10 +256,12 @@
 				D7D49BD92BE128A8005C1BEA /* FirebaseManager.swift */,
 				D7D49BE52BE3914C005C1BEA /* LoginViewModel.swift */,
 				D7D49BE72BE3A117005C1BEA /* SignUpViewModel.swift */,
-				D737F49B2BE3BCD600230DA6 /* ThemeManager.swift */,
 				D737F4AD2BE52EB900230DA6 /* HomeViewModel.swift */,
 				D737F4B22BE8DB3600230DA6 /* NetworkManager.swift */,
 				D737F4E82BEB916E00230DA6 /* PlayListViewModel.swift */,
+				D737F4F42BECE85200230DA6 /* SearchViewModel.swift */,
+				D737F4FC2BED113E00230DA6 /* RealmService.swift */,
+				D737F4FE2BED12CC00230DA6 /* PlayScreenViewModel.swift */,
 			);
 			path = "View Model";
 			sourceTree = "<group>";
@@ -271,6 +277,7 @@
 				D7CDE8452BDF801F00A4AB8A /* Sources */,
 				D7CDE8462BDF801F00A4AB8A /* Frameworks */,
 				D7CDE8472BDF801F00A4AB8A /* Resources */,
+				572CE5A45913F0920D56ACEC /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -354,6 +361,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		572CE5A45913F0920D56ACEC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Spotify-Clone/Pods-Spotify-Clone-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Spotify-Clone/Pods-Spotify-Clone-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Spotify-Clone/Pods-Spotify-Clone-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		8F2BAC66B89DF57039DE245F /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -384,6 +408,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D737F4AE2BE52EB900230DA6 /* HomeViewModel.swift in Sources */,
+				D737F4FD2BED113E00230DA6 /* RealmService.swift in Sources */,
 				D737F4B32BE8DB3600230DA6 /* NetworkManager.swift in Sources */,
 				D7D49BE42BE13761005C1BEA /* TabBarViewController.swift in Sources */,
 				D7D49BE82BE3A117005C1BEA /* SignUpViewModel.swift in Sources */,
@@ -401,19 +426,20 @@
 				D7CDE8572BDF801F00A4AB8A /* Spotify_Clone.xcdatamodeld in Sources */,
 				D7D49BD02BE11935005C1BEA /* AppTheme.swift in Sources */,
 				D737F4BA2BE90EF700230DA6 /* DarkTheme.swift in Sources */,
+				D737F4F52BECE85200230DA6 /* SearchViewModel.swift in Sources */,
 				D737F4B82BE90EE900230DA6 /* LightTheme.swift in Sources */,
 				D7D49BD62BE1283F005C1BEA /* UserProfile.swift in Sources */,
 				D7CDE8512BDF801F00A4AB8A /* GetStartedViewController.swift in Sources */,
 				D737F4E92BEB916E00230DA6 /* PlayListViewModel.swift in Sources */,
 				D737F4EC2BEB9F4C00230DA6 /* PlaySongViewController.swift in Sources */,
 				D7D49BE62BE3914C005C1BEA /* LoginViewModel.swift in Sources */,
+				D737F4FF2BED12CC00230DA6 /* PlayScreenViewModel.swift in Sources */,
 				D737F4A82BE4202600230DA6 /* CustomCollectionViewCell.swift in Sources */,
 				D737F4B62BE90B7100230DA6 /* ThemeProtocol.swift in Sources */,
 				D7CDE84D2BDF801F00A4AB8A /* AppDelegate.swift in Sources */,
 				D7CDE84F2BDF801F00A4AB8A /* SceneDelegate.swift in Sources */,
 				D737F4E62BEB7AB000230DA6 /* SettingsViewController.swift in Sources */,
 				D7CDE8642BDF929800A4AB8A /* CustomButton.swift in Sources */,
-				D737F49C2BE3BCD600230DA6 /* ThemeManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

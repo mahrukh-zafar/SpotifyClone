@@ -18,9 +18,8 @@ extension UIButton{
     }
     
     func applyThemeToButton(){
-    
         tintColor = Theme.current.textColor
-        //imageView?.tintColor = Theme.current.textColor
+        imageView?.tintColor = Theme.current.textColor
     }
 }
 

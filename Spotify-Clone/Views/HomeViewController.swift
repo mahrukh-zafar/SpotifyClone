@@ -40,6 +40,7 @@ class HomeViewController : UIViewController{
         forYouCV.delegate = self
         forYouCV.dataSource = self
         
+       
         loadData()
        
     }

@@ -28,7 +28,7 @@ applyTheme()
     func applyTheme(){
         view.backgroundColor = Theme.current.background
         themeLabel.applyThemeToLable()
-       
+        navigationController?.navigationBar.applyThemeToNavBar()
         
     }
     
