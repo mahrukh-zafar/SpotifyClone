@@ -13,12 +13,18 @@ class SearchViewModel{
     let networkManager = NetworkManager()
     
     var artists = [Artist]()
+    var songs = [Song]()
     
    private var searchedArtist : Artist?
     
    func getArtists() async{
       let  artists = await firebaseManager.getArtists()
         self.artists = artists
+    }
+    
+    func getSongs(artistName : String) async{
+       let songs = await firebaseManager.getSongs(artistName: artistName)
+        self.songs = songs
     }
     
     
@@ -52,4 +58,28 @@ class SearchViewModel{
         networkManager.getImage(imageUrl: imageUrl!, onComplete: onComplete)
     }
     
+//    func searchFrom(searchString: String) -> Any? {
+//        var result : Any?
+//        if  artists.contains(where: { artist in
+//            if artist.name?.capitalized == searchString.capitalized{
+//                result = artist
+//                return true
+//            }
+//            else {
+//                if let songs = getSong(artistName: artist.name!){
+//                    searchedArtist = artist
+//                    return true
+//                }
+//                else{
+//                    return false
+//                }
+//            }
+//            
+//        })
+//          {
+//              return searchedArtist
+//           } else {
+//               return nil
+//           }
+//    }
 }

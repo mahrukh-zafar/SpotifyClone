@@ -17,6 +17,7 @@
                 <outlet property="prevButton" destination="Zwq-Wj-peu" id="Az1-gP-zRv"/>
                 <outlet property="progressView" destination="10N-eQ-f7w" id="UfU-fD-W8S"/>
                 <outlet property="shuffleButton" destination="xjp-ih-uf9" id="q66-Xb-nkf"/>
+                <outlet property="songImageUrl" destination="H8S-c3-oVx" id="AqQ-je-koJ"/>
                 <outlet property="songNameLabel" destination="RAP-bd-KHt" id="4hI-dK-15B"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -80,6 +81,9 @@
                                             <rect key="frame" x="179" y="0.0" width="40" height="346.5"/>
                                             <state key="normal" title="Button"/>
                                             <buttonConfiguration key="configuration" style="plain" image="play.fill" catalog="system"/>
+                                            <connections>
+                                                <action selector="playButtonPressed:" destination="-1" eventType="touchUpInside" id="lmz-0V-9cS"/>
+                                            </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ike-yh-NoI" userLabel="next">
                                             <rect key="frame" x="261" y="0.0" width="45.5" height="346.5"/>

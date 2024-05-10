@@ -82,14 +82,14 @@ class HomeViewController : UIViewController{
        // let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
 
         let playlistViewController = PlaylistViewController()
-        playlistViewController.artist = artist
+        playlistViewController.artist = artist.name
+        playlistViewController.artistImageUrl =  artist.url
         self.navigationController?.pushViewController(playlistViewController, animated: true)
     }
     
     func loadData(){
          Task{
             artistList =  await homeViewModel.getArtists()
-             trendingList =  await homeViewModel.refresh()
              forYouCV.reloadData()
              trendingVC.reloadData()
          }
@@ -114,7 +114,7 @@ extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSou
                 }
                 
             }
-            cell.label.text = artistList[indexPath.row].songs![0]
+            cell.label.text = artistList[indexPath.row].name
             
             cell.label.applyThemeToLable()
             
@@ -128,7 +128,7 @@ extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSou
                 }
                 
             }
-            cell.mylabel.text = artistList[indexPath.row].songs![0]
+            cell.mylabel.text = artistList[indexPath.row].name
             
             cell.mylabel.applyThemeToLable()
             return cell

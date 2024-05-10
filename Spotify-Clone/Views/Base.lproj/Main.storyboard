@@ -21,7 +21,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="744" height="1133"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="56" translatesAutoresizingMaskIntoConstraints="NO" id="y0Z-T4-3TZ" userLabel="Parent SV">
-                                        <rect key="frame" x="0.0" y="32" width="746" height="555"/>
+                                        <rect key="frame" x="0.0" y="32" width="746" height="501"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Qk-Ng-60a">
                                                 <rect key="frame" x="312" y="0.0" width="121.5" height="31"/>
@@ -52,7 +52,7 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="isl-Ss-0Fw" userLabel="Login Stack View">
-                                                <rect key="frame" x="249" y="338" width="247.5" height="217"/>
+                                                <rect key="frame" x="249" y="338" width="247.5" height="163"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ngh-YT-RwG">
                                                         <rect key="frame" x="0.0" y="0.0" width="247.5" height="32"/>
@@ -86,13 +86,8 @@
                                                             <action selector="googleSignInPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="flz-Rp-3QC"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hDO-kI-yPZ" userLabel="Login" customClass="FBSDKLoginButton">
-                                                        <rect key="frame" x="0.0" y="132" width="247.5" height="46"/>
-                                                        <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="plain" image="Facebook" title="Continue with Facebook" imagePadding="8"/>
-                                                    </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XIz-UU-lqy" userLabel="Login">
-                                                        <rect key="frame" x="0.0" y="186" width="247.5" height="31"/>
+                                                        <rect key="frame" x="0.0" y="132" width="247.5" height="31"/>
                                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" title="Login"/>
@@ -126,7 +121,6 @@
                     </view>
                     <navigationItem key="navigationItem" id="teC-gh-0nR"/>
                     <connections>
-                        <outlet property="facebookSignIn" destination="hDO-kI-yPZ" id="Zuz-ys-Y3g"/>
                         <outlet property="freeSpotifyLabel" destination="T8y-BG-7Io" id="9w1-JA-IGF"/>
                         <outlet property="googleSignIn" destination="cAI-es-RNS" id="lzn-ES-M0e"/>
                         <outlet property="loginButton" destination="XIz-UU-lqy" id="ipx-oE-pup"/>
@@ -557,7 +551,6 @@
     </scenes>
     <resources>
         <image name="Ed Sheeran" width="170" height="172"/>
-        <image name="Facebook" width="32" height="32"/>
         <image name="Google" width="30" height="30"/>
         <image name="Spotify Logo" width="107" height="107"/>
         <image name="arrow.clockwise" catalog="system" width="115" height="128"/>
