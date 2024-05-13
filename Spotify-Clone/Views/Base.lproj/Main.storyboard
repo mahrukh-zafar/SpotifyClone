@@ -21,7 +21,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="744" height="1133"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="56" translatesAutoresizingMaskIntoConstraints="NO" id="y0Z-T4-3TZ" userLabel="Parent SV">
-                                        <rect key="frame" x="0.0" y="32" width="746" height="555"/>
+                                        <rect key="frame" x="0.0" y="32" width="746" height="501"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Qk-Ng-60a">
                                                 <rect key="frame" x="312" y="0.0" width="121.5" height="31"/>
@@ -52,7 +52,7 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="isl-Ss-0Fw" userLabel="Login Stack View">
-                                                <rect key="frame" x="249" y="338" width="247.5" height="217"/>
+                                                <rect key="frame" x="249" y="338" width="247.5" height="163"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ngh-YT-RwG">
                                                         <rect key="frame" x="0.0" y="0.0" width="247.5" height="32"/>
@@ -86,13 +86,8 @@
                                                             <action selector="googleSignInPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="flz-Rp-3QC"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hDO-kI-yPZ" userLabel="Login" customClass="CustomButton" customModule="Spotify_Clone" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="132" width="247.5" height="46"/>
-                                                        <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="plain" image="Facebook" title="Continue with Facebook" imagePadding="8"/>
-                                                    </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XIz-UU-lqy" userLabel="Login">
-                                                        <rect key="frame" x="0.0" y="186" width="247.5" height="31"/>
+                                                        <rect key="frame" x="0.0" y="132" width="247.5" height="31"/>
                                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" title="Login"/>
@@ -126,7 +121,6 @@
                     </view>
                     <navigationItem key="navigationItem" id="teC-gh-0nR"/>
                     <connections>
-                        <outlet property="facebookSignIn" destination="hDO-kI-yPZ" id="Zuz-ys-Y3g"/>
                         <outlet property="freeSpotifyLabel" destination="T8y-BG-7Io" id="9w1-JA-IGF"/>
                         <outlet property="googleSignIn" destination="cAI-es-RNS" id="lzn-ES-M0e"/>
                         <outlet property="loginButton" destination="XIz-UU-lqy" id="ipx-oE-pup"/>
@@ -147,10 +141,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ple-mP-MZs">
-                                <rect key="frame" x="0.0" y="0.0" width="744" height="1133"/>
+                                <rect key="frame" x="0.0" y="24" width="744" height="1109"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="8KU-3c-9ri" userLabel="Parent SV">
-                                        <rect key="frame" x="8" y="0.0" width="728" height="1133"/>
+                                        <rect key="frame" x="8" y="0.0" width="728" height="1109"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nf0-pH-HM8">
                                                 <rect key="frame" x="0.0" y="0.0" width="728" height="50"/>
@@ -169,8 +163,43 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Search Appear here" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UQN-b6-hGH">
+                                                <rect key="frame" x="0.0" y="132" width="728" height="21.5"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="M2b-qQ-r34">
+                                                <rect key="frame" x="0.0" y="169.5" width="728" height="80"/>
+                                                <subviews>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Ed Sheeran" translatesAutoresizingMaskIntoConstraints="NO" id="gJw-G4-8ea">
+                                                        <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="80" id="pQC-Wt-UWp"/>
+                                                            <constraint firstAttribute="height" constant="80" id="qc8-bk-pcm"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="7OX-vy-qhP">
+                                                        <rect key="frame" x="88" y="0.0" width="640" height="80"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ed Sheeran" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="poj-sz-0Rr">
+                                                                <rect key="frame" x="0.0" y="0.0" width="640" height="36"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Perfect" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ab5-la-9Us">
+                                                                <rect key="frame" x="0.0" y="44" width="640" height="36"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
+                                                </subviews>
+                                            </stackView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Top Genres" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c9x-QB-IVD">
-                                                <rect key="frame" x="0.0" y="132" width="728" height="50"/>
+                                                <rect key="frame" x="0.0" y="265.5" width="728" height="50"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="y5l-1V-21I"/>
                                                 </constraints>
@@ -179,7 +208,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Q3D-Pg-C3i">
-                                                <rect key="frame" x="0.0" y="198" width="728" height="120"/>
+                                                <rect key="frame" x="0.0" y="331.5" width="728" height="120"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="120" id="pe9-6N-mcJ"/>
@@ -217,7 +246,7 @@
                                                 </cells>
                                             </collectionView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Browse All" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="73p-v3-hXO">
-                                                <rect key="frame" x="0.0" y="334" width="728" height="50"/>
+                                                <rect key="frame" x="0.0" y="467.5" width="728" height="50"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="KJo-xH-br8"/>
                                                 </constraints>
@@ -226,7 +255,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="rEd-XY-Zxa">
-                                                <rect key="frame" x="0.0" y="400" width="728" height="733"/>
+                                                <rect key="frame" x="0.0" y="533.5" width="728" height="575.5"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="WoY-Ab-Dls">
                                                     <size key="itemSize" width="290" height="311"/>
@@ -272,7 +301,7 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Mxn-NJ-tN1"/>
                         <constraints>
-                            <constraint firstItem="ple-mP-MZs" firstAttribute="top" secondItem="Mxn-NJ-tN1" secondAttribute="top" constant="-24" id="6QM-lP-8Ou"/>
+                            <constraint firstItem="ple-mP-MZs" firstAttribute="top" secondItem="Mxn-NJ-tN1" secondAttribute="top" id="6QM-lP-8Ou"/>
                             <constraint firstAttribute="trailing" secondItem="ple-mP-MZs" secondAttribute="trailing" id="WBn-Rs-Tyo"/>
                             <constraint firstAttribute="bottom" secondItem="ple-mP-MZs" secondAttribute="bottom" id="h9O-Z8-kOZ"/>
                             <constraint firstItem="ple-mP-MZs" firstAttribute="leading" secondItem="pqt-ka-61p" secondAttribute="leading" id="wwp-vd-K0b"/>
@@ -282,12 +311,17 @@
                         <color key="badgeColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBarItem>
                     <connections>
+                        <outlet property="artistnameLabel" destination="poj-sz-0Rr" id="jLQ-K3-6y6"/>
                         <outlet property="browseCV" destination="rEd-XY-Zxa" id="Red-cN-31L"/>
                         <outlet property="browseLabel" destination="73p-v3-hXO" id="ArB-qU-vEz"/>
                         <outlet property="genreCV" destination="Q3D-Pg-C3i" id="7cz-Ff-2c3"/>
                         <outlet property="genreLabel" destination="c9x-QB-IVD" id="tvd-GI-saL"/>
-                        <outlet property="searcTextField" destination="nfO-QS-aX4" id="XHE-oU-3HZ"/>
-                        <outlet property="searchLabel" destination="Nf0-pH-HM8" id="hWm-FW-Vzu"/>
+                        <outlet property="searchLabel" destination="Nf0-pH-HM8" id="Orl-vV-WOh"/>
+                        <outlet property="searchStackView" destination="M2b-qQ-r34" id="X8b-yY-Osr"/>
+                        <outlet property="searchTextField" destination="nfO-QS-aX4" id="1cc-MK-kvN"/>
+                        <outlet property="searchedArtistImage" destination="gJw-G4-8ea" id="7D6-uE-bfS"/>
+                        <outlet property="songNameLabel" destination="ab5-la-9Us" id="3L0-6H-ckn"/>
+                        <outlet property="yourSearchLabel" destination="UQN-b6-hGH" id="Smf-an-oWA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Ab-lM-Eno" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -516,7 +550,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Facebook" width="32" height="32"/>
+        <image name="Ed Sheeran" width="170" height="172"/>
         <image name="Google" width="30" height="30"/>
         <image name="Spotify Logo" width="107" height="107"/>
         <image name="arrow.clockwise" catalog="system" width="115" height="128"/>

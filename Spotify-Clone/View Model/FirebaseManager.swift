@@ -192,41 +192,20 @@ class FirebaseManager{
 //        db.collection("my-artists").document("Arjeet Singh").setData(artistInfo)
 //    }
     
-    func getSongs() async {
-        do{
-            let document = try await  db.collection("artists").document("Arjeet Singh").getDocument()
-            let songs = document.data()!["MySongs"].map(String.init(describing:))
-            if let mysongs = songs{
-                
-                let charactersToTrim: CharacterSet = CharacterSet(charactersIn: "( )")
-                let trimmedString2 = mysongs.trimmingCharacters(in: charactersToTrim)
-               
-                
-                let replaced = trimmedString2.replacingOccurrences(of: ";", with: ",")
-                
-                //print(replaced)
-                
-                
-                guard let jsonData = replaced.data(using: .utf8) else {
-                    print("Failed to convert string to data")
-                    return
-                }
-
-                // Parse the JSON data into a JSON object
-                do {
-                    // Deserialize the JSON data into a dictionary
-                    if let jsonObject = try JSONSerialization.jsonObject(with: jsonData, options: []) as? [String: Any] {
-                        // Use the JSON object
-                        print(jsonObject)
-                    } else {
-                        print("Failed to deserialize JSON data")
-                    }
-                } catch {
-                    print("Error parsing JSON data: \(error)")
-                }
-                //mysongs.trimmingCharacters(in:  .p)
-                //print(mysongs)
+    func getSongs(artistName: String) async -> [Song]{
+        var songs: [Song] = []
+            do {
+                let querySnapshot = try await db.collection("artists/\(artistName)/songs").getDocuments()
+              for document in querySnapshot.documents {
+                  let song = Song(snapshot: document)
+                  songs.append(song)
+            
+              }
+            } catch {
+              print("Error getting documents: \(error)")
             }
-        }catch{}
+        
+            return songs
     }
+  
 }

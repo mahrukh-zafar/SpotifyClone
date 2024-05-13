@@ -21,25 +21,27 @@ class PlaylistViewController: UIViewController {
     @IBOutlet weak var artistImage: UIImageView!
     
     let playListViewModel = PlayListViewModel()
-    var artist : Artist?
-    var songs = [String]()
+    var artist : String?
+    var artistImageUrl : String?
+    var songs = [Song]()
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationItem.backBarButtonItem?.image = UIImage(systemName: "chevron.backward")
         
     playlistCV.register(UINib(nibName:"PlayListCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "playlistCell")
         
-        artistName.text = artist?.name
-        songs = artist?.songs ?? []
-        playListViewModel.getImage(imageUrl: artist?.url) { data in
+        artistName.text = artist
+        playListViewModel.getImage(imageUrl: artistImageUrl) { data in
             DispatchQueue.main.async{
                 self.artistImage.image = UIImage(data: data)
             }
-            
+
         }
-//        Task{
-//
-//        }
+        Task{
+         songs = await  playListViewModel.getSongs(artistName:artist!)
+            playlistCV.reloadData()
+
+        }
       
         playlistCV.delegate = self
         playlistCV.dataSource = self
@@ -60,10 +62,10 @@ class PlaylistViewController: UIViewController {
         favButton.applyThemeToButton()
         menuButton.applyThemeToButton()
     }
-    func navigateToPlaySongScreen(){
+    func navigateToPlaySongScreen(song : Song){
        
         let playSongViewController = PlaySongViewController()
-        //playlistViewController.artist = artist
+        playSongViewController.song = song
         self.navigationController?.pushViewController(playSongViewController, animated: true)
     }
 
@@ -77,9 +79,9 @@ extension PlaylistViewController : UICollectionViewDelegate, UICollectionViewDat
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "playlistCell", for: indexPath) as! PlayListCollectionViewCell
         
-        cell.songName.text = songs[indexPath.row]
+        cell.songName.text = songs[indexPath.row].name
         cell.songName.applyThemeToLable()
-        playListViewModel.getImage(imageUrl: artist?.url) { data in
+        playListViewModel.getImage(imageUrl: songs[indexPath.row].url) { data in
             DispatchQueue.main.async{
                 cell.artistImage.image = UIImage(data: data)
             }
@@ -90,7 +92,7 @@ extension PlaylistViewController : UICollectionViewDelegate, UICollectionViewDat
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        navigateToPlaySongScreen()
+        navigateToPlaySongScreen(song: songs[indexPath.row])
     }
   
         func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

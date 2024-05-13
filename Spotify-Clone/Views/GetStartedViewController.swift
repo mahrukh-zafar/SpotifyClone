@@ -23,7 +23,7 @@ class GetStartedViewController: UIViewController{
     @IBOutlet weak var loginButton: UIButton!
     
     @IBOutlet weak var freeSpotifyLabel: UILabel!
-    @IBOutlet weak var facebookSignIn: CustomButton!
+ //   @IBOutlet weak var facebookSignIn: FBLoginButton!
     
     @IBOutlet weak var signUpButton: UIButton!
     let loginViewModel = LoginViewModel()
@@ -31,30 +31,7 @@ class GetStartedViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         applyTheme()
-        
-        //view.backgroundColor = Theme.current.background
-//        view.overrideUserInterfaceStyle = .dark
-        
-        //facebookSignIn?.delegate = self
-//        facebookSignIn?.setImage(UIImage(named: "Facebook"), for: .normal)
-//        
-//        let width = 300
-//                let height = 50
-//        facebookSignIn.frame.size = CGSize(width: width, height: height)
-//
-//        facebookSignIn.layer.shadowRadius = 5.0
-//        facebookSignIn.layer.cornerRadius = facebookSignIn.frame.size.height/2
-        facebookSignIn.layer.borderWidth = 1
-        facebookSignIn.layer.borderColor = UIColor.white.cgColor
        
-//        facebookSignIn.translatesAutoresizingMaskIntoConstraints = false
-//        facebookSignIn.heightAnchor.constraint(equalToConstant: 62).isActive = true
-      //  facebookSignIn.backgroundColor = .systemPink
-       // facebookSignIn.sizeToFit()
-        
-       // view.backgroundColor = ThemeManager.currentTheme.backgroundColor
-
-     
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -73,9 +50,9 @@ class GetStartedViewController: UIViewController{
     
     
     @IBAction func addToFireBase(_ sender: UIButton) {
-        Task{
-       await  loginViewModel.addToFirestore()
-        }
+//        Task{
+//       await  loginViewModel.addToFirestore()
+//        }
     }
     
     @IBAction func googleSignInPressed(_ sender: UIButton) {
@@ -115,32 +92,32 @@ class GetStartedViewController: UIViewController{
 
 //MARK: - Facebook Authentication Delegate
 
-extension GetStartedViewController : LoginButtonDelegate{
-    func loginButton(_ loginButton: FBLoginButton, didCompleteWith result: LoginManagerLoginResult?, error: Error?) {
-        if let error = error {
-                  print(error.localizedDescription)
-              return
-              }
-        guard let tokenString = AccessToken.current?.tokenString else{
-            print(error)
-            return
-        }
-        loginViewModel.authenticateWithFacebook(tokenString: tokenString) { (result) in
-            if result
-            
-            {
-                self.navigateToHome()
-            }
-            else{
-                print("Error")
-            }
-        }
-        
-    }
-    
-    func loginButtonDidLogOut(_ loginButton: FBLoginButton) {
-        print("Logged out")
-    }
-    
-}
+//extension GetStartedViewController : LoginButtonDelegate{
+//    func loginButton(_ loginButton: FBLoginButton, didCompleteWith result: LoginManagerLoginResult?, error: Error?) {
+//        if let error = error {
+//                  print(error.localizedDescription)
+//              return
+//              }
+//        guard let tokenString = AccessToken.current?.tokenString else{
+//            print(error)
+//            return
+//        }
+//        loginViewModel.authenticateWithFacebook(tokenString: tokenString) { (result) in
+//            if result
+//
+//            {
+//                self.navigateToHome()
+//            }
+//            else{
+//                print("Error")
+//            }
+//        }
+//
+//    }
+//
+//    func loginButtonDidLogOut(_ loginButton: FBLoginButton) {
+//        print("Logged out")
+//    }
+//
+//}
 
