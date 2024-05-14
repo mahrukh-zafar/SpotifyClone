@@ -12,8 +12,8 @@ import AVFoundation
 class PlaySongViewController: UIViewController {
     
     var audioPlayer : AVPlayer?
-    var song : Song?
-    
+    var song : SongRealm?
+    var isFav : Bool?
     let playsongViewModel = PlaySongViewModel()
     @IBOutlet weak var favButton: UIButton!
     @IBOutlet weak var songNameLabel: UILabel!
@@ -39,7 +39,26 @@ class PlaySongViewController: UIViewController {
             }
             
         }
-        // Do any additional setup after loading the view.
+        
+        //playsongViewModel.getAllFavorites()
+        if let mySong = song{
+           isFav = playsongViewModel.isFavorite(songName: mySong.name)
+            if let fav = isFav{
+                if fav{
+                    favButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+                    
+                }else{
+                    favButton.setImage(UIImage(systemName: "heart"), for: .normal)
+                }
+            }
+            
+        }
+        else{
+            print("error")
+        }
+        
+        //isFav = playsongViewModel.isFavorite(songName: (song?.name)!)
+    
     }
     func applyTheme(){
         view.backgroundColor = Theme.current.background
@@ -56,10 +75,17 @@ class PlaySongViewController: UIViewController {
     
     
     @IBAction func favButtonPressed(_ sender: UIButton) {
-        
+        if let fav =  isFav{
+        if !fav{
         playsongViewModel.favorite(song!)
+        }else{
+            playsongViewModel.unfavorite(song!)
+        }
+        }
         
     }
+    
+    
     
     @IBAction func playButtonPressed(_ sender: UIButton) {
         

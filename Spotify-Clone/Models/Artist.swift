@@ -9,22 +9,14 @@ import Foundation
 import FirebaseFirestore
 
 
-public struct Artist: Codable {
+public struct Artist{
 
   let name: String?
   let songs: [String]?
   let url: String?
     let createdAt : Double?
-    var documentId : String?
-
-    var dictionary: [String: Any] {
-        return [
-            "createdAt": createdAt  ?? 0.0,
-                        "name": name ?? "",
-            "songs" : songs ?? [],
-            "url" : url ?? ""
-                ]
-        }
+    var documentId : String
+    
     init(snapshot: QueryDocumentSnapshot) {
             documentId = snapshot.documentID
             let snapshotValue = snapshot.data()
@@ -41,4 +33,6 @@ public struct Artist: Codable {
         documentId = ""
     }
 }
+
+
 

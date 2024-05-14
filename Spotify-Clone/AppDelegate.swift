@@ -11,6 +11,7 @@ import GoogleSignIn
 import FirebaseCore
 import  FacebookCore
 import FirebaseFirestore
+import RealmSwift
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -25,7 +26,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //                    application,
 //                    didFinishLaunchingWithOptions: launchOptions
 //                )
+        print( Realm.Configuration.defaultConfiguration.fileURL)
 //
+        let defaultPath = Realm.Configuration.defaultConfiguration.fileURL?.path
+//        if let defaultPath =  defaultPath {
+//            do {
+//                try FileManager.default.removeItem(atPath: defaultPath)
+//            }
+//            catch (let e) {
+//                print(e)
+//            }
+//        }
        Theme.current = UserDefaults.standard.bool(forKey: "DarkTheme") ? DarkTheme() : LightTheme()
         
         return true
