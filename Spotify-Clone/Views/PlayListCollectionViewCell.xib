@@ -34,9 +34,9 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aSg-Vf-bOG" userLabel="menu">
-                                <rect key="frame" x="610.5" y="0.0" width="43.5" height="169"/>
+                                <rect key="frame" x="617" y="0.0" width="37" height="169"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="ellipsis" catalog="system"/>
+                                <buttonConfiguration key="configuration" style="plain" image="chevron.forward" catalog="system"/>
                             </button>
                         </subviews>
                     </stackView>
@@ -60,6 +60,6 @@
     </objects>
     <resources>
         <image name="Ed Sheeran" width="170" height="172"/>
-        <image name="ellipsis" catalog="system" width="128" height="37"/>
+        <image name="chevron.forward" catalog="system" width="96" height="128"/>
     </resources>
 </document>

@@ -22,11 +22,6 @@ class SearchViewModel{
         self.artists = artists
     }
     
-    func getSongs(artistName : String) async{
-       let songs = await firebaseManager.getSongs(artistName: artistName)
-        self.songs = songs
-    }
-    
     
     func search( searchString : String)  -> Artist? {
        

@@ -25,9 +25,7 @@ class HomeViewController : UIViewController{
     @IBOutlet weak var forYouLabel: UILabel!
     var artistList : [ArtistRealm] = []
     var trendingList : [Artist] = []
-    
-   
-    @IBOutlet weak var bellButton: UIButton!
+
     
     @IBOutlet weak var settingsButton: UIButton!
     @IBOutlet weak var refreshButton: UIButton!
@@ -39,12 +37,12 @@ class HomeViewController : UIViewController{
         
         forYouCV.delegate = self
         forYouCV.dataSource = self
-//
-//        Task{
-//        await homeViewModel.getArtists()
-//        }
-//
-        
+
+        Task{
+        await homeViewModel.getArtists()
+        }
+
+
         if let artists = homeViewModel.loadArtists(){
             artistList = artists
         }
@@ -78,7 +76,6 @@ class HomeViewController : UIViewController{
         view.backgroundColor = Theme.current.background
         forYouCV.applyThemeToCollectionView()
         trendingVC.applyThemeToCollectionView()
-        bellButton.applyThemeToButton()
         forYouLabel.applyThemeToLable()
         refreshButton.applyThemeToButton()
         trendingLabel.applyThemeToLable()
