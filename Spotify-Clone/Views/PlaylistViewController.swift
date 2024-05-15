@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class PlaylistViewController: UIViewController {
 
@@ -21,28 +22,38 @@ class PlaylistViewController: UIViewController {
     @IBOutlet weak var artistImage: UIImageView!
     
     let playListViewModel = PlayListViewModel()
-    var artist : String?
-    var artistImageUrl : String?
-    var songs = [Song]()
+    
+    var artistRealm : ArtistRealm?
+//    var artist : String?
+//    var artistImageUrl : String?
+    var songs = List<SongRealm>()
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationItem.backBarButtonItem?.image = UIImage(systemName: "chevron.backward")
         
     playlistCV.register(UINib(nibName:"PlayListCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "playlistCell")
         
-        artistName.text = artist
-        playListViewModel.getImage(imageUrl: artistImageUrl) { data in
+        artistName.text = artistRealm?.name
+        playListViewModel.getImage(imageUrl: artistRealm?.url) { data in
             DispatchQueue.main.async{
                 self.artistImage.image = UIImage(data: data)
             }
 
         }
-        Task{
-         songs = await  playListViewModel.getSongs(artistName:artist!)
-            playlistCV.reloadData()
-
-        }
-      
+//        Task{
+//            await playListViewModel.syncPlayListFromFirebase(artist: artistRealm!)
+//        }
+        playListViewModel.getSongsByArtist(artist: artistRealm!)
+        
+        songs = artistRealm!.songs
+        
+        
+//        Task{
+//         songs = await  playListViewModel.getSongs(artistName:artist!)
+//            playlistCV.reloadData()
+//
+//        }
+//
         playlistCV.delegate = self
         playlistCV.dataSource = self
         applyTheme()
@@ -62,7 +73,7 @@ class PlaylistViewController: UIViewController {
         favButton.applyThemeToButton()
         menuButton.applyThemeToButton()
     }
-    func navigateToPlaySongScreen(song : Song){
+    func navigateToPlaySongScreen(song : SongRealm){
        
         let playSongViewController = PlaySongViewController()
         playSongViewController.song = song

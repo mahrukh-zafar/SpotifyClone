@@ -10,8 +10,8 @@ import RealmSwift
 
 class FavoriteSong : Object {
     
-  @Persisted var name: String = ""
-    @Persisted var  url : String = ""
-    @Persisted var  source : String = ""
+  @objc dynamic var name: String = ""
+  @objc dynamic var  url : String = ""
+   @objc dynamic var  source : String = ""
    
 }

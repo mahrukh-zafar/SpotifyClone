@@ -20,6 +20,7 @@ import SwiftUI
 class FirebaseManager{
     
     let db = Firestore.firestore()
+    let realmManager = RealmService()
     
     func loginWithEmail(email : String, password: String,  completion: @escaping (Bool) -> Void)  {
         
@@ -117,6 +118,90 @@ class FirebaseManager{
         loginWithCredentials(credential: credential, onComplete: onComplete)
     }
     
+   
+    @MainActor func getArtists() async -> [Artist] {
+        let artistRef = db.collection("artists")
+        var artists: [Artist] = []
+        var songList = [Song]()
+            do {
+                let querySnapshot = try await artistRef.getDocuments()
+              for document in querySnapshot.documents {
+                  let artist = Artist(snapshot: document)
+                  let artistRealm = convertToArtistRealm(artist: artist)
+                  
+               
+                
+                  let name = document.data()["name"]
+                  if let name = name as? String {
+                      let songs = try await artistRef.document(name).collection("songs").getDocuments()
+                      for songDocument in songs.documents{
+                          let song = Song(snapshot: songDocument)
+                         let songRealm = convertToSongRealm(song: song)
+                      
+                   try realmManager.saveSong(song: songRealm, artist: artistRealm)
+
+                          //songList.append(song)
+                      }
+                  }
+                  
+                  
+                  try realmManager.save(artistRealm)
+              }
+            } catch {
+              print("Error getting documents: \(error)")
+            }
+    
+            return artists
+        }
+    
+    
+    func getSongs(artistName: String) async -> [Song]{
+        var songs: [Song] = []
+        
+        
+            do {
+                let querySnapshot = try await db.collection("artists/\(artistName)/songs").getDocuments()
+              for document in querySnapshot.documents {
+                  let song = Song(snapshot: document)
+                  songs.append(song)
+            
+              }
+            } catch {
+              print("Error getting documents: \(error)")
+            }
+        
+            return songs
+    }
+    
+    func getSongWithCompletion(artistName: String, onComplete: @escaping ([Song])->Void){
+        var songs: [Song] = []
+        db.collection("artists/\(artistName)/songs").getDocuments { querySnapshot, error in
+            for document in querySnapshot!.documents {
+                let song = Song(snapshot: document)
+                songs.append(song)
+          
+            }
+
+            onComplete(songs)
+        }
+    }
+    
+    func convertToSongRealm(song: Song) -> SongRealm{
+        let songRealm = SongRealm()
+        songRealm.name =  song.name!
+        songRealm.url = song.url!
+        songRealm.source =  song.source!
+        return songRealm
+    }
+    
+    func convertToArtistRealm(artist: Artist) -> ArtistRealm{
+        let artistRealm = ArtistRealm()
+        artistRealm.name =  artist.name!
+        artistRealm.url = artist.url!
+        artistRealm.createdAt =  artist.createdAt!
+        return artistRealm
+    }
+    
     func addDataToFirestore(){
         // Add a new document in collection "cities"
         
@@ -143,29 +228,14 @@ class FirebaseManager{
 //        db.collection("artists").document("Katy Parry").updateData(["createdAt" : Date().timeIntervalSince1970])
 //        print("Added")
     }
-    func getArtists() async -> [Artist] {
-        var artists: [Artist] = []
-            do {
-                let querySnapshot = try await db.collection("artists").getDocuments()
-              for document in querySnapshot.documents {
-                  let artist = Artist(snapshot: document)
-                  artists.append(artist)
-                
-                  
-                  
-//                  let decoder = JSONDecoder()
-     //             let pairs = try? decoder.decode(Artist.self, from: document.data())
-               
-              }
-            } catch {
-              print("Error getting documents: \(error)")
-            }
-        
-            return artists
-        }
-    
-    
-    
+  
+}
+
+
+
+
+
+
 //    func addArtists(){
 //        let song  = Song(name: "Desh Mere", url: "https://cdn.siasat.com/wp-content/uploads/2023/10/arijit-singh.jpg", isFavorite: true, createdAt: 0.0)
 //
@@ -191,21 +261,3 @@ class FirebaseManager{
 //
 //        db.collection("my-artists").document("Arjeet Singh").setData(artistInfo)
 //    }
-    
-    func getSongs(artistName: String) async -> [Song]{
-        var songs: [Song] = []
-            do {
-                let querySnapshot = try await db.collection("artists/\(artistName)/songs").getDocuments()
-              for document in querySnapshot.documents {
-                  let song = Song(snapshot: document)
-                  songs.append(song)
-            
-              }
-            } catch {
-              print("Error getting documents: \(error)")
-            }
-        
-            return songs
-    }
-  
-}

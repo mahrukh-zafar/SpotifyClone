@@ -23,7 +23,7 @@ class HomeViewController : UIViewController{
     
     @IBOutlet weak var trendingLabel: UILabel!
     @IBOutlet weak var forYouLabel: UILabel!
-    var artistList : [Artist] = []
+    var artistList : [ArtistRealm] = []
     var trendingList : [Artist] = []
     
    
@@ -39,9 +39,18 @@ class HomeViewController : UIViewController{
         
         forYouCV.delegate = self
         forYouCV.dataSource = self
+//
+//        Task{
+//        await homeViewModel.getArtists()
+//        }
+//
         
-       
-        loadData()
+        if let artists = homeViewModel.loadArtists(){
+            artistList = artists
+        }
+        
+        
+//        loadData()
        
     }
     override func viewDidAppear(_ animated: Bool) {
@@ -52,11 +61,11 @@ class HomeViewController : UIViewController{
     @IBAction func refreshButtonPressed(_ sender: UIButton) {
         print("refresh pressed")
         
-        Task{
-           artistList =  await homeViewModel.refresh()
-            forYouCV.reloadData()
-            trendingVC.reloadData()
-        }
+//        Task{
+//           artistList =  await homeViewModel.refresh()
+//            forYouCV.reloadData()
+//            trendingVC.reloadData()
+//        }
         
     }
     
@@ -78,21 +87,22 @@ class HomeViewController : UIViewController{
      
     }
     
-    func navigateToPlaylistScreen(artist : Artist){
+    func navigateToPlaylistScreen(artist : ArtistRealm){
        // let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
 
         let playlistViewController = PlaylistViewController()
-        playlistViewController.artist = artist.name
-        playlistViewController.artistImageUrl =  artist.url
+        playlistViewController.artistRealm = artist
+//        playlistViewController.artist = artist.name
+//        playlistViewController.artistImageUrl =  artist.url
         self.navigationController?.pushViewController(playlistViewController, animated: true)
     }
     
     func loadData(){
-         Task{
-            artistList =  await homeViewModel.getArtists()
-             forYouCV.reloadData()
-             trendingVC.reloadData()
-         }
+//         Task{
+//            artistList =  await homeViewModel.getArtists()
+//             forYouCV.reloadData()
+//             trendingVC.reloadData()
+//         }
      }
     
 }

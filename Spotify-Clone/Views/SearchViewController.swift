@@ -66,7 +66,7 @@ class SearchViewController: UIViewController {
         print("Navigate")
         let playSongViewController = PlaySongViewController()
 
-        playSongViewController.song = Song()
+        //playSongViewController.song = Song()
 
         self.navigationController?.pushViewController(playSongViewController, animated: true)
        }
