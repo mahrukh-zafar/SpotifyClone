@@ -15,7 +15,7 @@ import FirebaseFirestore
 
 
 class GetStartedViewController: UIViewController{
-  
+    
     
     @IBOutlet weak var googleSignIn: GIDSignInButton!
     
@@ -23,7 +23,7 @@ class GetStartedViewController: UIViewController{
     @IBOutlet weak var loginButton: UIButton!
     
     @IBOutlet weak var freeSpotifyLabel: UILabel!
- //   @IBOutlet weak var facebookSignIn: FBLoginButton!
+    //   @IBOutlet weak var facebookSignIn: FBLoginButton!
     
     @IBOutlet weak var signUpButton: UIButton!
     let loginViewModel = LoginViewModel()
@@ -31,14 +31,12 @@ class GetStartedViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         applyTheme()
-       
+        
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-       
+        
     }
-    
-    
     
     func applyTheme(){
         view.backgroundColor = Theme.current.background
@@ -49,16 +47,11 @@ class GetStartedViewController: UIViewController{
     }
     
     
-    @IBAction func addToFireBase(_ sender: UIButton) {
-//        Task{
-//       await  loginViewModel.addToFirestore()
-//        }
-    }
     
     @IBAction func googleSignInPressed(_ sender: UIButton) {
         loginViewModel.authenticateWithGoogle(viewController: self) { (result) in
             if result
-            
+                
             {
                 self.navigateToHome()
             }
@@ -118,6 +111,7 @@ class GetStartedViewController: UIViewController{
 //    func loginButtonDidLogOut(_ loginButton: FBLoginButton) {
 //        print("Logged out")
 //    }
+
 //
 //}
 

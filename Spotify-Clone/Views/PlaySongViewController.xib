@@ -71,11 +71,17 @@
                                             <rect key="frame" x="0.0" y="0.0" width="48.5" height="346.5"/>
                                             <state key="normal" title="Button"/>
                                             <buttonConfiguration key="configuration" style="plain" image="shuffle" catalog="system"/>
+                                            <connections>
+                                                <action selector="shuffleList:" destination="-1" eventType="touchUpInside" id="nWc-RR-T3s"/>
+                                            </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zwq-Wj-peu" userLabel="previous">
                                             <rect key="frame" x="91" y="0.0" width="45.5" height="346.5"/>
                                             <state key="normal" title="Button"/>
                                             <buttonConfiguration key="configuration" style="plain" image="backward.end.fill" catalog="system"/>
+                                            <connections>
+                                                <action selector="playPreviousSong:" destination="-1" eventType="touchUpInside" id="m5y-b3-Vxf"/>
+                                            </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vPF-CP-jWy" userLabel="play">
                                             <rect key="frame" x="179" y="0.0" width="40" height="346.5"/>
@@ -89,11 +95,17 @@
                                             <rect key="frame" x="261" y="0.0" width="45.5" height="346.5"/>
                                             <state key="normal" title="Button"/>
                                             <buttonConfiguration key="configuration" style="plain" image="forward.end.fill" catalog="system"/>
+                                            <connections>
+                                                <action selector="playNextSong:" destination="-1" eventType="touchUpInside" id="ONW-ks-lBa"/>
+                                            </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kRb-i2-QU0" userLabel="loop">
                                             <rect key="frame" x="349" y="0.0" width="49" height="346.5"/>
                                             <state key="normal" title="Button"/>
                                             <buttonConfiguration key="configuration" style="plain" image="arrow.triangle.2.circlepath" catalog="system"/>
+                                            <connections>
+                                                <action selector="loopSong:" destination="-1" eventType="touchUpInside" id="rGV-QO-lgI"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                 </stackView>

@@ -26,7 +26,7 @@ class PlaylistViewController: UIViewController {
     var artistRealm : ArtistRealm?
 //    var artist : String?
 //    var artistImageUrl : String?
-    var songs = List<SongRealm>()
+    var songs = [SongRealm]()
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationItem.backBarButtonItem?.image = UIImage(systemName: "chevron.backward")
@@ -43,9 +43,9 @@ class PlaylistViewController: UIViewController {
 //        Task{
 //            await playListViewModel.syncPlayListFromFirebase(artist: artistRealm!)
 //        }
-        playListViewModel.getSongsByArtist(artist: artistRealm!)
+    //    playListViewModel.getSongsByArtist(artist: artistRealm!)
         
-        songs = artistRealm!.songs
+        songs = Array(artistRealm!.songs)
         
         
 //        Task{
@@ -73,10 +73,11 @@ class PlaylistViewController: UIViewController {
         favButton.applyThemeToButton()
         menuButton.applyThemeToButton()
     }
-    func navigateToPlaySongScreen(song : SongRealm){
+    func navigateToPlaySongScreen(currentIndex : Int){
        
         let playSongViewController = PlaySongViewController()
-        playSongViewController.song = song
+        playSongViewController.songs = songs
+        playSongViewController.currentIndex = currentIndex
         self.navigationController?.pushViewController(playSongViewController, animated: true)
     }
 
@@ -103,7 +104,7 @@ extension PlaylistViewController : UICollectionViewDelegate, UICollectionViewDat
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        navigateToPlaySongScreen(song: songs[indexPath.row])
+        navigateToPlaySongScreen(currentIndex: indexPath.row)
     }
   
         func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

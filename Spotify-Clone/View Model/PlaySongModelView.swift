@@ -9,15 +9,10 @@ import Foundation
 import RealmSwift
 
 class  PlaySongViewModel{
-    
-    let networkManager = NetworkManager()
- let realmManager = RealmService()
-    
-    var favSongs = [FavoriteSong]()
-    
+    let mediaPlayerManager = MediaPlayerManager()
     func getImage(imageUrl : String?, onComplete: @escaping (Data) -> Void){
         
-        networkManager.getImage(imageUrl: imageUrl!, onComplete: onComplete)
+        NetworkManager.shared.getImage(imageUrl: imageUrl!, onComplete: onComplete)
     }
     
     func favorite(_ song: SongRealm) {
@@ -27,7 +22,7 @@ class  PlaySongViewModel{
         favSong.source = song.source
         
         do{
-        try realmManager.save(favSong)
+            try RealmManager.shared.save(favSong)
         }
         catch{
             
@@ -39,10 +34,10 @@ class  PlaySongViewModel{
         
         do{
             
-            let result = try realmManager.load(for: FavoriteSong.self)?.filter("name=%@",song.name)
+            let result = try RealmManager.shared.load(for: FavoriteSong.self)?.filter("name=%@",song.name)
           
             if let songToDelete = result{
-            try realmManager.delete(songToDelete)
+                try RealmManager.shared.delete(songToDelete)
             }
             
         }
@@ -51,22 +46,9 @@ class  PlaySongViewModel{
         }
     }
     
-    func getAllFavorites(){
-      
-        do{
-            let result =   try realmManager.load(for: FavoriteSong.self)?.forEach({ song in
-                favSongs.append(song)
-            })
-         
-        }
-        catch{
-            
-        }
-    }
-     
     func isFavorite( songName : String) -> Bool?{
         do{
-       let result  = try realmManager.load(for: FavoriteSong.self)?.filter("name=%@",songName)
+            let result  = try RealmManager.shared.load(for: FavoriteSong.self)?.filter("name=%@",songName)
             let obj = result?.first
             if obj != nil{
                 print("returning true")
@@ -76,14 +58,30 @@ class  PlaySongViewModel{
                 print("return false")
                 return false
             }
-//           let found =  favSongs.contains(where: {$0.name.capitalized == songName.capitalized})
-//
-//          // let result = try realmManager.load(for: FavoriteSong.self)?.filter("name=@%", songName)
-//            return found
         }
         catch{
             return nil
         }
+    }
+    
+    func isPlaying() -> Bool{
+        
+        return mediaPlayerManager.mediaIsPlaying()
+    }
+    func isPaused() ->  Bool{
+        return mediaPlayerManager.mediaIsPaused()
+    }
+    
+    func play(songSource: String){
+        mediaPlayerManager.playMedia(songSource: songSource)
+    }
+    
+    func pause(){
+        mediaPlayerManager.pauseMedia()
+    }
+    
+    func resume(){
+        mediaPlayerManager.resumeMedia()
     }
     
 }
