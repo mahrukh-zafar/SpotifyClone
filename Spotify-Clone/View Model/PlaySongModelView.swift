@@ -9,7 +9,7 @@ import Foundation
 import RealmSwift
 
 class  PlaySongViewModel{
-    let mediaPlayerManager = MediaPlayerManager()
+    //let mediaPlayerManager = MediaPlayerManager()
     func getImage(imageUrl : String?, onComplete: @escaping (Data) -> Void){
         
         NetworkManager.shared.getImage(imageUrl: imageUrl!, onComplete: onComplete)
@@ -66,22 +66,32 @@ class  PlaySongViewModel{
     
     func isPlaying() -> Bool{
         
-        return mediaPlayerManager.mediaIsPlaying()
+        return MediaPlayerManager.shared.mediaIsPlaying()
     }
     func isPaused() ->  Bool{
-        return mediaPlayerManager.mediaIsPaused()
+        return MediaPlayerManager.shared.mediaIsPaused()
     }
     
-    func play(songSource: String){
-        mediaPlayerManager.playMedia(songSource: songSource)
+    func play(songSource: String,using: @escaping (Double, Double) -> Void){
+        MediaPlayerManager.shared.playMedia(songSource: songSource, using: using)
     }
     
     func pause(){
-        mediaPlayerManager.pauseMedia()
+        MediaPlayerManager.shared.pauseMedia()
     }
     
     func resume(){
-        mediaPlayerManager.resumeMedia()
+        MediaPlayerManager.shared.resumeMedia()
     }
     
+    func updateUI(using: @escaping (Double) -> Void){
+        MediaPlayerManager.shared.updateUI(using: using)
+    }
+    func loopSong(songSource: String, shouldLoop: Bool){
+        MediaPlayerManager.shared.loopSong(songSource: songSource, shouldLoop: shouldLoop)
+    }
+    
+    func playerItemList(songs: [SongRealm]){
+        
+    }
 }

@@ -66,6 +66,8 @@
 		D7F911C22BF4AC9B001EBF60 /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F911BF2BF4AC9B001EBF60 /* FirebaseManager.swift */; };
 		D7F911C32BF4AC9B001EBF60 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F911C02BF4AC9B001EBF60 /* RealmManager.swift */; };
 		D7F911C42BF4AC9B001EBF60 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F911BD2BF4AC9B001EBF60 /* NetworkManager.swift */; };
+		D7F911C82BF64326001EBF60 /* FavoriteArtist.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F911C72BF64326001EBF60 /* FavoriteArtist.swift */; };
+		D7F911CB2BF78424001EBF60 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = D7F911CA2BF78424001EBF60 /* SDWebImage */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -122,6 +124,7 @@
 		D7F911BE2BF4AC9B001EBF60 /* MediaPlayerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaPlayerManager.swift; sourceTree = "<group>"; };
 		D7F911BF2BF4AC9B001EBF60 /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
 		D7F911C02BF4AC9B001EBF60 /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
+		D7F911C72BF64326001EBF60 /* FavoriteArtist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteArtist.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +142,7 @@
 				D737F4D02BEA3FF600230DA6 /* FirebaseStorage in Frameworks */,
 				D737F4DB2BEA453600230DA6 /* FacebookLogin in Frameworks */,
 				D737F4C32BEA3F5900230DA6 /* Alamofire in Frameworks */,
+				D7F911CB2BF78424001EBF60 /* SDWebImage in Frameworks */,
 				D737F4CC2BEA3FF600230DA6 /* FirebaseFirestore in Frameworks */,
 				D737F4D42BEA44E700230DA6 /* GoogleSignIn in Frameworks */,
 			);
@@ -258,6 +262,7 @@
 				D737F5022BEE420700230DA6 /* Song.swift */,
 				D737F50A2BF2620400230DA6 /* ArtistRealm.swift */,
 				D737F50C2BF281E100230DA6 /* SongRealm.swift */,
+				D7F911C72BF64326001EBF60 /* FavoriteArtist.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -316,6 +321,7 @@
 				D737F4D52BEA44E700230DA6 /* GoogleSignInSwift */,
 				D737F4D82BEA453600230DA6 /* FacebookCore */,
 				D737F4DA2BEA453600230DA6 /* FacebookLogin */,
+				D7F911CA2BF78424001EBF60 /* SDWebImage */,
 			);
 			productName = "Spotify-Clone";
 			productReference = D7CDE8492BDF801F00A4AB8A /* Spotify-Clone.app */;
@@ -350,6 +356,7 @@
 				D737F4C42BEA3FF600230DA6 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				D737F4D22BEA44E700230DA6 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
 				D737F4D72BEA453600230DA6 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */,
+				D7F911C92BF78423001EBF60 /* XCRemoteSwiftPackageReference "SDWebImage" */,
 			);
 			productRefGroup = D7CDE84A2BDF801F00A4AB8A /* Products */;
 			projectDirPath = "";
@@ -464,6 +471,7 @@
 				D737F5052BEE55DA00230DA6 /* PlaySongModelView.swift in Sources */,
 				D737F4E62BEB7AB000230DA6 /* SettingsViewController.swift in Sources */,
 				D7CDE8642BDF929800A4AB8A /* CustomButton.swift in Sources */,
+				D7F911C82BF64326001EBF60 /* FavoriteArtist.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -717,6 +725,14 @@
 				minimumVersion = 9.0.0;
 			};
 		};
+		D7F911C92BF78423001EBF60 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -774,6 +790,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = D737F4D72BEA453600230DA6 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
 			productName = FacebookLogin;
+		};
+		D7F911CA2BF78424001EBF60 /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D7F911C92BF78423001EBF60 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
 		};
 /* End XCSwiftPackageProductDependency section */
 

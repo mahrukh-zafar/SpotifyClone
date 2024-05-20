@@ -16,13 +16,11 @@ struct HomeViewModel{
     //
     //    let realmManager = RealmManager()
     
-    func getArtists() async -> [Artist] {
-        let  artists = await FirebaseManager.shared.getArtists()
-        return artists
-    }
     
     func refresh() async -> [Artist]{
-        var  artists = await FirebaseManager.shared.getArtists()
+        var  artists = await FirebaseManager.shared.getArtists(onComplete: {
+            print("hi")
+        })
         artists.sort(){
             $0.createdAt! > $1.createdAt!
         }

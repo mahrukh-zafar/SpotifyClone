@@ -9,6 +9,7 @@ import UIKit
 
 class SettingsViewController: UIViewController {
     
+    @IBOutlet weak var signOutBtn: UIButton!
     @IBOutlet weak var themeSwitch: UISwitch!
     @IBOutlet weak var themeLabel: UILabel!
     override func viewDidLoad() {
@@ -24,11 +25,15 @@ class SettingsViewController: UIViewController {
         UserDefaults.standard.set(sender.isOn, forKey: "DarkTheme")
         applyTheme()
     }
+    @IBAction func signOutPressed(_ sender: UIButton) {
+        UserDefaults.standard.set(false, forKey: "logged In")
+    }
     
     func applyTheme(){
         view.backgroundColor = Theme.current.background
         themeLabel.applyThemeToLable()
         navigationController?.navigationBar.applyThemeToNavBar()
+        signOutBtn.applyThemeToButton()
         
     }
     

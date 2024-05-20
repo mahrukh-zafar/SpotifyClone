@@ -33,9 +33,12 @@ class FirebaseManager{
                 completion(false)
                 
             } else {
-                print("User signs in successfully")
-                //                let userInfo = Auth.auth().currentUser
-                //                let email = userInfo?.email
+                //print("User signs in successfully")
+                               // let userInfo = Auth.auth().currentUser
+                               
+                
+                    UserDefaults.standard.set(true, forKey: "logged In")
+                
                
                 completion(true)
             }
@@ -50,10 +53,7 @@ class FirebaseManager{
                 print(error)
                 onComplete(true)
             } else {
-                print("User signs up successfully")
-                //            let newUserInfo = Auth.auth().currentUser
-                //            let email = newUserInfo?.email
-                //              print(email)
+                UserDefaults.standard.set(true, forKey: "logged In")
                 onComplete(true)
             }
         }
@@ -67,10 +67,7 @@ class FirebaseManager{
                 print(error)
                 completion(false)
             } else {
-                print("User signs up successfully")
-                //            let newUserInfo = Auth.auth().currentUser
-                //            let email = newUserInfo?.email
-                //              print(email)
+                UserDefaults.standard.set(true, forKey: "logged In")
                 completion(true)
             }
         }
@@ -108,37 +105,80 @@ class FirebaseManager{
     
     
    
-    @MainActor func getArtists() async -> [Artist] {
+func getArtists(onComplete: @escaping () -> Void)  -> [Artist] {
         let artistRef = db.collection("artists")
         var artists: [Artist] = []
         var songList = [Song]()
-            do {
-                let querySnapshot = try await artistRef.getDocuments()
-              for document in querySnapshot.documents {
-                  let artist = Artist(snapshot: document)
-                  let artistRealm = convertToArtistRealm(artist: artist)
-                  
-               
-                
-                  let name = document.data()["name"]
-                  if let name = name as? String {
-                      let songs = try await artistRef.document(name).collection("songs").getDocuments()
-                      for songDocument in songs.documents{
-                          let song = Song(snapshot: songDocument)
-                         let songRealm = convertToSongRealm(song: song)
-                      
-                          try RealmManager.shared.saveSong(song: songRealm, artist: artistRealm)
+        
+    artistRef.getDocuments { [self] querySnapshot, error in
+            if let documents = querySnapshot?.documents{
+            for document in documents{
+                let artist = Artist(snapshot: document)
+                let artistRealm = convertToArtistRealm(artist: artist)
+                    let name =  document.data()["name"] as? String
+                    if let artistName = name{
+                        artistRef.document(artistName).collection("songs").getDocuments { songsDocuments, error in
+                            if let documents = songsDocuments?.documents{
+                                for document in documents{
+                                    let song = Song(snapshot: document)
+                                    let songRealm = self.convertToSongRealm(song: song)
+                                    do{
+                                     try RealmManager.shared.saveSong(song: songRealm, artist: artistRealm)
+                                    }
+                                    catch{
+                                        print(error)
+                                    }
 
-                          //songList.append(song)
-                      }
-                  }
-                  
-                  
-                  try RealmManager.shared.save(artistRealm)
-              }
-            } catch {
-              print("Error getting documents: \(error)")
+                                }
+                            }
+                        }
+                    }
+                   
+                    do{
+                     
+                        try! RealmManager.shared.save(artistRealm)
+                        
+                    
+                    }
+                    catch{
+                        print(error)
+                    }
+                    
+                
+               
             }
+                onComplete()
+            }
+            
+            
+        }
+        
+        
+        
+//            do {
+//                let querySnapshot = try await artistRef.getDocuments()
+//              for document in querySnapshot.documents {
+//                  let artist = Artist(snapshot: document)
+//                  let artistRealm = convertToArtistRealm(artist: artist)
+//                  let name = document.data()["name"]
+//                  if let name = name as? String {
+//                      let songs = try await artistRef.document(name).collection("songs").getDocuments()
+//                      for songDocument in songs.documents{
+//                          let song = Song(snapshot: songDocument)
+//                         let songRealm = convertToSongRealm(song: song)
+//
+//                          try RealmManager.shared.saveSong(song: songRealm, artist: artistRealm)
+//
+//                          //songList.append(song)
+//                      }
+//                  }
+//
+//
+//                  try RealmManager.shared.save(artistRealm)
+//              }
+//            } catch {
+//              print("Error getting documents: \(error)")
+//            }
     
             return artists
         }
@@ -153,9 +193,10 @@ class FirebaseManager{
     }
     
     func convertToArtistRealm(artist: Artist) -> ArtistRealm{
+       
         let artistRealm = ArtistRealm()
         artistRealm.name =  artist.name!
-        artistRealm.url = artist.url!
+        artistRealm.url = artist.url
         artistRealm.createdAt =  artist.createdAt!
         return artistRealm
     }

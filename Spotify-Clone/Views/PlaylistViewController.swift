@@ -7,17 +7,18 @@
 
 import UIKit
 import RealmSwift
+import SDWebImage
 
 class PlaylistViewController: UIViewController {
 
     @IBOutlet weak var playlistCV: UICollectionView!
 
+  
     @IBOutlet weak var favButton: UIButton!
     @IBOutlet weak var spotifyLabel: UILabel!
     @IBOutlet weak var detailsLabel: UILabel!
     @IBOutlet weak var artistName: UILabel!
-    
-    @IBOutlet weak var menuButton: UIButton!
+
     @IBOutlet weak var likesLabel: UILabel!
     @IBOutlet weak var artistImage: UIImageView!
     
@@ -34,12 +35,16 @@ class PlaylistViewController: UIViewController {
     playlistCV.register(UINib(nibName:"PlayListCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "playlistCell")
         
         artistName.text = artistRealm?.name
-        playListViewModel.getImage(imageUrl: artistRealm?.url) { data in
-            DispatchQueue.main.async{
-                self.artistImage.image = UIImage(data: data)
-            }
+//        playListViewModel.getImage(imageUrl: artistRealm?.url) { data in
+//            DispatchQueue.main.async{
+//                self.artistImage.image = UIImage(data: data)
+//            }
+//
+//        }
+     
 
-        }
+        artistImage.sd_setImage(with: URL(string: (artistRealm?.url)!), placeholderImage: UIImage(named: "placeholder.png"))
+        //artistImage.image = UIImage(data: (artistRealm?.url!)!)
 //        Task{
 //            await playListViewModel.syncPlayListFromFirebase(artist: artistRealm!)
 //        }
@@ -54,6 +59,7 @@ class PlaylistViewController: UIViewController {
 //
 //        }
 //
+        setFavButton()
         playlistCV.delegate = self
         playlistCV.dataSource = self
         applyTheme()
@@ -71,7 +77,22 @@ class PlaylistViewController: UIViewController {
         spotifyLabel.applyThemeToLable()
         likesLabel.applyThemeToLable()
         favButton.applyThemeToButton()
-        menuButton.applyThemeToButton()
+        
+    }
+    
+    @IBAction func favButtonPressed(_ sender: UIButton) {
+        
+        if let fav =  playListViewModel.isFavorite(artistName: artistRealm!.name){
+        if !fav{
+            playListViewModel.favorite(artistRealm!)
+        }else{
+            playListViewModel.unfavorite(artistRealm!)
+        }
+           
+        }
+        
+        setFavButton()
+        
     }
     func navigateToPlaySongScreen(currentIndex : Int){
        
@@ -79,6 +100,17 @@ class PlaylistViewController: UIViewController {
         playSongViewController.songs = songs
         playSongViewController.currentIndex = currentIndex
         self.navigationController?.pushViewController(playSongViewController, animated: true)
+    }
+    
+    func setFavButton(){
+        if let fav = playListViewModel.isFavorite(artistName: artistRealm!.name){
+            if fav{
+                favButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+                
+            }else{
+                favButton.setImage(UIImage(systemName: "heart"), for: .normal)
+            }
+        }
     }
 
 }
@@ -93,12 +125,15 @@ extension PlaylistViewController : UICollectionViewDelegate, UICollectionViewDat
         
         cell.songName.text = songs[indexPath.row].name
         cell.songName.applyThemeToLable()
-        playListViewModel.getImage(imageUrl: songs[indexPath.row].url) { data in
-            DispatchQueue.main.async{
-                cell.artistImage.image = UIImage(data: data)
-            }
-            
-        }
+        
+        cell.artistImage.sd_setImage(with: URL(string: (songs[indexPath.row].url)), placeholderImage: UIImage(named: "placeholder.png"))
+        
+//        playListViewModel.getImage(imageUrl: songs[indexPath.row].url) { data in
+//            DispatchQueue.main.async{
+//                cell.artistImage.image = UIImage(data: data)
+//            }
+//
+//        }
         
         return cell
     }

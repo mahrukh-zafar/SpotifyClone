@@ -12,26 +12,37 @@ class SearchViewModel{
     let firebaseManager = FirebaseManager()
     let networkManager = NetworkManager()
     
-    var artists = [Artist]()
+    var artists = [ArtistRealm]()
     var songs = [Song]()
     
-   private var searchedArtist : Artist?
+   private var searchedArtist : ArtistRealm?
     
-   func getArtists() async{
-      let  artists = await firebaseManager.getArtists()
-        self.artists = artists
+   func getArtists() {
+       do{
+           try RealmManager.shared.load(for: ArtistRealm.self)?.forEach({ artist in
+               
+               artists.append(artist)
+               
+           })
+           print(artists)
+          
+       }
+       catch{
+           print(error)
+        
+       }
     }
     
     
-    func search( searchString : String)  -> Artist? {
+    func search( searchString : String)  ->  ArtistRealm?{
        
         if  artists.contains(where: { artist in
-            if artist.name?.capitalized == searchString.capitalized{
+            if artist.name.capitalized == searchString.capitalized{
                 searchedArtist = artist
                 return true
             }
             else {
-                if artist.songs!.contains(where: { $0.capitalized == searchString.capitalized}){
+                if artist.songs.contains(where: { $0.name.capitalized == searchString.capitalized}){
                     searchedArtist = artist
                     return true
                 }
@@ -39,7 +50,7 @@ class SearchViewModel{
                     return false
                 }
             }
-            
+
         })
           {
               return searchedArtist

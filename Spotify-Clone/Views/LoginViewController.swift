@@ -41,19 +41,16 @@ class LoginViewController: UIViewController {
             return
         }
         
-//        loginViewModel.login(email: email, password: password) { (result) in
-//            if result
-//
-//            {
-//                self.navigateToHome()
-//            }
-//            else{
-//                print("Error")
-//            }
-//        }
-        
-        navigateToHome()
-        
+        loginViewModel.login(email: email, password: password) { (result) in
+            if result
+
+            {
+                self.navigateToHome()
+            }
+            else{
+                print("Error")
+            }
+        }
     }
     
     @IBAction func goBackPressed(_ sender: UIButton) {
@@ -61,11 +58,13 @@ class LoginViewController: UIViewController {
     }
     
     func navigateToHome(){
-        let story = UIStoryboard(name: "Main", bundle:nil)
-        let vc = story.instantiateViewController(withIdentifier: "homeTabBarController") as! TabBarController
-        let navigationController = UINavigationController(rootViewController: vc)
-        UIApplication.shared.windows.first?.rootViewController = navigationController
-        UIApplication.shared.windows.first?.makeKeyAndVisible()
+        FirebaseManager.shared.getArtists {
+            let story = UIStoryboard(name: "Main", bundle:nil)
+            let vc = story.instantiateViewController(withIdentifier: "homeTabBarController") as! TabBarController
+            let navigationController = UINavigationController(rootViewController: vc)
+            UIApplication.shared.windows.first?.rootViewController = navigationController
+            UIApplication.shared.windows.first?.makeKeyAndVisible()
+        }
     }
     
     

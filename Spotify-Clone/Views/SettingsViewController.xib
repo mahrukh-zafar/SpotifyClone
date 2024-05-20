@@ -10,6 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SettingsViewController" customModule="Spotify_Clone" customModuleProvider="target">
             <connections>
+                <outlet property="signOutBtn" destination="2MY-yU-acv" id="fkN-vg-Q7v"/>
                 <outlet property="themeLabel" destination="2at-z8-aAI" id="YAO-hi-0xt"/>
                 <outlet property="themeSwitch" destination="YsD-rT-6g0" id="WZ7-Lp-8EK"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -20,30 +21,47 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="zPr-dd-lZC">
-                    <rect key="frame" x="8" y="52" width="398" height="31"/>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="ZUd-fl-akK">
+                    <rect key="frame" x="8" y="52" width="398" height="836"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dark Theme" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2at-z8-aAI">
-                            <rect key="frame" x="0.0" y="0.0" width="93" height="31"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <nil key="textColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YsD-rT-6g0">
-                            <rect key="frame" x="349" y="0.0" width="51" height="31"/>
+                        <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="zPr-dd-lZC">
+                            <rect key="frame" x="0.0" y="0.0" width="398" height="31"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dark Theme" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2at-z8-aAI">
+                                    <rect key="frame" x="0.0" y="0.0" width="93" height="31"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YsD-rT-6g0">
+                                    <rect key="frame" x="349" y="0.0" width="51" height="31"/>
+                                    <connections>
+                                        <action selector="changeThemePressed:" destination="-1" eventType="valueChanged" id="wLZ-Xa-ejT"/>
+                                    </connections>
+                                </switch>
+                            </subviews>
+                        </stackView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2MY-yU-acv">
+                            <rect key="frame" x="0.0" y="47" width="398" height="57"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain" title="Sign Out"/>
                             <connections>
-                                <action selector="changeThemePressed:" destination="-1" eventType="valueChanged" id="wLZ-Xa-ejT"/>
+                                <action selector="signOutPressed:" destination="-1" eventType="touchUpInside" id="oZN-i9-0rn"/>
                             </connections>
-                        </switch>
+                        </button>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ua9-YW-jHB">
+                            <rect key="frame" x="0.0" y="120" width="398" height="716"/>
+                        </view>
                     </subviews>
                 </stackView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="zPr-dd-lZC" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="8" id="EW2-wR-fT1"/>
-                <constraint firstItem="zPr-dd-lZC" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="hCB-Md-KkJ"/>
-                <constraint firstAttribute="trailing" secondItem="zPr-dd-lZC" secondAttribute="trailing" constant="8" id="qNN-Xa-i20"/>
+                <constraint firstItem="ZUd-fl-akK" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="NHc-HQ-7Mo"/>
+                <constraint firstAttribute="bottom" secondItem="ZUd-fl-akK" secondAttribute="bottom" constant="8" id="bRf-uF-bA3"/>
+                <constraint firstItem="ZUd-fl-akK" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="8" id="hdU-YY-EkM"/>
+                <constraint firstAttribute="trailing" secondItem="ZUd-fl-akK" secondAttribute="trailing" constant="8" id="oKt-qg-ERJ"/>
             </constraints>
             <point key="canvasLocation" x="139" y="115"/>
         </view>

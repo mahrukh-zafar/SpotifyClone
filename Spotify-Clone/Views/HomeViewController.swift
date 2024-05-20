@@ -38,9 +38,7 @@ class HomeViewController : UIViewController{
         forYouCV.delegate = self
         forYouCV.dataSource = self
 
-        Task{
-        await homeViewModel.getArtists()
-        }
+        
 
 
         if let artists = homeViewModel.loadArtists(){
@@ -112,31 +110,31 @@ extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSou
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        if collectionView == forYouCV{
+        if collectionView == forYouCV {
             
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseableCellIdentifier, for: indexPath) as! CustomCollectionViewCell
-            homeViewModel.getImage(imageUrl: artistList[indexPath.row].url) { data in
-                DispatchQueue.main.async{
-                    cell.image.image = UIImage(data: data)
-                }
-                
-            }
-            cell.label.text = artistList[indexPath.row].name
             
+//            homeViewModel.getImage(imageUrl: artistList[indexPath.row].url) { data in
+//                DispatchQueue.main.async{
+//                    cell.image.image = UIImage(data: data)
+//                }}
+            cell.label.text = artistList[indexPath.row].name
+            cell.image.sd_setImage(with: URL(string: (artistList[indexPath.row].url)!), placeholderImage: UIImage(named: "placeholder.png"))
             cell.label.applyThemeToLable()
             
             return cell
            
-        }else{
+        }
+        else{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: trendingIdentifier, for: indexPath) as! CustomCollectionViewCell
-            homeViewModel.getImage(imageUrl: artistList[indexPath.row].url) { data in
-                DispatchQueue.main.async{
-                    cell.myimage.image = UIImage(data: data)
-                }
-                
-            }
+//            homeViewModel.getImage(imageUrl: artistList[indexPath.row].url) { data in
+//                DispatchQueue.main.async{
+//                    cell.myimage.image = UIImage(data: data)
+//                }
+//
+//            }
             cell.mylabel.text = artistList[indexPath.row].name
-            
+            cell.myimage.sd_setImage(with: URL(string: (artistList[indexPath.row].url)!), placeholderImage: UIImage(named: "placeholder.png"))
             cell.mylabel.applyThemeToLable()
             return cell
         }
