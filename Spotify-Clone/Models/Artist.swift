@@ -12,7 +12,6 @@ import FirebaseFirestore
 public struct Artist{
 
   let name: String?
-  let songs: [String]?
   let url: String?
     let createdAt : Double?
     var documentId : String
@@ -22,12 +21,11 @@ public struct Artist{
             let snapshotValue = snapshot.data()
         createdAt = snapshotValue["createdAt"] as? Double
             name = snapshotValue["name"] as? String
-        songs = snapshotValue["songs"] as? [String]
+       
         url = snapshotValue["url"] as? String
         }
     init(){
         name = ""
-        songs = []
         url = ""
         createdAt = 0.0
         documentId = ""

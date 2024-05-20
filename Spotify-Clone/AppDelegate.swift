@@ -21,23 +21,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         FirebaseApp.configure()
-        
-//        ApplicationDelegate.shared.application(
-//                    application,
-//                    didFinishLaunchingWithOptions: launchOptions
-//                )
         print( Realm.Configuration.defaultConfiguration.fileURL)
 //
         let defaultPath = Realm.Configuration.defaultConfiguration.fileURL?.path
-//        if let defaultPath =  defaultPath {
-//            do {
-//                try FileManager.default.removeItem(atPath: defaultPath)
-//            }
-//            catch (let e) {
-//                print(e)
-//            }
-//        }
+
        Theme.current = UserDefaults.standard.bool(forKey: "DarkTheme") ? DarkTheme() : LightTheme()
+        UserDefaults.standard.set("V", forKey: "last searched")
+        
+        
+       
         
         return true
     }

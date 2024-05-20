@@ -29,15 +29,14 @@ class RealmManager {
         }
     }
     
-    func save(_ object : Object) throws {
-        
+ func save(_ object : Object) throws {
         guard let realm = getRealmObject() else {
             throw RealmError.unableToGetRealmObject
         }
-       
         
-        do{
-            
+       
+            do{
+        
           
             try realm.write {
                 realm.add(object, update: .modified)
@@ -46,8 +45,11 @@ class RealmManager {
             
         }catch{
             
-            throw RealmError.unableToSaveCategories
+            //throw RealmError.unableToSaveCategories
         }
+            
+        
+        
     }
     
     

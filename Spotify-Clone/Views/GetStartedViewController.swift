@@ -31,6 +31,13 @@ class GetStartedViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         applyTheme()
+        if UserDefaults.standard.bool(forKey: "logged In"){
+            let story = UIStoryboard(name: "Main", bundle:nil)
+            let vc = story.instantiateViewController(withIdentifier: "homeTabBarController") as! TabBarController
+            let navigationController = UINavigationController(rootViewController: vc)
+            UIApplication.shared.windows.first?.rootViewController = navigationController
+            UIApplication.shared.windows.first?.makeKeyAndVisible()
+        }
         
     }
     override func viewDidAppear(_ animated: Bool) {
@@ -74,44 +81,13 @@ class GetStartedViewController: UIViewController{
     }
     
     func navigateToHome(){
-        let story = UIStoryboard(name: "Main", bundle:nil)
-        let vc = story.instantiateViewController(withIdentifier: "homeTabBarController") as! TabBarController
-        UIApplication.shared.windows.first?.rootViewController = vc
-        UIApplication.shared.windows.first?.makeKeyAndVisible()
+        FirebaseManager.shared.getArtists {
+            let story = UIStoryboard(name: "Main", bundle:nil)
+            let vc = story.instantiateViewController(withIdentifier: "homeTabBarController") as! TabBarController
+            let navigationController = UINavigationController(rootViewController: vc)
+            UIApplication.shared.windows.first?.rootViewController = navigationController
+            UIApplication.shared.windows.first?.makeKeyAndVisible()
+        }
     }
     
 }
-
-
-//MARK: - Facebook Authentication Delegate
-
-//extension GetStartedViewController : LoginButtonDelegate{
-//    func loginButton(_ loginButton: FBLoginButton, didCompleteWith result: LoginManagerLoginResult?, error: Error?) {
-//        if let error = error {
-//                  print(error.localizedDescription)
-//              return
-//              }
-//        guard let tokenString = AccessToken.current?.tokenString else{
-//            print(error)
-//            return
-//        }
-//        loginViewModel.authenticateWithFacebook(tokenString: tokenString) { (result) in
-//            if result
-//
-//            {
-//                self.navigateToHome()
-//            }
-//            else{
-//                print("Error")
-//            }
-//        }
-//
-//    }
-//
-//    func loginButtonDidLogOut(_ loginButton: FBLoginButton) {
-//        print("Logged out")
-//    }
-
-//
-//}
-

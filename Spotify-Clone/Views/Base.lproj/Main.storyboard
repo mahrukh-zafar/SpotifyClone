@@ -21,7 +21,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="744" height="1133"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="56" translatesAutoresizingMaskIntoConstraints="NO" id="y0Z-T4-3TZ" userLabel="Parent SV">
-                                        <rect key="frame" x="0.0" y="32" width="746" height="414"/>
+                                        <rect key="frame" x="0.0" y="32" width="746" height="374"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="9zF-50-whl">
                                                 <rect key="frame" x="263" y="0.0" width="219.5" height="195"/>
@@ -44,10 +44,10 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="isl-Ss-0Fw" userLabel="Login Stack View">
-                                                <rect key="frame" x="249" y="251" width="247.5" height="163"/>
+                                                <rect key="frame" x="268.5" y="251" width="209" height="123"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ngh-YT-RwG">
-                                                        <rect key="frame" x="0.0" y="0.0" width="247.5" height="32"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="209" height="32"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="32" id="aQc-E9-j5b"/>
                                                         </constraints>
@@ -59,16 +59,8 @@
                                                             <action selector="signUpButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ge3-XN-frP"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Bh-Mt-gbm" customClass="CustomButton" customModule="Spotify_Clone" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="40" width="247.5" height="32"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="32" id="25J-2e-yJV"/>
-                                                        </constraints>
-                                                        <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="plain" image="iphone.homebutton" catalog="system" title="Continue with Phone Number" imagePadding="16"/>
-                                                    </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cAI-es-RNS" customClass="CustomButton" customModule="Spotify_Clone" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="80" width="247.5" height="44"/>
+                                                        <rect key="frame" x="0.0" y="40" width="209" height="44"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="32" id="UYq-IB-TZp"/>
                                                         </constraints>
@@ -79,7 +71,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XIz-UU-lqy" userLabel="Login">
-                                                        <rect key="frame" x="0.0" y="132" width="247.5" height="31"/>
+                                                        <rect key="frame" x="0.0" y="92" width="209" height="31"/>
                                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" title="Login"/>
@@ -155,14 +147,20 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Search Appear here" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UQN-b6-hGH">
-                                                <rect key="frame" x="0.0" y="132" width="728" height="21.5"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y4i-d9-IX2" userLabel="not found">
+                                                <rect key="frame" x="0.0" y="132" width="728" height="50"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Search Appears here" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UQN-b6-hGH">
+                                                <rect key="frame" x="0.0" y="198" width="728" height="21.5"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="M2b-qQ-r34">
-                                                <rect key="frame" x="0.0" y="169.5" width="728" height="80"/>
+                                                <rect key="frame" x="0.0" y="235.5" width="728" height="80"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Ed Sheeran" translatesAutoresizingMaskIntoConstraints="NO" id="gJw-G4-8ea">
                                                         <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
@@ -190,96 +188,9 @@
                                                     </stackView>
                                                 </subviews>
                                             </stackView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Top Genres" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c9x-QB-IVD">
-                                                <rect key="frame" x="0.0" y="265.5" width="728" height="50"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="50" id="y5l-1V-21I"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Q3D-Pg-C3i">
-                                                <rect key="frame" x="0.0" y="331.5" width="728" height="120"/>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="120" id="pe9-6N-mcJ"/>
-                                                </constraints>
-                                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Zzz-sE-5Ne">
-                                                    <size key="itemSize" width="128" height="128"/>
-                                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                                </collectionViewFlowLayout>
-                                                <cells>
-                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="genreCell" id="Aop-17-Jsm" customClass="CustomCollectionViewCell" customModule="Spotify_Clone" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="-4" width="128" height="128"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="oTW-Jn-W56">
-                                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
-                                                            <autoresizingMask key="autoresizingMask"/>
-                                                            <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7pS-1N-nmb">
-                                                                    <rect key="frame" x="43" y="53" width="45" height="21"/>
-                                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
-                                                            </subviews>
-                                                            <constraints>
-                                                                <constraint firstItem="7pS-1N-nmb" firstAttribute="leading" secondItem="oTW-Jn-W56" secondAttribute="leading" constant="8" id="QTP-ho-Hty"/>
-                                                                <constraint firstItem="7pS-1N-nmb" firstAttribute="top" secondItem="oTW-Jn-W56" secondAttribute="top" constant="8" id="jMz-jk-P5n"/>
-                                                            </constraints>
-                                                        </collectionViewCellContentView>
-                                                        <connections>
-                                                            <outlet property="genreLabel" destination="7pS-1N-nmb" id="TCF-xK-I9h"/>
-                                                        </connections>
-                                                    </collectionViewCell>
-                                                </cells>
-                                            </collectionView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Browse All" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="73p-v3-hXO">
-                                                <rect key="frame" x="0.0" y="467.5" width="728" height="50"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="50" id="KJo-xH-br8"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="rEd-XY-Zxa">
-                                                <rect key="frame" x="0.0" y="533.5" width="728" height="575.5"/>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="WoY-Ab-Dls">
-                                                    <size key="itemSize" width="290" height="311"/>
-                                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                                </collectionViewFlowLayout>
-                                                <cells>
-                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="browseCell" id="dMQ-YG-V1R" customClass="CustomCollectionViewCell" customModule="Spotify_Clone" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="290" height="311"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="5yy-nq-VSK">
-                                                            <rect key="frame" x="0.0" y="0.0" width="290" height="311"/>
-                                                            <autoresizingMask key="autoresizingMask"/>
-                                                            <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="dpR-N4-NGH">
-                                                                    <rect key="frame" x="87" y="63" width="117" height="185"/>
-                                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
-                                                            </subviews>
-                                                        </collectionViewCellContentView>
-                                                        <color key="backgroundColor" red="1" green="0.64541210770000002" blue="0.62198260039999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <size key="customSize" width="290" height="311"/>
-                                                        <connections>
-                                                            <outlet property="browseLabel" destination="dpR-N4-NGH" id="aj5-Jb-YWm"/>
-                                                        </connections>
-                                                    </collectionViewCell>
-                                                </cells>
-                                            </collectionView>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="knT-QS-YkK">
+                                                <rect key="frame" x="0.0" y="331.5" width="728" height="777.5"/>
+                                            </view>
                                         </subviews>
                                     </stackView>
                                 </subviews>
@@ -304,10 +215,7 @@
                     </tabBarItem>
                     <connections>
                         <outlet property="artistnameLabel" destination="poj-sz-0Rr" id="jLQ-K3-6y6"/>
-                        <outlet property="browseCV" destination="rEd-XY-Zxa" id="Red-cN-31L"/>
-                        <outlet property="browseLabel" destination="73p-v3-hXO" id="ArB-qU-vEz"/>
-                        <outlet property="genreCV" destination="Q3D-Pg-C3i" id="7cz-Ff-2c3"/>
-                        <outlet property="genreLabel" destination="c9x-QB-IVD" id="tvd-GI-saL"/>
+                        <outlet property="notFoundLabel" destination="Y4i-d9-IX2" id="8ak-Xr-OyF"/>
                         <outlet property="searchLabel" destination="Nf0-pH-HM8" id="Orl-vV-WOh"/>
                         <outlet property="searchStackView" destination="M2b-qQ-r34" id="X8b-yY-Osr"/>
                         <outlet property="searchTextField" destination="nfO-QS-aX4" id="1cc-MK-kvN"/>
@@ -542,7 +450,6 @@
         <image name="arrow.clockwise" catalog="system" width="115" height="128"/>
         <image name="gearshape.2" catalog="system" width="128" height="100"/>
         <image name="house" catalog="system" width="128" height="106"/>
-        <image name="iphone.homebutton" catalog="system" width="108" height="128"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
