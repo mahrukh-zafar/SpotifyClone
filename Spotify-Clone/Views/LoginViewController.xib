@@ -11,6 +11,7 @@
             <connections>
                 <outlet property="backButton" destination="c2j-7O-KAx" id="FgN-Uz-pbi"/>
                 <outlet property="emailTextField" destination="Z87-pn-cwI" id="GuM-Eh-4q9"/>
+                <outlet property="loadingLabel" destination="8FW-5T-XUd" id="OIO-62-ZsA"/>
                 <outlet property="loginButton" destination="PEQ-nS-BOC" id="GvW-S8-fJW"/>
                 <outlet property="loginLabel" destination="Qjc-oz-xDC" id="bE7-eK-yXU"/>
                 <outlet property="passwordTextField" destination="Cny-kN-oSc" id="dPW-9M-Xha"/>
@@ -23,7 +24,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="gAG-VU-aUt" userLabel="Parent SV">
-                    <rect key="frame" x="16" y="40" width="992" height="305"/>
+                    <rect key="frame" x="16" y="40" width="992" height="365.5"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c2j-7O-KAx" userLabel="backButton">
                             <rect key="frame" x="0.0" y="0.0" width="992" height="31"/>
@@ -72,6 +73,12 @@
                                 </button>
                             </subviews>
                         </stackView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8FW-5T-XUd">
+                            <rect key="frame" x="0.0" y="345" width="992" height="20.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                     </subviews>
                 </stackView>
             </subviews>

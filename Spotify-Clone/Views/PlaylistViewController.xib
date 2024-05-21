@@ -15,6 +15,7 @@
                 <outlet property="detailsLabel" destination="Dge-jf-DII" id="j8O-A7-TXK"/>
                 <outlet property="favButton" destination="r3J-xe-Wcj" id="Ilo-AC-Frq"/>
                 <outlet property="likesLabel" destination="JfF-ra-4BF" id="xDR-RQ-mp9"/>
+                <outlet property="playButton" destination="zTM-f1-s9N" id="oJu-dU-A7L"/>
                 <outlet property="playlistCV" destination="3rK-rF-h2Y" id="kxa-Wz-ZXs"/>
                 <outlet property="spotifyLabel" destination="teh-D5-iSc" id="TOG-DI-c2Z"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -28,7 +29,7 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kZ4-cc-kTQ" userLabel="Parent View">
                     <rect key="frame" x="0.0" y="44" width="414" height="852"/>
                     <subviews>
-                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="iEQ-RV-gb7" userLabel="Parent SV">
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="iEQ-RV-gb7" userLabel="Parent SV">
                             <rect key="frame" x="16" y="0.0" width="382" height="844"/>
                             <subviews>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Ed Sheeran" translatesAutoresizingMaskIntoConstraints="NO" id="oDn-D9-MqM">
@@ -38,13 +39,13 @@
                                     </constraints>
                                 </imageView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="details" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dge-jf-DII">
-                                    <rect key="frame" x="0.0" y="158" width="382" height="20.5"/>
+                                    <rect key="frame" x="0.0" y="166" width="382" height="20.5"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="evv-TF-9qo" userLabel="Spotify Logo SV">
-                                    <rect key="frame" x="0.0" y="186.5" width="382" height="40"/>
+                                    <rect key="frame" x="0.0" y="202.5" width="382" height="40"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Spotify" translatesAutoresizingMaskIntoConstraints="NO" id="UUw-Gq-B4F">
                                             <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
@@ -62,31 +63,38 @@
                                     </subviews>
                                 </stackView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1M Likes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JfF-ra-4BF">
-                                    <rect key="frame" x="0.0" y="234.5" width="382" height="20.5"/>
+                                    <rect key="frame" x="0.0" y="258.5" width="382" height="20.5"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="NRZ-Ec-MSH" userLabel="Play SV">
-                                    <rect key="frame" x="0.0" y="263" width="382" height="60.5"/>
+                                    <rect key="frame" x="0.0" y="295" width="382" height="40"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r3J-xe-Wcj" userLabel="favorite">
-                                            <rect key="frame" x="0.0" y="15" width="45.5" height="31"/>
+                                            <rect key="frame" x="0.0" y="4.5" width="45.5" height="31"/>
                                             <state key="normal" title="Button"/>
                                             <buttonConfiguration key="configuration" style="plain" image="heart" catalog="system"/>
                                             <connections>
                                                 <action selector="favButtonPressed:" destination="-1" eventType="touchUpInside" id="sZv-eS-x8Y"/>
                                             </connections>
                                         </button>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zTM-f1-s9N">
-                                            <rect key="frame" x="298" y="0.0" width="84" height="60.5"/>
+                                        <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zTM-f1-s9N">
+                                            <rect key="frame" x="342" y="0.0" width="40" height="40"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="40" id="Xri-nD-0CK"/>
+                                                <constraint firstAttribute="height" constant="40" id="xev-pk-0fZ"/>
+                                            </constraints>
                                             <state key="normal" title="Button"/>
-                                            <buttonConfiguration key="configuration" style="plain" image="Play Button"/>
+                                            <buttonConfiguration key="configuration" style="plain" image="play.fill" catalog="system" imagePadding="0.0"/>
+                                            <connections>
+                                                <action selector="playButtonPressed:" destination="-1" eventType="touchUpInside" id="NlE-1d-gzL"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                 </stackView>
                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="3rK-rF-h2Y">
-                                    <rect key="frame" x="0.0" y="331.5" width="382" height="512.5"/>
+                                    <rect key="frame" x="0.0" y="351" width="382" height="493"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="oop-92-xtu">
                                         <size key="itemSize" width="200" height="200"/>
@@ -119,9 +127,9 @@
     </objects>
     <resources>
         <image name="Ed Sheeran" width="170" height="172"/>
-        <image name="Play Button" width="60" height="60"/>
         <image name="Spotify" width="254" height="254"/>
         <image name="heart" catalog="system" width="128" height="109"/>
+        <image name="play.fill" catalog="system" width="116" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

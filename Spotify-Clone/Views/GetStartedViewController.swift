@@ -23,20 +23,15 @@ class GetStartedViewController: UIViewController{
     @IBOutlet weak var loginButton: UIButton!
     
     @IBOutlet weak var freeSpotifyLabel: UILabel!
-    //   @IBOutlet weak var facebookSignIn: FBLoginButton!
-    
+
     @IBOutlet weak var signUpButton: UIButton!
-    let loginViewModel = LoginViewModel()
+    let loginViewModel = AuthenticationViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         applyTheme()
         if UserDefaults.standard.bool(forKey: "logged In"){
-            let story = UIStoryboard(name: "Main", bundle:nil)
-            let vc = story.instantiateViewController(withIdentifier: "homeTabBarController") as! TabBarController
-            let navigationController = UINavigationController(rootViewController: vc)
-            UIApplication.shared.windows.first?.rootViewController = navigationController
-            UIApplication.shared.windows.first?.makeKeyAndVisible()
+            navigateToHome()
         }
         
     }
@@ -60,12 +55,19 @@ class GetStartedViewController: UIViewController{
             if result
                 
             {
-                self.navigateToHome()
+                FirebaseManager.shared.getArtists {
+                    self.navigateToHome()
+                }
             }
             else{
                 print("Error")
             }
         }
+    }
+    
+    @IBAction func unwindToViewController(segue: UIStoryboardSegue) {
+        print("segue performed")
+
     }
     
     
@@ -81,13 +83,13 @@ class GetStartedViewController: UIViewController{
     }
     
     func navigateToHome(){
-        FirebaseManager.shared.getArtists {
-            let story = UIStoryboard(name: "Main", bundle:nil)
-            let vc = story.instantiateViewController(withIdentifier: "homeTabBarController") as! TabBarController
-            let navigationController = UINavigationController(rootViewController: vc)
-            UIApplication.shared.windows.first?.rootViewController = navigationController
-            UIApplication.shared.windows.first?.makeKeyAndVisible()
-        }
+        
+        let story = UIStoryboard(name: "Main", bundle:nil)
+        let vc = story.instantiateViewController(withIdentifier: "homeTabBarController") as! TabBarController
+        let navigationController = UINavigationController(rootViewController: vc)
+        UIApplication.shared.windows.first?.rootViewController = navigationController
+        UIApplication.shared.windows.first?.makeKeyAndVisible()
+        
     }
     
 }

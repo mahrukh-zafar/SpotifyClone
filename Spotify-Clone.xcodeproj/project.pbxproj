@@ -58,14 +58,11 @@
 		D7D49BC92BE10F26005C1BEA /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7D49BC72BE10F26005C1BEA /* SignUpViewController.swift */; };
 		D7D49BCA2BE10F26005C1BEA /* SignUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D7D49BC82BE10F26005C1BEA /* SignUpViewController.xib */; };
 		D7D49BD02BE11935005C1BEA /* AppTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7D49BCF2BE11935005C1BEA /* AppTheme.swift */; };
-		D7D49BD62BE1283F005C1BEA /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7D49BD52BE1283F005C1BEA /* UserProfile.swift */; };
 		D7D49BE42BE13761005C1BEA /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7D49BE32BE13761005C1BEA /* TabBarViewController.swift */; };
-		D7D49BE62BE3914C005C1BEA /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7D49BE52BE3914C005C1BEA /* LoginViewModel.swift */; };
-		D7D49BE82BE3A117005C1BEA /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7D49BE72BE3A117005C1BEA /* SignUpViewModel.swift */; };
+		D7D49BE62BE3914C005C1BEA /* AuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7D49BE52BE3914C005C1BEA /* AuthenticationViewModel.swift */; };
 		D7F911C12BF4AC9B001EBF60 /* MediaPlayerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F911BE2BF4AC9B001EBF60 /* MediaPlayerManager.swift */; };
 		D7F911C22BF4AC9B001EBF60 /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F911BF2BF4AC9B001EBF60 /* FirebaseManager.swift */; };
 		D7F911C32BF4AC9B001EBF60 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F911C02BF4AC9B001EBF60 /* RealmManager.swift */; };
-		D7F911C42BF4AC9B001EBF60 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F911BD2BF4AC9B001EBF60 /* NetworkManager.swift */; };
 		D7F911C82BF64326001EBF60 /* FavoriteArtist.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F911C72BF64326001EBF60 /* FavoriteArtist.swift */; };
 		D7F911CB2BF78424001EBF60 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = D7F911CA2BF78424001EBF60 /* SDWebImage */; };
 /* End PBXBuildFile section */
@@ -116,11 +113,8 @@
 		D7D49BC72BE10F26005C1BEA /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		D7D49BC82BE10F26005C1BEA /* SignUpViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignUpViewController.xib; sourceTree = "<group>"; };
 		D7D49BCF2BE11935005C1BEA /* AppTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTheme.swift; sourceTree = "<group>"; };
-		D7D49BD52BE1283F005C1BEA /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
 		D7D49BE32BE13761005C1BEA /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
-		D7D49BE52BE3914C005C1BEA /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
-		D7D49BE72BE3A117005C1BEA /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
-		D7F911BD2BF4AC9B001EBF60 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		D7D49BE52BE3914C005C1BEA /* AuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewModel.swift; sourceTree = "<group>"; };
 		D7F911BE2BF4AC9B001EBF60 /* MediaPlayerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaPlayerManager.swift; sourceTree = "<group>"; };
 		D7F911BF2BF4AC9B001EBF60 /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
 		D7F911C02BF4AC9B001EBF60 /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
@@ -256,7 +250,6 @@
 		D7D49BD72BE12844005C1BEA /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				D7D49BD52BE1283F005C1BEA /* UserProfile.swift */,
 				D737F4AB2BE515CF00230DA6 /* Artist.swift */,
 				D737F4EE2BEBA8F100230DA6 /* FavoriteSongs.swift */,
 				D737F5022BEE420700230DA6 /* Song.swift */,
@@ -270,8 +263,7 @@
 		D7D49BD82BE128A8005C1BEA /* View Model */ = {
 			isa = PBXGroup;
 			children = (
-				D7D49BE52BE3914C005C1BEA /* LoginViewModel.swift */,
-				D7D49BE72BE3A117005C1BEA /* SignUpViewModel.swift */,
+				D7D49BE52BE3914C005C1BEA /* AuthenticationViewModel.swift */,
 				D737F4AD2BE52EB900230DA6 /* HomeViewModel.swift */,
 				D737F4E82BEB916E00230DA6 /* PlayListViewModel.swift */,
 				D737F4F42BECE85200230DA6 /* SearchViewModel.swift */,
@@ -285,7 +277,6 @@
 			children = (
 				D7F911BE2BF4AC9B001EBF60 /* MediaPlayerManager.swift */,
 				D7F911C02BF4AC9B001EBF60 /* RealmManager.swift */,
-				D7F911BD2BF4AC9B001EBF60 /* NetworkManager.swift */,
 				D7F911BF2BF4AC9B001EBF60 /* FirebaseManager.swift */,
 			);
 			path = Services;
@@ -438,12 +429,10 @@
 				D737F50D2BF281E100230DA6 /* SongRealm.swift in Sources */,
 				D737F4AE2BE52EB900230DA6 /* HomeViewModel.swift in Sources */,
 				D7D49BE42BE13761005C1BEA /* TabBarViewController.swift in Sources */,
-				D7D49BE82BE3A117005C1BEA /* SignUpViewModel.swift in Sources */,
 				D737F4EF2BEBA8F100230DA6 /* FavoriteSongs.swift in Sources */,
 				D737F4F32BEBEECC00230DA6 /* CustomViews.swift in Sources */,
 				D737F4AA2BE4F34D00230DA6 /* SearchViewController.swift in Sources */,
 				D7D49BC52BE101AE005C1BEA /* LoginViewController.swift in Sources */,
-				D7F911C42BF4AC9B001EBF60 /* NetworkManager.swift in Sources */,
 				D737F50B2BF2620500230DA6 /* ArtistRealm.swift in Sources */,
 				D7D49BC92BE10F26005C1BEA /* SignUpViewController.swift in Sources */,
 				D737F4BD2BEA197A00230DA6 /* PlaylistViewController.swift in Sources */,
@@ -457,13 +446,12 @@
 				D7F911C32BF4AC9B001EBF60 /* RealmManager.swift in Sources */,
 				D737F4F52BECE85200230DA6 /* SearchViewModel.swift in Sources */,
 				D737F4B82BE90EE900230DA6 /* LightTheme.swift in Sources */,
-				D7D49BD62BE1283F005C1BEA /* UserProfile.swift in Sources */,
 				D7CDE8512BDF801F00A4AB8A /* GetStartedViewController.swift in Sources */,
 				D7F911C12BF4AC9B001EBF60 /* MediaPlayerManager.swift in Sources */,
 				D737F4E92BEB916E00230DA6 /* PlayListViewModel.swift in Sources */,
 				D7F911C22BF4AC9B001EBF60 /* FirebaseManager.swift in Sources */,
 				D737F4EC2BEB9F4C00230DA6 /* PlaySongViewController.swift in Sources */,
-				D7D49BE62BE3914C005C1BEA /* LoginViewModel.swift in Sources */,
+				D7D49BE62BE3914C005C1BEA /* AuthenticationViewModel.swift in Sources */,
 				D737F4A82BE4202600230DA6 /* CustomCollectionViewCell.swift in Sources */,
 				D737F4B62BE90B7100230DA6 /* ThemeProtocol.swift in Sources */,
 				D7CDE84D2BDF801F00A4AB8A /* AppDelegate.swift in Sources */,

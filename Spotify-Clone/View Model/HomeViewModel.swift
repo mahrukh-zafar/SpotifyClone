@@ -8,48 +8,34 @@
 import Foundation
 import RealmSwift
 
-struct HomeViewModel{
-    //
-    //    let firebaseManager = FirebaseManager()
-    //
-    //    let networkManager = NetworkManager()
-    //
-    //    let realmManager = RealmManager()
+class HomeViewModel{
     
+    private var artistList = [ArtistRealm]()
     
-    func refresh() async -> [Artist]{
-        var  artists = await FirebaseManager.shared.getArtists(onComplete: {
-            print("hi")
+    func refresh() {
+  
+        FirebaseManager.shared.getArtists(onComplete: {
+            
         })
-        artists.sort(){
-            $0.createdAt! > $1.createdAt!
-        }
-        return artists
     }
-    
-    func getImage(imageUrl : String?, onComplete: @escaping (Data) -> Void) {
-        
-        NetworkManager.shared.getImage(imageUrl: imageUrl!, onComplete: onComplete)
-    }
-    
-    
-    
-    func  loadArtists() -> [ArtistRealm]?{
-        var artistList = [ArtistRealm]()
+   
+    func  loadArtists() {
         do{
             try RealmManager.shared.load(for: ArtistRealm.self)?.forEach({ artist in
                 
                 artistList.append(artist)
                 
             })
-            print(artistList)
-            return artistList
+           
         }
         catch{
             print(error)
-            return nil
+            
         }
-        
+    }
+    
+    func getArtists() -> [ArtistRealm]{
+        return artistList
     }
    
 }

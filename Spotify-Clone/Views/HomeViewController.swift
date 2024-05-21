@@ -23,10 +23,7 @@ class HomeViewController : UIViewController{
     
     @IBOutlet weak var trendingLabel: UILabel!
     @IBOutlet weak var forYouLabel: UILabel!
-    var artistList : [ArtistRealm] = []
-    var trendingList : [Artist] = []
 
-    
     @IBOutlet weak var settingsButton: UIButton!
     @IBOutlet weak var refreshButton: UIButton!
     
@@ -38,30 +35,22 @@ class HomeViewController : UIViewController{
         forYouCV.delegate = self
         forYouCV.dataSource = self
 
-        
-
-
-        if let artists = homeViewModel.loadArtists(){
-            artistList = artists
-        }
-        
-        
-//        loadData()
+        homeViewModel.loadArtists()
        
     }
-    override func viewDidAppear(_ animated: Bool) {
+    
+    override func viewWillAppear(_ animated: Bool) {
         applyTheme()
     }
-    
-    
+  
     @IBAction func refreshButtonPressed(_ sender: UIButton) {
-        print("refresh pressed")
+        print("clicked")
         
-//        Task{
-//           artistList =  await homeViewModel.refresh()
-//            forYouCV.reloadData()
-//            trendingVC.reloadData()
-//        }
+        self.performSegue(withIdentifier: "unwindToStartScreen", sender: self)
+
+//        homeViewModel.refresh()
+//        forYouCV.reloadData()
+//        trendingVC.reloadData()
         
     }
     
@@ -83,41 +72,26 @@ class HomeViewController : UIViewController{
     }
     
     func navigateToPlaylistScreen(artist : ArtistRealm){
-       // let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-
-        let playlistViewController = PlaylistViewController()
+         let playlistViewController = PlaylistViewController()
         playlistViewController.artistRealm = artist
-//        playlistViewController.artist = artist.name
-//        playlistViewController.artistImageUrl =  artist.url
         self.navigationController?.pushViewController(playlistViewController, animated: true)
     }
-    
-    func loadData(){
-//         Task{
-//            artistList =  await homeViewModel.getArtists()
-//             forYouCV.reloadData()
-//             trendingVC.reloadData()
-//         }
-     }
-    
+
 }
 
 extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSource{
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return artistList.count
+        return homeViewModel.getArtists().count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let artistList = homeViewModel.getArtists()
         
         if collectionView == forYouCV {
             
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseableCellIdentifier, for: indexPath) as! CustomCollectionViewCell
-            
-//            homeViewModel.getImage(imageUrl: artistList[indexPath.row].url) { data in
-//                DispatchQueue.main.async{
-//                    cell.image.image = UIImage(data: data)
-//                }}
+       
             cell.label.text = artistList[indexPath.row].name
             cell.image.sd_setImage(with: URL(string: (artistList[indexPath.row].url)!), placeholderImage: UIImage(named: "placeholder.png"))
             cell.label.applyThemeToLable()
@@ -127,12 +101,6 @@ extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSou
         }
         else{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: trendingIdentifier, for: indexPath) as! CustomCollectionViewCell
-//            homeViewModel.getImage(imageUrl: artistList[indexPath.row].url) { data in
-//                DispatchQueue.main.async{
-//                    cell.myimage.image = UIImage(data: data)
-//                }
-//
-//            }
             cell.mylabel.text = artistList[indexPath.row].name
             cell.myimage.sd_setImage(with: URL(string: (artistList[indexPath.row].url)!), placeholderImage: UIImage(named: "placeholder.png"))
             cell.mylabel.applyThemeToLable()
@@ -141,6 +109,7 @@ extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSou
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let artistList = homeViewModel.getArtists()
         navigateToPlaylistScreen(artist: artistList[indexPath.row])
     }
 

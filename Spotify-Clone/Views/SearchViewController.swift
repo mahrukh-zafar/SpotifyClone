@@ -9,9 +9,6 @@ import UIKit
 
 class SearchViewController: UIViewController {
 
-    var trendingArtistNames : [String] = ["A", "B", "C","D", "E", "F","A", "B", "C","D", "E", "F"]
-    
-    var searchedArtist = ArtistRealm()
     
     @IBOutlet weak var searchStackView: UIStackView!
     @IBOutlet weak var searchLabel: UILabel!
@@ -44,16 +41,13 @@ class SearchViewController: UIViewController {
         imageView.tintColor = Theme.current.textColor
         searchTextField.leftView = imageView
         
+        
         searchViewModel.getArtists()
         
         let lastSearched = UserDefaults.standard.string(forKey: "last searched")
         
-        if let lastSearchedArtist = searchViewModel.search(searchString: lastSearched!){
-        searchedArtist = lastSearchedArtist
-            songNameLabel.text =  searchedArtist.songs.first(where: { $0.name.capitalized == searchedArtist.name.capitalized
-            })?.name
-            artistnameLabel.text = searchedArtist.name
-            searchedArtistImage.sd_setImage(with: URL(string: (searchedArtist.url)!), placeholderImage: UIImage(named: "placeholder.png"))
+        if let artist = searchViewModel.search(searchString: lastSearched!){
+    setSearchedArtist(artist: artist, searchString: lastSearched!)
             
         }
         //searchedArtist = searchViewModel.search(searchString: lastSearched!)!
@@ -62,28 +56,27 @@ class SearchViewController: UIViewController {
     }
     
     override func viewWillDisappear(_ animated: Bool) {
+        
         searchTextField.text?.removeAll()
         notFoundLabel.text = ""
     }
     override func viewDidAppear(_ animated: Bool) {
+        
         super.viewDidAppear(animated)
-       
         applyTheme()
         
     }
     @objc func showF(sender: AnyObject){
-        print("Navigate")
+
         let playListViewController = PlaylistViewController()
 
-        playListViewController.artistRealm = searchedArtist
+        playListViewController.artistRealm = searchViewModel.getLastSearched()
 
         self.navigationController?.pushViewController(playListViewController, animated: true)
        }
     
     func applyTheme(){
         view.backgroundColor = Theme.current.background
-    
-        
         artistnameLabel.applyThemeToLable()
         songNameLabel.applyThemeToLable()
         searchLabel.applyThemeToLable()
@@ -103,13 +96,8 @@ extension SearchViewController : UITextFieldDelegate{
     func textFieldDidEndEditing(_ textField: UITextField) {
 
         if let artist = searchViewModel.search(searchString: searchTextField.text!){
-            searchedArtist = artist
-            songNameLabel.text =  searchedArtist.songs.first(where: { $0.name.capitalized == searchedArtist.name.capitalized
-            })?.name
-            
-            artistnameLabel.text = searchedArtist.name
-            searchedArtistImage.sd_setImage(with: URL(string: (searchedArtist.url)!), placeholderImage: UIImage(named: "placeholder.png"))
-
+            setSearchedArtist(artist: artist, searchString: searchTextField.text!)
+            notFoundLabel.text = ""
         }
         else{
             if let query = searchTextField.text{
@@ -120,7 +108,6 @@ extension SearchViewController : UITextFieldDelegate{
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         searchTextField.endEditing(true)
-        
         
         return true
     }
@@ -134,6 +121,14 @@ extension SearchViewController : UITextFieldDelegate{
             searchTextField.placeholder = "Artists, Songs or Podcasts"
             return false
         }
+    }
+    
+    func setSearchedArtist(artist: ArtistRealm, searchString: String){
+        songNameLabel.text =  artist.songs.first(where: { $0.name.capitalized == searchString.capitalized
+        })?.name
+        
+        artistnameLabel.text = artist.name
+        searchedArtistImage.sd_setImage(with: URL(string: (artist.url)!), placeholderImage: UIImage(named: "placeholder.png"))
     }
 }
 

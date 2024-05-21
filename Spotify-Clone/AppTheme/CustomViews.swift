@@ -28,6 +28,9 @@ extension UILabel{
         textColor = Theme.current.textColor
         
     }
+    func applyThemeToErrorLabel(){
+        textColor = Theme.current.error
+    }
     
     
 }

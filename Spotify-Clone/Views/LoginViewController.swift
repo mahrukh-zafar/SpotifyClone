@@ -13,12 +13,14 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
+    @IBOutlet weak var loadingLabel: UILabel!
     @IBOutlet weak var backButton: UIButton!
     
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var loginLabel: UILabel!
-    let loginViewModel = LoginViewModel()
+    let loginViewModel = AuthenticationViewModel()
     override func viewDidLoad() {
+        loadingLabel.text = ""
         super.viewDidLoad()
         emailTextField.text = "mahrukh@gmail.com"
         passwordTextField.text = "123456"
@@ -30,6 +32,7 @@ class LoginViewController: UIViewController {
         backButton.applyThemeToButton()
         loginLabel.applyThemeToLable()
         loginButton.applyThemeToFilledButton()
+        loadingLabel.applyThemeToErrorLabel()
     }
     
     @IBAction func loginButtonPressed(_ sender: UIButton)   {
@@ -41,14 +44,16 @@ class LoginViewController: UIViewController {
             return
         }
         
-        loginViewModel.login(email: email, password: password) { (result) in
+        loginViewModel.login(email: email, password: password) { [self] (result) in
             if result
 
             {
+                FirebaseManager.shared.getArtists {
                 self.navigateToHome()
+                }
             }
             else{
-                print("Error")
+                self.loadingLabel.text = "Invalid Credentials"
             }
         }
     }
@@ -58,13 +63,14 @@ class LoginViewController: UIViewController {
     }
     
     func navigateToHome(){
-        FirebaseManager.shared.getArtists {
+        
             let story = UIStoryboard(name: "Main", bundle:nil)
             let vc = story.instantiateViewController(withIdentifier: "homeTabBarController") as! TabBarController
             let navigationController = UINavigationController(rootViewController: vc)
             UIApplication.shared.windows.first?.rootViewController = navigationController
             UIApplication.shared.windows.first?.makeKeyAndVisible()
-        }
+            
+        
     }
     
     

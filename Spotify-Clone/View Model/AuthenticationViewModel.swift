@@ -7,9 +7,7 @@
 
 import UIKit
 
-class LoginViewModel{
-    
-    //let firebaseManager : FirebaseManager = FirebaseManager()
+class AuthenticationViewModel{
     
     func login(email: String, password: String, onComplete: @escaping (Bool)-> Void){
         
@@ -24,9 +22,9 @@ class LoginViewModel{
 
     }
     
-    func authenticateWithFacebook(tokenString: String, onComplete: @escaping (Bool)-> Void){
-        FirebaseManager.shared.authenticateWithFacebook(tokenString: tokenString, onComplete: onComplete)
+    func signUp(email: String, password: String, onComplete: @escaping (Bool)-> Void){
+        
+        FirebaseManager.shared.signUp(email: email, password: password, completion: onComplete)
     }
-    
     
 }

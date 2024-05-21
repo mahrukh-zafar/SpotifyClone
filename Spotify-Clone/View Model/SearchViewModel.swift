@@ -10,10 +10,10 @@ import Foundation
 class SearchViewModel{
     
     let firebaseManager = FirebaseManager()
-    let networkManager = NetworkManager()
+
     
-    var artists = [ArtistRealm]()
-    var songs = [Song]()
+    private var artists = [ArtistRealm]()
+    private var songs = [Song]()
     
    private var searchedArtist : ArtistRealm?
     
@@ -33,10 +33,18 @@ class SearchViewModel{
        }
     }
     
+    func getLastSearched() -> ArtistRealm?{
+        guard let artist = searchedArtist else{
+            return nil
+        }
+        return artist
+    }
     
     func search( searchString : String)  ->  ArtistRealm?{
        
         if  artists.contains(where: { artist in
+            print(artist.name.contains(searchString))
+            print(artist.name.capitalized.contains(searchString.capitalized))
             if artist.name.capitalized == searchString.capitalized{
                 searchedArtist = artist
                 return true
@@ -59,33 +67,5 @@ class SearchViewModel{
            }
     }
     
-    func getImage(imageUrl : String?, onComplete: @escaping (Data) -> Void) {
-        
-        networkManager.getImage(imageUrl: imageUrl!, onComplete: onComplete)
-    }
     
-//    func searchFrom(searchString: String) -> Any? {
-//        var result : Any?
-//        if  artists.contains(where: { artist in
-//            if artist.name?.capitalized == searchString.capitalized{
-//                result = artist
-//                return true
-//            }
-//            else {
-//                if let songs = getSong(artistName: artist.name!){
-//                    searchedArtist = artist
-//                    return true
-//                }
-//                else{
-//                    return false
-//                }
-//            }
-//            
-//        })
-//          {
-//              return searchedArtist
-//           } else {
-//               return nil
-//           }
-//    }
 }

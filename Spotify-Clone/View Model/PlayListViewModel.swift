@@ -9,15 +9,7 @@ import Foundation
 import RealmSwift
 
 struct  PlayListViewModel{
-    
-//    let networkManager = NetworkManager()
-//    let firebaseManager = FirebaseManager()
-//    let realmManager = RealmManager()
-    
-    func getImage(imageUrl : String?, onComplete: @escaping (Data) -> Void){
-        
-        NetworkManager.shared.getImage(imageUrl: imageUrl!, onComplete: onComplete)
-    }
+
     func favorite(_ artist: ArtistRealm) {
         let favArtist = FavoriteArtist()
         favArtist.name = artist.name

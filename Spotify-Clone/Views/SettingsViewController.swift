@@ -27,6 +27,12 @@ class SettingsViewController: UIViewController {
     }
     @IBAction func signOutPressed(_ sender: UIButton) {
         UserDefaults.standard.set(false, forKey: "logged In")
+        let story = UIStoryboard(name: "Main", bundle:nil)
+        let vc = story.instantiateViewController(withIdentifier: "getStartVC") as! GetStartedViewController
+        let navigationController = UINavigationController(rootViewController: vc)
+        UIApplication.shared.windows.first?.rootViewController = navigationController
+        UIApplication.shared.windows.first?.makeKeyAndVisible()
+      
     }
     
     func applyTheme(){

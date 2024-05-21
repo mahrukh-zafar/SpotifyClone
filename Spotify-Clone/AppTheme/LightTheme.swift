@@ -13,5 +13,6 @@ class LightTheme : ThemeProtocol{
 
     var tint: UIColor = UIColor(named: "Tint")!
     var common: UIColor = UIColor(named: "Common")!
+    var error: UIColor = UIColor(named: "ErrorColor")!
     
 }
