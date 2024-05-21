@@ -22,6 +22,8 @@ class PlaylistViewController: UIViewController {
     @IBOutlet weak var likesLabel: UILabel!
     @IBOutlet weak var artistImage: UIImageView!
     
+    @IBOutlet weak var playButton: UIButton!
+    
     let playListViewModel = PlayListViewModel()
     
     var artistRealm : ArtistRealm?
@@ -35,39 +37,21 @@ class PlaylistViewController: UIViewController {
     playlistCV.register(UINib(nibName:"PlayListCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "playlistCell")
         
         artistName.text = artistRealm?.name
-//        playListViewModel.getImage(imageUrl: artistRealm?.url) { data in
-//            DispatchQueue.main.async{
-//                self.artistImage.image = UIImage(data: data)
-//            }
-//
-//        }
-     
-
         artistImage.sd_setImage(with: URL(string: (artistRealm?.url)!), placeholderImage: UIImage(named: "placeholder.png"))
-        //artistImage.image = UIImage(data: (artistRealm?.url!)!)
-//        Task{
-//            await playListViewModel.syncPlayListFromFirebase(artist: artistRealm!)
-//        }
-    //    playListViewModel.getSongsByArtist(artist: artistRealm!)
-        
         songs = Array(artistRealm!.songs)
-        
-        
-//        Task{
-//         songs = await  playListViewModel.getSongs(artistName:artist!)
-//            playlistCV.reloadData()
-//
-//        }
-//
         setFavButton()
         playlistCV.delegate = self
         playlistCV.dataSource = self
         applyTheme()
+        setPlayButton(name: "play.fill")
         
     }
     override func viewDidAppear(_ animated: Bool) {
        
         
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        MediaPlayerManager.shared.stopMedia()
     }
 
     func applyTheme(){
@@ -76,7 +60,7 @@ class PlaylistViewController: UIViewController {
         detailsLabel.applyThemeToLable()
         spotifyLabel.applyThemeToLable()
         likesLabel.applyThemeToLable()
-        favButton.applyThemeToButton()
+        //favButton.applyThemeToButton()
         
     }
     
@@ -94,6 +78,26 @@ class PlaylistViewController: UIViewController {
         setFavButton()
         
     }
+    
+    @IBAction func playButtonPressed(_ sender: UIButton) {
+        
+        guard let artist = artistRealm else{
+            return
+        }
+        if MediaPlayerManager.shared.mediaIsPlaying() {
+            MediaPlayerManager.shared.pauseMedia()
+            setPlayButton(name: "play.fill")
+        
+        }else if MediaPlayerManager.shared.mediaIsPaused(){
+            MediaPlayerManager.shared.resumeMedia()
+            setPlayButton(name: "pause.fill")
+            
+        } else{
+            MediaPlayerManager.shared.playBackToBack(songList: Array(artist.songs))
+            setPlayButton(name: "pause.fill")
+        }
+    }
+    
     func navigateToPlaySongScreen(currentIndex : Int){
        
         let playSongViewController = PlaySongViewController()
@@ -103,9 +107,11 @@ class PlaylistViewController: UIViewController {
     }
     
     func setFavButton(){
+        favButton.tintColor = Theme.current.error
         if let fav = playListViewModel.isFavorite(artistName: artistRealm!.name){
             if fav{
                 favButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+                
                 
             }else{
                 favButton.setImage(UIImage(systemName: "heart"), for: .normal)
@@ -150,6 +156,17 @@ extension PlaylistViewController : UICollectionViewDelegate, UICollectionViewDat
         func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
             return 8
         }
+    
+    func setPlayButton(name: String){
+        playButton.setImage(UIImage(systemName: name), for: .normal)
+        playButton.tintColor = Theme.current.tint
+//        playButton.backgroundColor = .systemGreen
+//        playButton.layer.cornerRadius = playButton.frame.height / 2
+//        playButton.clipsToBounds = true
+//        playButton.contentMode = .center
+//        playButton.imageView?.contentMode = .scaleAspectFit
+       
+    }
 }
 
 

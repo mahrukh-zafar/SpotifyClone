@@ -26,20 +26,20 @@ class FirebaseManager{
     func loginWithEmail(email : String, password: String,  completion: @escaping (Bool) -> Void)  {
         
         Auth.auth().signIn(withEmail: email, password: password) { (authResult, error) in
-           
+            
             if let error = error as? NSError {
                 print(error)
-               
+                
                 completion(false)
                 
             } else {
                 //print("User signs in successfully")
-                               // let userInfo = Auth.auth().currentUser
-                               
+                // let userInfo = Auth.auth().currentUser
                 
-                    UserDefaults.standard.set(true, forKey: "logged In")
                 
-               
+                UserDefaults.standard.set(true, forKey: "logged In")
+                
+                
                 completion(true)
             }
             
@@ -101,20 +101,14 @@ class FirebaseManager{
         }
     }
     
-    
-    
-    
    
-func getArtists(onComplete: @escaping () -> Void)  -> [Artist] {
+    func getArtists(onComplete: @escaping () -> Void) {
         let artistRef = db.collection("artists")
-        var artists: [Artist] = []
-        var songList = [Song]()
-        
-    artistRef.getDocuments { [self] querySnapshot, error in
+        artistRef.getDocuments { [self] querySnapshot, error in
             if let documents = querySnapshot?.documents{
-            for document in documents{
-                let artist = Artist(snapshot: document)
-                let artistRealm = convertToArtistRealm(artist: artist)
+                for document in documents{
+                    let artist = Artist(snapshot: document)
+                    let artistRealm = convertToArtistRealm(artist: artist)
                     let name =  document.data()["name"] as? String
                     if let artistName = name{
                         artistRef.document(artistName).collection("songs").getDocuments { songsDocuments, error in
@@ -123,67 +117,36 @@ func getArtists(onComplete: @escaping () -> Void)  -> [Artist] {
                                     let song = Song(snapshot: document)
                                     let songRealm = self.convertToSongRealm(song: song)
                                     do{
-                                     try RealmManager.shared.saveSong(song: songRealm, artist: artistRealm)
+                                        try RealmManager.shared.saveSong(song: songRealm, artist: artistRealm)
                                     }
                                     catch{
                                         print(error)
                                     }
-
+                                    
                                 }
                             }
                         }
                     }
-                   
+                    
                     do{
-                     
+                        
                         try! RealmManager.shared.save(artistRealm)
                         
-                    
+                        
                     }
                     catch{
                         print(error)
                     }
                     
-                
-               
-            }
+                }
                 onComplete()
             }
             
             
         }
-        
-        
-        
-//            do {
-//                let querySnapshot = try await artistRef.getDocuments()
-//              for document in querySnapshot.documents {
-//                  let artist = Artist(snapshot: document)
-//                  let artistRealm = convertToArtistRealm(artist: artist)
-//                  let name = document.data()["name"]
-//                  if let name = name as? String {
-//                      let songs = try await artistRef.document(name).collection("songs").getDocuments()
-//                      for songDocument in songs.documents{
-//                          let song = Song(snapshot: songDocument)
-//                         let songRealm = convertToSongRealm(song: song)
-//
-//                          try RealmManager.shared.saveSong(song: songRealm, artist: artistRealm)
-//
-//                          //songList.append(song)
-//                      }
-//                  }
-//
-//
-//                  try RealmManager.shared.save(artistRealm)
-//              }
-//            } catch {
-//              print("Error getting documents: \(error)")
-//            }
+    }
     
-            return artists
-        }
     
-  
     func convertToSongRealm(song: Song) -> SongRealm{
         let songRealm = SongRealm()
         songRealm.name =  song.name!
@@ -193,7 +156,7 @@ func getArtists(onComplete: @escaping () -> Void)  -> [Artist] {
     }
     
     func convertToArtistRealm(artist: Artist) -> ArtistRealm{
-       
+        
         let artistRealm = ArtistRealm()
         artistRealm.name =  artist.name!
         artistRealm.url = artist.url
@@ -201,19 +164,7 @@ func getArtists(onComplete: @escaping () -> Void)  -> [Artist] {
         return artistRealm
     }
     
-    func authenticateWithFacebook(tokenString: String, onComplete: @escaping (Bool) -> Void){
-        let credential = FacebookAuthProvider.credential(withAccessToken: tokenString)
-       
-//             Auth.auth().signIn(with: credential) { (authResult, error) in
-//                 if let error = error {
-//                     print("Facebook authentication with Firebase error: ", error)
-//                     return
-//                 }
-//             print("Login success!")
-//             }
-        
-        loginWithCredentials(credential: credential, onComplete: onComplete)
-    }
-  
+    
+    
 }
 

@@ -11,13 +11,10 @@ import FirebaseAuth
 class SignUpViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     
+    @IBOutlet weak var messageLabel: UILabel!
     @IBOutlet weak var passwordTextField: UITextField!
     
-    let signUpViewModel = SignUpViewModel()
-    
-    let firebaseManager = FirebaseManager()
-    
-    
+    let authenticationViewMode = AuthenticationViewModel()
     @IBOutlet weak var backButton: UIButton!
     
     @IBOutlet weak var signUpLabel: UILabel!
@@ -26,7 +23,7 @@ class SignUpViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-applyTheme()
+        applyTheme()
         // Do any additional setup after loading the view.
     }
     func applyTheme(){
@@ -34,8 +31,9 @@ applyTheme()
         backButton.applyThemeToButton()
         signUpLabel.applyThemeToLable()
         signUpButton.applyThemeToFilledButton()
+        messageLabel.applyThemeToErrorLabel()
     }
-
+    
     @IBAction func goBackButtonPressed(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
     }
@@ -47,23 +45,29 @@ applyTheme()
         guard let password = passwordTextField.text else{
             return
         }
-        signUpViewModel.signUp(email: email, password: password) { (result) in
+        authenticationViewMode.signUp(email: email, password: password) { (result) in
             if result
-            
+                
             {
-                
-                let story = UIStoryboard(name: "Main", bundle:nil)
-                let vc = story.instantiateViewController(withIdentifier: "homeTabBarController") as! TabBarController
-                UIApplication.shared.windows.first?.rootViewController = vc
-                UIApplication.shared.windows.first?.makeKeyAndVisible()
-                
-                
+                FirebaseManager.shared.getArtists {
+                    self.navigateToHome()
+                    
+                }
             }
             else{
-                print("Error")
+                self.messageLabel.text = "Invalid"
             }
         }
-      
+        
+    }
+    func navigateToHome(){
+        
+        let story = UIStoryboard(name: "Main", bundle:nil)
+        let vc = story.instantiateViewController(withIdentifier: "homeTabBarController") as! TabBarController
+        let navigationController = UINavigationController(rootViewController: vc)
+        UIApplication.shared.windows.first?.rootViewController = navigationController
+        UIApplication.shared.windows.first?.makeKeyAndVisible()
+        
     }
     
 }

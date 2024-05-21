@@ -17,7 +17,6 @@
                 <outlet property="playButton" destination="vPF-CP-jWy" id="2PP-AK-O93"/>
                 <outlet property="prevButton" destination="Zwq-Wj-peu" id="Az1-gP-zRv"/>
                 <outlet property="progressView" destination="10N-eQ-f7w" id="UfU-fD-W8S"/>
-                <outlet property="shuffleButton" destination="xjp-ih-uf9" id="q66-Xb-nkf"/>
                 <outlet property="songImageUrl" destination="H8S-c3-oVx" id="AqQ-je-koJ"/>
                 <outlet property="songNameLabel" destination="RAP-bd-KHt" id="4hI-dK-15B"/>
                 <outlet property="starTimeLabel" destination="mVh-Tr-N2p" id="IDe-8x-lv7"/>
@@ -32,54 +31,46 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="diS-V5-7GC" userLabel="Parent View">
                     <rect key="frame" x="0.0" y="44" width="414" height="852"/>
                     <subviews>
-                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="8f1-4w-O7d" userLabel="Parent SV">
-                            <rect key="frame" x="8" y="0.0" width="398" height="844"/>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="8f1-4w-O7d" userLabel="Parent SV">
+                            <rect key="frame" x="16" y="8" width="382" height="836"/>
                             <subviews>
-                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Ed Sheeran" translatesAutoresizingMaskIntoConstraints="NO" id="H8S-c3-oVx">
-                                    <rect key="frame" x="0.0" y="0.0" width="398" height="350"/>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Ed Sheeran" translatesAutoresizingMaskIntoConstraints="NO" id="H8S-c3-oVx">
+                                    <rect key="frame" x="0.0" y="0.0" width="382" height="300"/>
                                     <constraints>
-                                        <constraint firstAttribute="height" constant="350" id="YPf-Ns-AKX"/>
+                                        <constraint firstAttribute="height" constant="300" id="YPf-Ns-AKX"/>
                                     </constraints>
                                 </imageView>
                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="A7B-Ks-dUg">
-                                    <rect key="frame" x="0.0" y="366" width="398" height="84.5"/>
+                                    <rect key="frame" x="0.0" y="316" width="382" height="20.5"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="song name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RAP-bd-KHt">
-                                            <rect key="frame" x="0.0" y="0.0" width="84" height="84.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="382" height="20.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Si-dU-v2Z" userLabel="favButton">
-                                            <rect key="frame" x="352.5" y="0.0" width="45.5" height="84.5"/>
-                                            <state key="normal" title="Button"/>
-                                            <buttonConfiguration key="configuration" style="plain" image="heart" catalog="system"/>
-                                            <connections>
-                                                <action selector="favButtonPressed:" destination="-1" eventType="touchUpInside" id="Yhz-Di-oVs"/>
-                                            </connections>
-                                        </button>
                                     </subviews>
                                 </stackView>
-                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="aDZ-6a-bJA">
-                                    <rect key="frame" x="0.0" y="466.5" width="398" height="77"/>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="aDZ-6a-bJA">
+                                    <rect key="frame" x="0.0" y="352.5" width="382" height="32.5"/>
                                     <subviews>
-                                        <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="10N-eQ-f7w">
-                                            <rect key="frame" x="0.0" y="0.0" width="398" height="8"/>
+                                        <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="10N-eQ-f7w">
+                                            <rect key="frame" x="0.0" y="0.0" width="382" height="8"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="8" id="XGp-ZN-Psm"/>
                                             </constraints>
                                         </progressView>
                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="enV-3T-ita">
-                                            <rect key="frame" x="0.0" y="8" width="398" height="69"/>
+                                            <rect key="frame" x="0.0" y="12" width="382" height="20.5"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mVh-Tr-N2p" userLabel="start time">
-                                                    <rect key="frame" x="0.0" y="0.0" width="24" height="69"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="24" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ran-Ep-ur0" userLabel="end time">
-                                                    <rect key="frame" x="374" y="0.0" width="24" height="69"/>
+                                                    <rect key="frame" x="358" y="0.0" width="24" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -89,26 +80,30 @@
                                     </subviews>
                                 </stackView>
                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="rcj-aU-QJH">
-                                    <rect key="frame" x="0.0" y="559.5" width="398" height="284.5"/>
+                                    <rect key="frame" x="0.0" y="401" width="382" height="40"/>
                                     <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xjp-ih-uf9" userLabel="shuffle">
-                                            <rect key="frame" x="0.0" y="0.0" width="48.5" height="284.5"/>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Si-dU-v2Z" userLabel="favButton">
+                                            <rect key="frame" x="0.0" y="0.0" width="45.5" height="40"/>
                                             <state key="normal" title="Button"/>
-                                            <buttonConfiguration key="configuration" style="plain" image="shuffle" catalog="system"/>
+                                            <buttonConfiguration key="configuration" style="plain" image="heart" catalog="system"/>
                                             <connections>
-                                                <action selector="shuffleList:" destination="-1" eventType="touchUpInside" id="nWc-RR-T3s"/>
+                                                <action selector="favButtonPressed:" destination="-1" eventType="touchUpInside" id="Yhz-Di-oVs"/>
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zwq-Wj-peu" userLabel="previous">
-                                            <rect key="frame" x="91" y="0.0" width="45.5" height="284.5"/>
+                                            <rect key="frame" x="84.5" y="0.0" width="45.5" height="40"/>
                                             <state key="normal" title="Button"/>
                                             <buttonConfiguration key="configuration" style="plain" image="backward.end.fill" catalog="system"/>
                                             <connections>
                                                 <action selector="playPreviousSong:" destination="-1" eventType="touchUpInside" id="m5y-b3-Vxf"/>
                                             </connections>
                                         </button>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vPF-CP-jWy" userLabel="play">
-                                            <rect key="frame" x="179" y="0.0" width="40" height="284.5"/>
+                                        <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vPF-CP-jWy" userLabel="play">
+                                            <rect key="frame" x="169.5" y="0.0" width="40" height="40"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="40" id="Wgf-9a-FOd"/>
+                                                <constraint firstAttribute="height" constant="40" id="ous-gr-Ehb"/>
+                                            </constraints>
                                             <state key="normal" title="Button"/>
                                             <buttonConfiguration key="configuration" style="plain" image="play.fill" catalog="system"/>
                                             <connections>
@@ -116,7 +111,7 @@
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ike-yh-NoI" userLabel="next">
-                                            <rect key="frame" x="261" y="0.0" width="45.5" height="284.5"/>
+                                            <rect key="frame" x="248.5" y="0.0" width="45.5" height="40"/>
                                             <state key="normal" title="Button"/>
                                             <buttonConfiguration key="configuration" style="plain" image="forward.end.fill" catalog="system"/>
                                             <connections>
@@ -124,7 +119,7 @@
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kRb-i2-QU0" userLabel="loop">
-                                            <rect key="frame" x="349" y="0.0" width="49" height="284.5"/>
+                                            <rect key="frame" x="333" y="0.0" width="49" height="40"/>
                                             <state key="normal" title="Button"/>
                                             <buttonConfiguration key="configuration" style="plain" image="arrow.triangle.2.circlepath" catalog="system"/>
                                             <connections>
@@ -133,14 +128,17 @@
                                         </button>
                                     </subviews>
                                 </stackView>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dvg-yB-Ftz">
+                                    <rect key="frame" x="0.0" y="457" width="382" height="379"/>
+                                </view>
                             </subviews>
                         </stackView>
                     </subviews>
                     <constraints>
-                        <constraint firstItem="8f1-4w-O7d" firstAttribute="top" secondItem="diS-V5-7GC" secondAttribute="top" id="0s1-7G-rUu"/>
+                        <constraint firstItem="8f1-4w-O7d" firstAttribute="top" secondItem="diS-V5-7GC" secondAttribute="top" constant="8" id="0s1-7G-rUu"/>
                         <constraint firstAttribute="bottom" secondItem="8f1-4w-O7d" secondAttribute="bottom" constant="8" id="GKs-CR-qEW"/>
-                        <constraint firstAttribute="trailing" secondItem="8f1-4w-O7d" secondAttribute="trailing" constant="8" id="XYu-bB-GvG"/>
-                        <constraint firstItem="8f1-4w-O7d" firstAttribute="leading" secondItem="diS-V5-7GC" secondAttribute="leading" constant="8" id="fVt-pB-3jb"/>
+                        <constraint firstAttribute="trailing" secondItem="8f1-4w-O7d" secondAttribute="trailing" constant="16" id="XYu-bB-GvG"/>
+                        <constraint firstItem="8f1-4w-O7d" firstAttribute="leading" secondItem="diS-V5-7GC" secondAttribute="leading" constant="16" id="fVt-pB-3jb"/>
                     </constraints>
                 </view>
             </subviews>
@@ -162,7 +160,6 @@
         <image name="forward.end.fill" catalog="system" width="128" height="102"/>
         <image name="heart" catalog="system" width="128" height="109"/>
         <image name="play.fill" catalog="system" width="116" height="128"/>
-        <image name="shuffle" catalog="system" width="128" height="95"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

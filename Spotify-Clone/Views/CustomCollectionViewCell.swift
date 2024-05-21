@@ -17,10 +17,5 @@ class CustomCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var mylabel: UILabel!
 
-    @IBOutlet weak var browseLabel: UILabel!
-    
-    @IBOutlet weak var genreLabel: UILabel!
-    
-    
     
 }

@@ -43,40 +43,9 @@ class PlaySongViewController: UIViewController {
         songNameLabel.text = song.name
       
        songImageUrl.sd_setImage(with: URL(string: (song.url)), placeholderImage: UIImage(named: "placeholder.png"))
-        
-//        playsongViewModel.getImage(imageUrl: song.url) { data in
-//            DispatchQueue.main.async{
-//                self.songImageUrl.image = UIImage(data: data)
-//            }
-//            
-//        }
-        
-        if let fav = playsongViewModel.isFavorite(songName: song.name){
-            if fav{
-                favButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
-                
-            }else{
-                favButton.setImage(UIImage(systemName: "heart"), for: .normal)
-            }
-        }
-        //setFavoriteButton(song: song)
-        
-        
-//        if let mySong = song{
-//           //isFav = playsongViewModel.isFavorite(songName: mySong.name)
-//            if let fav = playsongViewModel.isFavorite(songName: mySong.name){
-//                if fav{
-//                    favButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
-//
-//                }else{
-//                    favButton.setImage(UIImage(systemName: "heart"), for: .normal)
-//                }
-//            }
-//
-//        }
-//        else{
-//            print("error")
-//        }
+ 
+        setFavoriteButton(song: song)
+        setPlayButton(name: "play.fill")
     
     }
     override func viewWillDisappear(_ animated: Bool) {
@@ -85,14 +54,15 @@ class PlaySongViewController: UIViewController {
     
     func applyTheme(){
         view.backgroundColor = Theme.current.background
-        favButton.applyThemeToButton()
+       // favButton.applyThemeToButton()
         songNameLabel.applyThemeToLable()
-        playButton.applyThemeToButton()
+        //playButton.applyThemeToButton()
         loopButton.applyThemeToButton()
         nextButton.applyThemeToButton()
         prevButton.applyThemeToButton()
-        shuffleButton.applyThemeToButton()
-        progressView.tintColor = Theme.current.textColor
+        starTimeLabel.applyThemeToLable()
+        endTimeLabel.applyThemeToLable()
+        progressView.tintColor = Theme.current.tint
         
     }
     
@@ -114,11 +84,12 @@ class PlaySongViewController: UIViewController {
     
     
     @IBAction func playNextSong(_ sender: UIButton) {
+        //MediaPlayerManager.shared.stopMedia()
         progressView.progress = 0.0
         if currentIndex!+1 < songs!.count{
             currentIndex =  currentIndex! + 1
             playButton.setImage(UIImage(systemName: "pause.fill"), for: .normal)
-            playsongViewModel.play(songSource: songs![currentIndex!].source) { time, duration in
+            playsongViewModel.play(songSource: songs![currentIndex!].source, shouldLoop: isLooping) { time, duration in
                 self.starTimeLabel.text = String(format: "%0.0f", floor(time/60)) + "." + String(format: "%0.0f", time.truncatingRemainder(dividingBy: 60))
                 self.endTimeLabel.text = String(format: "%0.0f", floor(duration/60)) + "." + String(format: "%0.0f", duration.truncatingRemainder(dividingBy: 60))
                 self.progressView.progress = Float(time)/Float(duration)
@@ -132,11 +103,12 @@ class PlaySongViewController: UIViewController {
     
     
     @IBAction func playPreviousSong(_ sender: UIButton) {
+        //MediaPlayerManager.shared.stopMedia()
         progressView.progress = 0.0
         if currentIndex != 0{
             currentIndex = currentIndex! - 1
             playButton.setImage(UIImage(systemName: "pause.fill"), for: .normal)
-            playsongViewModel.play(songSource: songs![currentIndex!].source) { time, duration in
+            playsongViewModel.play(songSource: songs![currentIndex!].source, shouldLoop: isLooping) { time, duration in
                 self.starTimeLabel.text = String(format: "%0.0f", floor(time/60)) + "." + String(format: "%0.0f", time.truncatingRemainder(dividingBy: 60))
                 self.endTimeLabel.text = String(format: "%0.0f", floor(duration/60)) + "." + String(format: "%0.0f", duration.truncatingRemainder(dividingBy: 60))
                 self.progressView.progress = Float(time) / Float(duration)
@@ -157,16 +129,37 @@ class PlaySongViewController: UIViewController {
     @IBAction func loopSong(_ sender: UIButton) {
         isLooping = !isLooping
         if isLooping{
-            loopButton.tintColor = .green
+            loopButton.tintColor = Theme.current.tint
         }
         else{
             loopButton.applyThemeToButton()
         }
-        playsongViewModel.loopSong(songSource: songs![currentIndex!].source,shouldLoop: isLooping)
+//        playsongViewModel.play(songSource: songs![currentIndex!].source, shouldLoop: isLooping) { time, duration in
+//            if floor(time) == floor(duration){
+//
+//                self.playButton.setImage(UIImage(systemName: "play.fill"), for: .normal)
+//                self.progressView.progress = 1
+//            }
+//
+//            if self.playsongViewModel.isPaused(){
+//                self.playButton.setImage(UIImage(systemName: "play.fill"), for: .normal)
+//            }
+//
+//            self.starTimeLabel.text = String(format: "%0.0f", floor(time/60)) + "." + String(format: "%0.0f", time.truncatingRemainder(dividingBy: 60))
+//            self.endTimeLabel.text = String(format: "%0.0f", floor(duration/60)) + "." + String(format: "%0.0f", duration.truncatingRemainder(dividingBy: 60))
+//            self.progressView.progress = Float(time)/Float(duration)
+//            print(time)
+//
+//        }
+        
+        MediaPlayerManager.shared.loopSong(shouldLoop: isLooping) { value in
+            print(value)
+        }
         
     }
     
     @IBAction func playButtonPressed(_ sender: UIButton) {
+        
 //progressView.progress = 0.0
         if playsongViewModel.isPaused() {
             playButton.setImage(UIImage(systemName: "pause.fill"), for: .normal)
@@ -177,11 +170,12 @@ class PlaySongViewController: UIViewController {
         }
         else {
             playButton.setImage(UIImage(systemName: "pause.fill"), for: .normal)
-            playsongViewModel.play(songSource: songs![currentIndex!].source) { time, duration in
-//                if floor(time) == floor(duration){
-//
-//                    self.playButton.setImage(UIImage(systemName: "play.fill"), for: .normal)
-//                }
+            playsongViewModel.play(songSource: songs![currentIndex!].source, shouldLoop: isLooping) { time, duration in
+                if floor(time) == floor(duration){
+
+                    self.playButton.setImage(UIImage(systemName: "play.fill"), for: .normal)
+                    self.progressView.progress = 1
+                }
                 
                 if self.playsongViewModel.isPaused(){
                     self.playButton.setImage(UIImage(systemName: "play.fill"), for: .normal)
@@ -201,12 +195,22 @@ class PlaySongViewController: UIViewController {
         if let fav = playsongViewModel.isFavorite(songName: song.name){
             if fav{
                 favButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+                favButton.tintColor = Theme.current.error
                 
             }else{
                 favButton.setImage(UIImage(systemName: "heart"), for: .normal)
             }
         }
         
+    }
+    func setPlayButton(name: String){
+        playButton.setImage(UIImage(systemName: name), for: .normal)
+        playButton.tintColor = Theme.current.tint
+//        playButton.backgroundColor = .systemGreen
+//        playButton.layer.cornerRadius = playButton.frame.height / 2
+//        playButton.clipsToBounds = true
+//        playButton.contentMode = .center
+//        playButton.imageView?.contentMode = .scaleAspectFit
     }
     
 }
