@@ -54,6 +54,7 @@ class PlaySongViewController: UIViewController {
     
     func applyTheme(){
         view.backgroundColor = Theme.current.background
+        favButton.tintColor = Theme.current.error
        // favButton.applyThemeToButton()
         songNameLabel.applyThemeToLable()
         //playButton.applyThemeToButton()
@@ -85,9 +86,13 @@ class PlaySongViewController: UIViewController {
     
     @IBAction func playNextSong(_ sender: UIButton) {
         //MediaPlayerManager.shared.stopMedia()
-        progressView.progress = 0.0
+//        if isLooping{
+//            removeFromLooper()
+//        }
+//
         if currentIndex!+1 < songs!.count{
             currentIndex =  currentIndex! + 1
+            progressView.progress = 0.0
             playButton.setImage(UIImage(systemName: "pause.fill"), for: .normal)
             playsongViewModel.play(songSource: songs![currentIndex!].source, shouldLoop: isLooping) { time, duration in
                 self.starTimeLabel.text = String(format: "%0.0f", floor(time/60)) + "." + String(format: "%0.0f", time.truncatingRemainder(dividingBy: 60))
@@ -104,9 +109,13 @@ class PlaySongViewController: UIViewController {
     
     @IBAction func playPreviousSong(_ sender: UIButton) {
         //MediaPlayerManager.shared.stopMedia()
-        progressView.progress = 0.0
+//        if isLooping{
+//            removeFromLooper()
+//        }
+       
         if currentIndex != 0{
             currentIndex = currentIndex! - 1
+            progressView.progress = 0.0
             playButton.setImage(UIImage(systemName: "pause.fill"), for: .normal)
             playsongViewModel.play(songSource: songs![currentIndex!].source, shouldLoop: isLooping) { time, duration in
                 self.starTimeLabel.text = String(format: "%0.0f", floor(time/60)) + "." + String(format: "%0.0f", time.truncatingRemainder(dividingBy: 60))
@@ -127,12 +136,40 @@ class PlaySongViewController: UIViewController {
     
     
     @IBAction func loopSong(_ sender: UIButton) {
+        
         isLooping = !isLooping
         if isLooping{
+            playButton.setImage(UIImage(systemName: "pause.fill"), for: .normal)
             loopButton.tintColor = Theme.current.tint
+            
+//            MediaPlayerManager.shared.loopSong() { value in
+//                self.playButton.setImage(UIImage(systemName: "pause.fill"), for: .normal)
+//            }
+            
+            
         }
         else{
-            loopButton.applyThemeToButton()
+            loopButton.tintColor = Theme.current.textColor
+           
+        }
+        MediaPlayerManager.shared.playMedia(songSource: songs![currentIndex!].source, shouldLoop: isLooping) { time, duration in
+            if floor(time) == floor(duration){
+
+                self.playButton.setImage(UIImage(systemName: "play.fill"), for: .normal)
+                self.progressView.progress = 1
+            }
+            
+            if self.playsongViewModel.isPaused(){
+                self.playButton.setImage(UIImage(systemName: "play.fill"), for: .normal)
+            }
+            if self.playsongViewModel.isPlaying(){
+                self.playButton.setImage(UIImage(systemName: "pause.fill"), for: .normal)
+            }
+            
+            self.starTimeLabel.text = String(format: "%0.0f", floor(time/60)) + "." + String(format: "%0.0f", time.truncatingRemainder(dividingBy: 60))
+            self.endTimeLabel.text = String(format: "%0.0f", floor(duration/60)) + "." + String(format: "%0.0f", duration.truncatingRemainder(dividingBy: 60))
+            self.progressView.progress = Float(time)/Float(duration)
+            print(time)
         }
 //        playsongViewModel.play(songSource: songs![currentIndex!].source, shouldLoop: isLooping) { time, duration in
 //            if floor(time) == floor(duration){
@@ -152,9 +189,7 @@ class PlaySongViewController: UIViewController {
 //
 //        }
         
-        MediaPlayerManager.shared.loopSong(shouldLoop: isLooping) { value in
-            print(value)
-        }
+       
         
     }
     
@@ -211,6 +246,11 @@ class PlaySongViewController: UIViewController {
 //        playButton.clipsToBounds = true
 //        playButton.contentMode = .center
 //        playButton.imageView?.contentMode = .scaleAspectFit
+    }
+    func removeFromLooper(){
+        MediaPlayerManager.shared.removeFromLooper()
+        loopButton.applyThemeToButton()
+        
     }
     
 }

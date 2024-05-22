@@ -30,9 +30,7 @@ class MediaPlayerManager{
   
         let url = URL(string: songSource)
         playerItem = AVPlayerItem(url: url!)
-        
-        //audioPlayer?.actionAtItemEnd = .pause
-        
+                
         if audioPlayer == nil {
             audioPlayer = AVQueuePlayer(playerItem: playerItem)
             
@@ -41,14 +39,18 @@ class MediaPlayerManager{
             audioPlayer!.replaceCurrentItem(with: playerItem)
             
         }
-        
-//        if shouldLoop{
-//            playLooper = AVPlayerLooper(player: audioPlayer!, templateItem: playerItem!)}
-//        else{
-//            playLooper?.disableLooping()
-//        }
+        if shouldLoop{
+            playLooper = AVPlayerLooper(player: audioPlayer!, templateItem: playerItem!)
+            print(playLooper?.loopingPlayerItems.count)
+        }
+        else{
+     
+            playLooper?.disableLooping()
+         
+        }
         
         audioPlayer?.play()
+        
         let interval = CMTime(seconds: 1,
                               preferredTimescale: CMTimeScale(NSEC_PER_SEC))
         
@@ -65,14 +67,19 @@ class MediaPlayerManager{
     }
 
     func playBackToBack(songList: [SongRealm]){
+        playerItemList.removeAll()
         for song in songList{
             let url = URL(string: song.source)
-            let playerItem = AVPlayerItem(url: url!)
-            playerItemList.append(playerItem)
+         playerItem = AVPlayerItem(url: url!)
+            playerItemList.append(playerItem!)
      
         }
         
+        if audioPlayer ==  nil{
         audioPlayer = AVQueuePlayer(items: playerItemList)
+        }else{
+            audioPlayer?.replaceCurrentItem(with: playerItem)
+        }
         audioPlayer?.actionAtItemEnd = .advance
         
         audioPlayer?.play()
@@ -80,22 +87,26 @@ class MediaPlayerManager{
     }
     
     
-    func loopSong(shouldLoop: Bool, onComplete: @escaping (Bool) -> Void){
+    func loopSong(onComplete: @escaping (Bool) -> Void){
         
-        if let player = audioPlayer, let playerItem = playerItem{
-           pauseMedia()
-            if shouldLoop{
-                playLooper = AVPlayerLooper(player: player, templateItem: playerItem)
-                onComplete(true)
+
+        if let player = audioPlayer, let item = playerItem {
+            if player == nil {
+                audioPlayer = AVQueuePlayer(playerItem: playerItem)
+                
+                
+            }else{
+                audioPlayer!.replaceCurrentItem(with: playerItem)
+                
             }
             
-            else{
-                playLooper?.disableLooping()
-                onComplete(false)
-            }
+        playLooper = AVPlayerLooper(player: player, templateItem: item)
+            player.seek(to: (player.currentItem?.currentTime())!)
+            player.play()
+                onComplete(true)
         }
         
-        
+    
     }
     
     func mediaIsPlaying() -> Bool{
@@ -107,11 +118,7 @@ class MediaPlayerManager{
         return audioPlayer?.timeControlStatus == .paused
     }
     
-    func mediaIsStopped() {
-        
-    }
-    
-    
+   
     func pauseMedia(){
         
         if mediaIsPlaying(){
@@ -130,37 +137,16 @@ class MediaPlayerManager{
     
     func stopMedia(){
         audioPlayer = nil
-        //audioPlayer?.replaceCurrentItem(with: nil)
+        audioPlayer?.replaceCurrentItem(with: nil)
         playLooper = nil
-        
+        //audioPlayer?.removeAllItems()
+        //audioPlayer?.remove(playerItem!)
         
     }
     
-    func updateUI(using: @escaping (Double) -> Void){
-        let interval = CMTime(seconds: 1,
-                              preferredTimescale: CMTimeScale(NSEC_PER_SEC))
+    func removeFromLooper(){
+       
         
-        audioPlayer?.addPeriodicTimeObserver(forInterval: interval, queue: .main, using: { time in
-            using(time.seconds)
-        })
-    }
-    
-    func totalDuration() -> Double{
-        return (audioPlayer?.currentItem?.duration.seconds)!
-    }
-    
-    
-    func addToLooper(currentIndex: Int, shouldLoop: Bool){
-        
-        if shouldLoop{
-            playLooper = AVPlayerLooper(player: audioPlayer!, templateItem: playerItemList[currentIndex])
-//            onComplete(true)
-        }
-        
-        else{
-            playLooper?.disableLooping()
-//            onComplete(false)
-        }
         
     }
     
@@ -195,4 +181,12 @@ class MediaPlayerManager{
         
     }
     
+    func addToLooper(songSource: String, currentIndex: Int, shouldLoop: Bool){
+         
+        if let player = audioPlayer, let item = playerItem{
+        playLooper = AVPlayerLooper(player: player, templateItem: item)
+        }
+       
+         
+     }
 }
