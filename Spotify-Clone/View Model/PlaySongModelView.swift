@@ -79,13 +79,6 @@ class  PlaySongViewModel{
         MediaPlayerManager.shared.resumeMedia()
     }
     
-    func updateUI(using: @escaping (Double) -> Void){
-        MediaPlayerManager.shared.updateUI(using: using)
-    }
-   
-    func playerItemList(songs: [SongRealm]){
-        
-    }
     
     func playBackToBack(songList: [SongRealm]){
         MediaPlayerManager.shared.playBackToBack(songList: songList)

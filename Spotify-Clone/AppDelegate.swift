@@ -28,9 +28,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
        Theme.current = UserDefaults.standard.bool(forKey: "DarkTheme") ? DarkTheme() : LightTheme()
         UserDefaults.standard.set("V", forKey: "last searched")
         
-        
-       
-        
         return true
     }
  

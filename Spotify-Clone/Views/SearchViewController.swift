@@ -81,9 +81,7 @@ class SearchViewController: UIViewController {
         songNameLabel.applyThemeToLable()
         searchLabel.applyThemeToLable()
         yourSearchLabel.applyThemeToLable()
-//        forYouLabel.textColor = Theme.current.textColor
-//        
-//        trendingLabel.textColor = Theme.current.textColor
+
 
     }
     

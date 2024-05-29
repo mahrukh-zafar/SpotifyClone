@@ -12,11 +12,9 @@ class HomeViewModel{
     
     private var artistList = [ArtistRealm]()
     
-    func refresh() {
+    func refresh(onComplete: @escaping () -> Void) {
   
-        FirebaseManager.shared.getArtists(onComplete: {
-            
-        })
+        FirebaseManager.shared.getArtists(onComplete: onComplete)
     }
    
     func  loadArtists() {

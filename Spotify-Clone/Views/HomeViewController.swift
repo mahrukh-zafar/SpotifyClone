@@ -44,11 +44,11 @@ class HomeViewController : UIViewController{
     }
   
     @IBAction func refreshButtonPressed(_ sender: UIButton) {
-        print("clicked")
         
-        self.performSegue(withIdentifier: "unwindToStartScreen", sender: self)
-
-//        homeViewModel.refresh()
+        homeViewModel.refresh { [self] in
+            trendingVC.reloadData()
+            forYouCV.reloadData()
+        }
 //        forYouCV.reloadData()
 //        trendingVC.reloadData()
         
