@@ -113,8 +113,13 @@ class PlaylistViewController: UIViewController {
         playlistCV.dataSource = self
     }
     func setFavButton(){
+        guard let artist = artistRealm else{
+            return
+        }
         favButton.tintColor = Theme.current.error
-        if let fav = playListViewModel.isFavorite(artistName: artistRealm!.name){
+        
+        
+        if let fav = playListViewModel.isFavorite(artistName: artist.name){
             if fav{
                 favButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
                 
@@ -154,18 +159,12 @@ extension PlaylistViewController : UICollectionViewDelegate, UICollectionViewDat
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "playlistCell", for: indexPath) as! PlayListCollectionViewCell
         
-        cell.songName.text = songs[indexPath.row].name
+        let songName = songs[indexPath.row].name.capitalizingFirstLetter()
+        cell.songName.text = songName
         cell.songName.applyThemeToLable()
         
         cell.artistImage.sd_setImage(with: URL(string: (songs[indexPath.row].url)), placeholderImage: UIImage(named: "placeholder.png"))
-        
-        //        playListViewModel.getImage(imageUrl: songs[indexPath.row].url) { data in
-        //            DispatchQueue.main.async{
-        //                cell.artistImage.image = UIImage(data: data)
-        //            }
-        //
-        //        }
-        
+    
         return cell
     }
     

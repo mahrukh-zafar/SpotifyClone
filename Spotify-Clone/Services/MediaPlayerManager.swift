@@ -32,23 +32,26 @@ class MediaPlayerManager{
         let url = URL(string: songSource)
         playerItem = AVPlayerItem(url: url!)
         
+       
+        
         if audioPlayer == nil {
             audioPlayer = AVQueuePlayer(playerItem: playerItem)
             
-            
+
         }else{
             audioPlayer!.replaceCurrentItem(with: playerItem)
-            
+
         }
-        if shouldLoop{
-            playLooper = AVPlayerLooper(player: audioPlayer!, templateItem: playerItem!)
-            print(playLooper?.loopingPlayerItems.count)
-        }
-        else{
-            
-            playLooper?.disableLooping()
-            
-        }
+        audioPlayer?.actionAtItemEnd = .advance
+//        if shouldLoop{
+//            playLooper = AVPlayerLooper(player: audioPlayer!, templateItem: playerItem!)
+//            print(playLooper?.loopingPlayerItems.count)
+//        }
+//        else{
+//            
+//            playLooper?.disableLooping()
+//           
+//        }
         
         audioPlayer?.play()
         
@@ -67,6 +70,10 @@ class MediaPlayerManager{
         
     }
     
+    func playAtRate(playingRate : Float){
+        audioPlayer?.playImmediately(atRate: playingRate)
+    }
+    
     func playBackToBack(songList: [SongRealm]){
         makePlayerItems(songList: songList)
         
@@ -79,6 +86,7 @@ class MediaPlayerManager{
         
         audioPlayer?.play()
         
+        print(audioPlayer?.currentItem)
     }
     
     
@@ -108,10 +116,20 @@ class MediaPlayerManager{
     
     func stopMedia(){
         audioPlayer = nil
-        audioPlayer?.replaceCurrentItem(with: nil)
+        //audioPlayer?.replaceCurrentItem(with: nil)
         playLooper = nil
         
     }
     
+    func addToLooper(){
+        guard let player = audioPlayer, let item = playerItem else{return}
+        playLooper = AVPlayerLooper(player: player, templateItem: item)
+        
+    }
     
+    func removeFromLooper(){
+        guard let looper = playLooper else{return }
+      looper.disableLooping()
+        
+    }
 }

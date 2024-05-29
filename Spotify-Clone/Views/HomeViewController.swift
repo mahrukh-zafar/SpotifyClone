@@ -45,6 +45,8 @@ class HomeViewController : UIViewController{
   
     
     @IBAction func settingsButtonPressed(_ sender: UIButton) {
+        
+        print("I am clicked")
         let settingsViewController = SettingsViewController()
         self.navigationController?.pushViewController(settingsViewController, animated: true)
         
@@ -80,7 +82,7 @@ extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSou
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let artistList = homeViewModel.getArtists()
         
-        if collectionView == forYouCV {
+   if collectionView == forYouCV {
             
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseableCellIdentifier, for: indexPath) as! CustomCollectionViewCell
        

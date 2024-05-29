@@ -9,12 +9,11 @@ import UIKit
 
 class SearchViewController: UIViewController {
 
-    
-    @IBOutlet weak var searchStackView: UIStackView!
     @IBOutlet weak var searchLabel: UILabel!
     
+    @IBOutlet weak var searchVC: UICollectionView!
     @IBOutlet weak var notFoundLabel: UILabel!
-    @IBOutlet weak var songNameLabel: UILabel!
+   
     
     @IBOutlet weak var searchedArtistImage: UIImageView!
     @IBOutlet weak var artistnameLabel: UILabel!
@@ -24,32 +23,33 @@ class SearchViewController: UIViewController {
     @IBOutlet weak var searchTextField: UITextField!
     
     var searchViewModel = SearchViewModel()
-  
+  var searchArtistList = [ArtistRealm]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-      
+        searchVC.register(UINib(nibName:"PlayListCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "playlistCell")
+        searchVC.delegate = self
+        searchVC.dataSource = self
         searchTextField.delegate = self
-        
-        searchStackView.isUserInteractionEnabled = true
-        let fGuesture = UITapGestureRecognizer(target: self, action: #selector(showF(sender:)))
-        searchStackView.addGestureRecognizer(fGuesture)
-        
+               
        
         searchTextField.leftViewMode = .always
         let imageView = UIImageView(image: UIImage(systemName: "magnifyingglass"))
+        
+        imageView.frame = CGRect(x: 8, y: searchTextField.frame.height/3, width: 16, height: 16)
+        let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 20, height: searchTextField.frame.height))
+        paddingView.addSubview(imageView)
         imageView.tintColor = .black
-        searchTextField.leftView = imageView
-        
-        
+        searchTextField.leftView = paddingView
+       
         searchViewModel.getArtists()
         
-        let lastSearched = UserDefaults.standard.string(forKey: "last searched")
+        //let lastSearched = UserDefaults.standard.string(forKey: "last searched")
         
-        if let artist = searchViewModel.search(searchString: lastSearched!){
-    setSearchedArtist(artist: artist, searchString: lastSearched!)
-            
-        }
+//        if let lastSearched = UserDefaults.standard.string(forKey: "last searched"), let artist = searchViewModel.search(searchString: lastSearched){
+//    setSearchedArtist(artist: artist, searchString: lastSearched)
+//
+//        }
         //searchedArtist = searchViewModel.search(searchString: lastSearched!)!
         
         
@@ -66,23 +66,15 @@ class SearchViewController: UIViewController {
         applyTheme()
         
     }
-    @objc func showF(sender: AnyObject){
 
-        let playListViewController = PlaylistViewController()
-
-        playListViewController.artistRealm = searchViewModel.getLastSearched()
-
-        self.navigationController?.pushViewController(playListViewController, animated: true)
-       }
     
     func applyTheme(){
         view.backgroundColor = Theme.current.background
-        artistnameLabel.applyThemeToLable()
-        songNameLabel.applyThemeToLable()
+        //artistnameLabel.applyThemeToLable()
         searchLabel.applyThemeToLable()
         yourSearchLabel.applyThemeToLable()
         notFoundLabel.applyThemeToLable()
-
+        searchVC.applyThemeToCollectionView()
 
     }
     
@@ -94,14 +86,14 @@ class SearchViewController: UIViewController {
 extension SearchViewController : UITextFieldDelegate{
     func textFieldDidEndEditing(_ textField: UITextField) {
 
-        if let artist = searchViewModel.search(searchString: searchTextField.text!){
-            setSearchedArtist(artist: artist, searchString: searchTextField.text!)
-            notFoundLabel.text = ""
-        }
-        else{
-            if let query = searchTextField.text{
-                notFoundLabel.text = "\(query) not found"}
-        }
+//        if let artist = searchViewModel.search(searchString: searchTextField.text!){
+//            setSearchedArtist(artist: artist, searchString: searchTextField.text!)
+//            notFoundLabel.text = ""
+//        }
+//        else{
+//            if let query = searchTextField.text{
+//                notFoundLabel.text = "\(query) not found"}
+//        }
     
     }
     
@@ -122,13 +114,61 @@ extension SearchViewController : UITextFieldDelegate{
         }
     }
     
-    func setSearchedArtist(artist: ArtistRealm, searchString: String){
-        songNameLabel.text =  artist.songs.first(where: { $0.name.capitalized == searchString.capitalized
-        })?.name
-        
-        artistnameLabel.text = artist.name
-        searchedArtistImage.sd_setImage(with: URL(string: (artist.url)!), placeholderImage: UIImage(named: "placeholder.png"))
+    func textFieldDidChangeSelection(_ textField: UITextField) {
+        if let searchString = searchTextField.text{
+            if searchString != ""{
+            searchArtistList = searchViewModel.liveSearch(searchQuery: searchString)
+            if searchArtistList.isEmpty {
+                notFoundLabel.text = "\(searchString) not found"
+            }
+            else{
+                notFoundLabel.text = ""
+            }
+            
+            }
+            else{
+                searchArtistList.removeAll()
+            }
+            searchVC.reloadData()
+        }
     }
+//
+//    func setSearchedArtist(artist: ArtistRealm, searchString: String){
+//        songNameLabel.text =  artist.songs.first(where: { $0.name.capitalized == searchString.capitalized
+//        })?.name.capitalizingFirstLetter()
+//
+//        artistnameLabel.text = artist.name
+//        searchedArtistImage.sd_setImage(with: URL(string: (artist.url)!), placeholderImage: UIImage(named: "placeholder.png"))
+//    }
 }
 
 
+extension SearchViewController : UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return searchArtistList.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "playlistCell", for: indexPath) as! PlayListCollectionViewCell
+        
+        let songName = searchArtistList[indexPath.row].name.capitalizingFirstLetter()
+        cell.songName.text = songName
+        cell.songName.applyThemeToLable()
+        
+        cell.artistImage.sd_setImage(with: URL(string: (searchArtistList[indexPath.row].url!)), placeholderImage: UIImage(named: "placeholder.png"))
+     
+    
+        return cell
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let collectionViewWidth = collectionView.bounds.width
+        return CGSize(width: collectionViewWidth, height: 80)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 12
+        
+    }
+  
+    
+}

@@ -43,7 +43,6 @@ class SearchViewModel{
     func search( searchString : String)  ->  ArtistRealm?{
        
         if  artists.contains(where: { artist in
-            print(artist.name.contains(searchString))
             print(artist.name.capitalized.contains(searchString.capitalized))
             if artist.name.capitalized == searchString.capitalized{
                 searchedArtist = artist
@@ -65,6 +64,50 @@ class SearchViewModel{
            } else {
                return nil
            }
+    }
+    
+    
+    func liveSearch(searchQuery: String) -> [ArtistRealm]{
+        var search_artists = [ArtistRealm]()
+        
+        
+        for artist in artists {
+            if artist.name.capitalized.contains(searchQuery.capitalized){
+                search_artists.append(artist)
+            }
+            else{
+                for song in artist.songs{
+                    if song.name.capitalized.contains(searchQuery.capitalized){
+                        search_artists.append(artist)
+                    }
+                    else{
+                        if let index = search_artists.firstIndex(of: artist) {
+                            search_artists.remove(at: index)
+                            }
+                    }
+                }
+                
+
+            }
+        }
+        
+//        if artists.contains(where: { artist in
+//            if artist.name.capitalized.contains(searchQuery.capitalized){
+//                search_artists.append(artist)
+//                return true
+//            }
+//            else{
+//                if let index = search_artists.firstIndex(of: artist) {
+//                    search_artists.remove(at: index)
+//                    }
+//                return false
+//            }
+//        }){
+//
+//        }
+        print(search_artists)
+        //search_artists = artists
+       return search_artists
     }
     
     
