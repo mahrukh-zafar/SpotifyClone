@@ -38,7 +38,7 @@ class SearchViewController: UIViewController {
        
         searchTextField.leftViewMode = .always
         let imageView = UIImageView(image: UIImage(systemName: "magnifyingglass"))
-        imageView.tintColor = Theme.current.textColor
+        imageView.tintColor = .black
         searchTextField.leftView = imageView
         
         
@@ -81,6 +81,7 @@ class SearchViewController: UIViewController {
         songNameLabel.applyThemeToLable()
         searchLabel.applyThemeToLable()
         yourSearchLabel.applyThemeToLable()
+        notFoundLabel.applyThemeToLable()
 
 
     }

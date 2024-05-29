@@ -130,7 +130,7 @@ class FirebaseManager{
                     
                     do{
                         
-                        try! RealmManager.shared.save(artistRealm)
+                        try RealmManager.shared.save(artistRealm)
                         
                         
                     }

@@ -44,7 +44,8 @@ class PlaylistViewController: UIViewController {
     
     @IBAction func favButtonPressed(_ sender: UIButton) {
         
-        if let fav =  playListViewModel.isFavorite(artistName: artistRealm!.name){
+        guard let artist = artistRealm else{return}
+        if let fav =  playListViewModel.isFavorite(artistName: artist.name){
             if !fav{
                 playListViewModel.favorite(artistRealm!)
             }else{

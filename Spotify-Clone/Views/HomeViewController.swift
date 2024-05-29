@@ -25,7 +25,7 @@ class HomeViewController : UIViewController{
     @IBOutlet weak var forYouLabel: UILabel!
 
     @IBOutlet weak var settingsButton: UIButton!
-    @IBOutlet weak var refreshButton: UIButton!
+   
     
     override func viewDidLoad() {
     
@@ -43,16 +43,6 @@ class HomeViewController : UIViewController{
         applyTheme()
     }
   
-    @IBAction func refreshButtonPressed(_ sender: UIButton) {
-        
-        homeViewModel.refresh { [self] in
-            trendingVC.reloadData()
-            forYouCV.reloadData()
-        }
-//        forYouCV.reloadData()
-//        trendingVC.reloadData()
-        
-    }
     
     @IBAction func settingsButtonPressed(_ sender: UIButton) {
         let settingsViewController = SettingsViewController()
@@ -64,11 +54,13 @@ class HomeViewController : UIViewController{
         forYouCV.applyThemeToCollectionView()
         trendingVC.applyThemeToCollectionView()
         forYouLabel.applyThemeToLable()
-        refreshButton.applyThemeToButton()
+       
         trendingLabel.applyThemeToLable()
         settingsButton.applyThemeToButton()
         navigationController?.navigationBar.applyThemeToNavBar()
-     
+        tabBarController?.tabBar.tintColor = Theme.current.textColor
+        forYouCV.reloadData()
+        trendingVC.reloadData()
     }
     
     func navigateToPlaylistScreen(artist : ArtistRealm){
