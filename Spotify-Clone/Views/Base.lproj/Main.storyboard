@@ -251,28 +251,14 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="GIp-xr-oqj" userLabel="Settings HSV">
-                                                        <rect key="frame" x="602.5" y="0.0" width="109.5" height="31"/>
-                                                        <subviews>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5e0-xz-UuT" userLabel="history">
-                                                                <rect key="frame" x="0.0" y="0.0" width="42.5" height="31"/>
-                                                                <state key="normal" title="Button"/>
-                                                                <buttonConfiguration key="configuration" style="plain" image="arrow.clockwise" catalog="system"/>
-                                                                <connections>
-                                                                    <action selector="refreshButtonPressed:" destination="qlP-Lr-qe4" eventType="touchUpInside" id="uWQ-eU-ulW"/>
-                                                                    <segue destination="Ckq-Cn-LxE" kind="unwind" identifier="unwindToStartScreen" unwindAction="unwindToViewControllerWithSegue:" id="cXY-Dy-AfM"/>
-                                                                </connections>
-                                                            </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kg1-Ui-2wf" userLabel="settings">
-                                                                <rect key="frame" x="58.5" y="0.0" width="51" height="31"/>
-                                                                <state key="normal" title="Button"/>
-                                                                <buttonConfiguration key="configuration" style="plain" image="gearshape.2" catalog="system"/>
-                                                                <connections>
-                                                                    <action selector="settingsButtonPressed:" destination="qlP-Lr-qe4" eventType="touchUpInside" id="hyB-OW-zxC"/>
-                                                                </connections>
-                                                            </button>
-                                                        </subviews>
-                                                    </stackView>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kg1-Ui-2wf" userLabel="settings">
+                                                        <rect key="frame" x="661" y="0.0" width="51" height="31"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain" image="gearshape.2" catalog="system"/>
+                                                        <connections>
+                                                            <action selector="settingsButtonPressed:" destination="qlP-Lr-qe4" eventType="touchUpInside" id="hyB-OW-zxC"/>
+                                                        </connections>
+                                                    </button>
                                                 </subviews>
                                             </stackView>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="xGY-cO-LEz">
@@ -301,7 +287,7 @@
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bR6-Ja-MdN">
                                                                     <rect key="frame" x="84.5" y="207.5" width="31" height="14.5"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                             </subviews>
@@ -337,7 +323,7 @@
                                             </label>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="V1u-mq-cFJ">
                                                 <rect key="frame" x="0.0" y="255" width="712" height="150"/>
-                                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="150" id="Jnh-yo-PPj"/>
                                                 </constraints>
@@ -361,7 +347,7 @@
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6wt-UF-iYT">
                                                                     <rect key="frame" x="98.5" y="216.5" width="31" height="14.5"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                             </subviews>
@@ -414,14 +400,12 @@
                     <connections>
                         <outlet property="forYouCV" destination="xGY-cO-LEz" id="Vrc-s8-RVR"/>
                         <outlet property="forYouLabel" destination="t9v-QU-5KP" id="xhk-RY-M9v"/>
-                        <outlet property="refreshButton" destination="5e0-xz-UuT" id="n8v-ix-8xw"/>
                         <outlet property="settingsButton" destination="Kg1-Ui-2wf" id="sQd-mr-8xc"/>
                         <outlet property="trendingLabel" destination="6VQ-or-dz8" id="SFe-oP-fkr"/>
                         <outlet property="trendingVC" destination="V1u-mq-cFJ" id="RsJ-ki-MCd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JRQ-td-71o" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <exit id="Ckq-Cn-LxE" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="3629.0322580645161" y="126.3018534863195"/>
         </scene>
@@ -449,7 +433,6 @@
         <image name="Ed Sheeran" width="170" height="172"/>
         <image name="Google" width="30" height="30"/>
         <image name="Spotify Logo" width="107" height="107"/>
-        <image name="arrow.clockwise" catalog="system" width="115" height="128"/>
         <image name="gearshape.2" catalog="system" width="128" height="100"/>
         <image name="house" catalog="system" width="128" height="106"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>

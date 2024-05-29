@@ -12,12 +12,12 @@ class PlayListCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var artistImage: UIImageView!
     
     @IBOutlet weak var songName: UILabel!
-    
-    @IBOutlet weak var menuButton: UIButton!
+ 
+    @IBOutlet weak var nextButtonImage: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
-        menuButton.applyThemeToButton()
-        // Initialization code
+        nextButtonImage.tintColor = Theme.current.textColor
+      
     }
     
     

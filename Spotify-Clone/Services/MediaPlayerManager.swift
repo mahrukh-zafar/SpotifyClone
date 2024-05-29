@@ -109,7 +109,7 @@ class MediaPlayerManager{
     func stopMedia(){
         audioPlayer = nil
         audioPlayer?.replaceCurrentItem(with: nil)
-        //playLooper = nil
+        playLooper = nil
         
     }
     
