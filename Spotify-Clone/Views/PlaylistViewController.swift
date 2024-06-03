@@ -38,7 +38,7 @@ class PlaylistViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-    setPlayButton(name: "play.fill")
+        setPlayButton(name: "play.fill")
     }
     
     
@@ -88,7 +88,7 @@ class PlaylistViewController: UIViewController {
     
     func configurations(){
         navigationController?.navigationItem.backBarButtonItem?.image = UIImage(systemName: "chevron.backward")
-       
+        
         setPlaylistCV()
         
         if let artist = artistRealm{
@@ -113,8 +113,13 @@ class PlaylistViewController: UIViewController {
         playlistCV.dataSource = self
     }
     func setFavButton(){
+        guard let artist = artistRealm else{
+            return
+        }
         favButton.tintColor = Theme.current.error
-        if let fav = playListViewModel.isFavorite(artistName: artistRealm!.name){
+        
+        
+        if let fav = playListViewModel.isFavorite(artistName: artist.name){
             if fav{
                 favButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
                 
@@ -136,11 +141,11 @@ class PlaylistViewController: UIViewController {
     func setPlayButton(name: String){
         playButton.setImage(UIImage(systemName: name), for: .normal)
         playButton.tintColor = .white
-                playButton.backgroundColor = .systemGreen
-                playButton.layer.cornerRadius = playButton.frame.height / 2
-                playButton.clipsToBounds = true
-                playButton.contentMode = .center
-                playButton.imageView?.contentMode = .scaleAspectFit
+        playButton.backgroundColor = .systemGreen
+        playButton.layer.cornerRadius = playButton.frame.height / 2
+        playButton.clipsToBounds = true
+        playButton.contentMode = .center
+        playButton.imageView?.contentMode = .scaleAspectFit
         
     }
     
@@ -154,17 +159,11 @@ extension PlaylistViewController : UICollectionViewDelegate, UICollectionViewDat
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "playlistCell", for: indexPath) as! PlayListCollectionViewCell
         
-        cell.songName.text = songs[indexPath.row].name
+        let songName = songs[indexPath.row].name.capitalizingFirstLetter()
+        cell.songName.text = songName
         cell.songName.applyThemeToLable()
         
         cell.artistImage.sd_setImage(with: URL(string: (songs[indexPath.row].url)), placeholderImage: UIImage(named: "placeholder.png"))
-        
-        //        playListViewModel.getImage(imageUrl: songs[indexPath.row].url) { data in
-        //            DispatchQueue.main.async{
-        //                cell.artistImage.image = UIImage(data: data)
-        //            }
-        //
-        //        }
         
         return cell
     }
@@ -182,7 +181,7 @@ extension PlaylistViewController : UICollectionViewDelegate, UICollectionViewDat
         return 12
         
     }
-
+    
 }
 
 

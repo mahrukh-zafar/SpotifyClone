@@ -8,11 +8,5 @@
 import Foundation
 import UIKit
 class TabBarController : UITabBarController{
-    
-  
-//    override func viewWillAppear(_ animated: Bool) {
-//        tabBar.tintColor = Theme.current.textColor
-//        view.backgroundColor = Theme.current.background
-//    }
-    
+
 }

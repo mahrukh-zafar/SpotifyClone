@@ -23,7 +23,7 @@ class GetStartedViewController: UIViewController{
     @IBOutlet weak var loginButton: UIButton!
     
     @IBOutlet weak var freeSpotifyLabel: UILabel!
-
+    
     @IBOutlet weak var signUpButton: UIButton!
     let loginViewModel = AuthenticationViewModel()
     
@@ -64,12 +64,6 @@ class GetStartedViewController: UIViewController{
             }
         }
     }
-    
-    @IBAction func unwindToViewController(segue: UIStoryboardSegue) {
-        print("segue performed")
-
-    }
-    
     
     @IBAction func signUpButtonPressed(_ sender: UIButton) {
         let signUpViewController = SignUpViewController()

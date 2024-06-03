@@ -15,7 +15,7 @@ class SettingsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         applyTheme()
-        themeSwitch.isOn = UserDefaults.standard.bool(forKey: "DarkTheme")
+        
     }
     
     
@@ -32,7 +32,7 @@ class SettingsViewController: UIViewController {
         let navigationController = UINavigationController(rootViewController: vc)
         UIApplication.shared.windows.first?.rootViewController = navigationController
         UIApplication.shared.windows.first?.makeKeyAndVisible()
-      
+        
     }
     
     func applyTheme(){
@@ -40,6 +40,7 @@ class SettingsViewController: UIViewController {
         themeLabel.applyThemeToLable()
         navigationController?.navigationBar.applyThemeToNavBar()
         signOutBtn.applyThemeToButton()
+        themeSwitch.isOn = UserDefaults.standard.bool(forKey: "DarkTheme")
         
     }
     

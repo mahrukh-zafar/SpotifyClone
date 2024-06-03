@@ -11,8 +11,8 @@ import Alamofire
 
 
 class HomeViewController : UIViewController{
-
-   
+    
+    
     let homeViewModel = HomeViewModel()
     
     @IBOutlet weak var forYouCV: UICollectionView!
@@ -23,28 +23,30 @@ class HomeViewController : UIViewController{
     
     @IBOutlet weak var trendingLabel: UILabel!
     @IBOutlet weak var forYouLabel: UILabel!
-
+    
     @IBOutlet weak var settingsButton: UIButton!
-   
+    
     
     override func viewDidLoad() {
-    
+        
         trendingVC.delegate = self
         trendingVC.dataSource = self
         
         forYouCV.delegate = self
         forYouCV.dataSource = self
-
+        
         homeViewModel.loadArtists()
-       
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         applyTheme()
     }
-  
+    
     
     @IBAction func settingsButtonPressed(_ sender: UIButton) {
+        
+        print("I am clicked")
         let settingsViewController = SettingsViewController()
         self.navigationController?.pushViewController(settingsViewController, animated: true)
         
@@ -54,7 +56,7 @@ class HomeViewController : UIViewController{
         forYouCV.applyThemeToCollectionView()
         trendingVC.applyThemeToCollectionView()
         forYouLabel.applyThemeToLable()
-       
+        
         trendingLabel.applyThemeToLable()
         settingsButton.applyThemeToButton()
         navigationController?.navigationBar.applyThemeToNavBar()
@@ -64,11 +66,11 @@ class HomeViewController : UIViewController{
     }
     
     func navigateToPlaylistScreen(artist : ArtistRealm){
-         let playlistViewController = PlaylistViewController()
+        let playlistViewController = PlaylistViewController()
         playlistViewController.artistRealm = artist
         self.navigationController?.pushViewController(playlistViewController, animated: true)
     }
-
+    
 }
 
 extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSource{
@@ -83,13 +85,13 @@ extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSou
         if collectionView == forYouCV {
             
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseableCellIdentifier, for: indexPath) as! CustomCollectionViewCell
-       
+            
             cell.label.text = artistList[indexPath.row].name
             cell.image.sd_setImage(with: URL(string: (artistList[indexPath.row].url)!), placeholderImage: UIImage(named: "placeholder.png"))
             cell.label.applyThemeToLable()
             
             return cell
-           
+            
         }
         else{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: trendingIdentifier, for: indexPath) as! CustomCollectionViewCell
@@ -104,6 +106,6 @@ extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSou
         let artistList = homeViewModel.getArtists()
         navigateToPlaylistScreen(artist: artistList[indexPath.row])
     }
-
-   
+    
+    
 }

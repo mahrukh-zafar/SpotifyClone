@@ -10,9 +10,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PlaySongViewController" customModule="Spotify_Clone" customModuleProvider="target">
             <connections>
+                <outlet property="backwordButton" destination="vNb-dc-gbc" id="Xcn-DS-QRo"/>
                 <outlet property="endTimeLabel" destination="Ran-Ep-ur0" id="Jl3-hV-eZO"/>
                 <outlet property="favButton" destination="6Si-dU-v2Z" id="BND-U4-aJx"/>
-                <outlet property="loopButton" destination="kRb-i2-QU0" id="LEz-BX-oo8"/>
+                <outlet property="forwardButton" destination="kRb-i2-QU0" id="dEU-9E-p6L"/>
+                <outlet property="loopButton" destination="NC8-G4-A0v" id="YLq-F2-ayO"/>
                 <outlet property="nextButton" destination="ike-yh-NoI" id="chr-Nh-3nE"/>
                 <outlet property="playButton" destination="vPF-CP-jWy" id="2PP-AK-O93"/>
                 <outlet property="prevButton" destination="Zwq-Wj-peu" id="Az1-gP-zRv"/>
@@ -41,18 +43,30 @@
                                     </constraints>
                                 </imageView>
                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="A7B-Ks-dUg">
-                                    <rect key="frame" x="0.0" y="316" width="382" height="20.5"/>
+                                    <rect key="frame" x="0.0" y="316" width="382" height="40"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="song name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RAP-bd-KHt">
-                                            <rect key="frame" x="0.0" y="0.0" width="382" height="20.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="84" height="40"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Si-dU-v2Z" userLabel="favButton">
+                                            <rect key="frame" x="342" y="0.0" width="40" height="40"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="40" id="P8w-KH-8Th"/>
+                                                <constraint firstAttribute="height" constant="40" id="oNU-wk-dL2"/>
+                                            </constraints>
+                                            <state key="normal" title="Button"/>
+                                            <buttonConfiguration key="configuration" style="plain" image="heart" catalog="system"/>
+                                            <connections>
+                                                <action selector="favButtonPressed:" destination="-1" eventType="touchUpInside" id="Yhz-Di-oVs"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                 </stackView>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="aDZ-6a-bJA">
-                                    <rect key="frame" x="0.0" y="352.5" width="382" height="32.5"/>
+                                    <rect key="frame" x="0.0" y="372" width="382" height="32.5"/>
                                     <subviews>
                                         <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="10N-eQ-f7w">
                                             <rect key="frame" x="0.0" y="0.0" width="382" height="8"/>
@@ -80,18 +94,26 @@
                                     </subviews>
                                 </stackView>
                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="rcj-aU-QJH">
-                                    <rect key="frame" x="0.0" y="401" width="382" height="40"/>
+                                    <rect key="frame" x="0.0" y="420.5" width="382" height="40"/>
                                     <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Si-dU-v2Z" userLabel="favButton">
-                                            <rect key="frame" x="0.0" y="0.0" width="45.5" height="40"/>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NC8-G4-A0v">
+                                            <rect key="frame" x="0.0" y="0.0" width="56.5" height="40"/>
                                             <state key="normal" title="Button"/>
-                                            <buttonConfiguration key="configuration" style="plain" image="heart" catalog="system"/>
+                                            <buttonConfiguration key="configuration" style="plain" title="Loop"/>
                                             <connections>
-                                                <action selector="favButtonPressed:" destination="-1" eventType="touchUpInside" id="Yhz-Di-oVs"/>
+                                                <action selector="loopSong:" destination="-1" eventType="touchUpInside" id="eK2-mW-GAO"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vNb-dc-gbc" userLabel="backward">
+                                            <rect key="frame" x="75" y="0.0" width="50.5" height="40"/>
+                                            <state key="normal" title="Button"/>
+                                            <buttonConfiguration key="configuration" style="plain" image="backward.fill" catalog="system"/>
+                                            <connections>
+                                                <action selector="backwardButtonPressed:" destination="-1" eventType="touchUpInside" id="7e3-pb-3qf"/>
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zwq-Wj-peu" userLabel="previous">
-                                            <rect key="frame" x="84.5" y="0.0" width="45.5" height="40"/>
+                                            <rect key="frame" x="144.5" y="0.0" width="45.5" height="40"/>
                                             <state key="normal" title="Button"/>
                                             <buttonConfiguration key="configuration" style="plain" image="backward.end.fill" catalog="system"/>
                                             <connections>
@@ -99,7 +121,7 @@
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vPF-CP-jWy" userLabel="play">
-                                            <rect key="frame" x="169.5" y="0.0" width="40" height="40"/>
+                                            <rect key="frame" x="208.5" y="0.0" width="40" height="40"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="40" id="Wgf-9a-FOd"/>
                                                 <constraint firstAttribute="height" constant="40" id="ous-gr-Ehb"/>
@@ -111,25 +133,25 @@
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ike-yh-NoI" userLabel="next">
-                                            <rect key="frame" x="248.5" y="0.0" width="45.5" height="40"/>
+                                            <rect key="frame" x="267.5" y="0.0" width="45.5" height="40"/>
                                             <state key="normal" title="Button"/>
                                             <buttonConfiguration key="configuration" style="plain" image="forward.end.fill" catalog="system"/>
                                             <connections>
                                                 <action selector="playNextSong:" destination="-1" eventType="touchUpInside" id="ONW-ks-lBa"/>
                                             </connections>
                                         </button>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kRb-i2-QU0" userLabel="loop">
-                                            <rect key="frame" x="333" y="0.0" width="49" height="40"/>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kRb-i2-QU0" userLabel="forward">
+                                            <rect key="frame" x="331.5" y="0.0" width="50.5" height="40"/>
                                             <state key="normal" title="Button"/>
-                                            <buttonConfiguration key="configuration" style="plain" image="arrow.triangle.2.circlepath" catalog="system"/>
+                                            <buttonConfiguration key="configuration" style="plain" image="forward.fill" catalog="system"/>
                                             <connections>
-                                                <action selector="loopSong:" destination="-1" eventType="touchUpInside" id="rGV-QO-lgI"/>
+                                                <action selector="forwardButtonPressed:" destination="-1" eventType="touchUpInside" id="b5U-Tv-xEL"/>
                                             </connections>
                                         </button>
                                     </subviews>
                                 </stackView>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dvg-yB-Ftz">
-                                    <rect key="frame" x="0.0" y="457" width="382" height="379"/>
+                                    <rect key="frame" x="0.0" y="476.5" width="382" height="359.5"/>
                                 </view>
                             </subviews>
                         </stackView>
@@ -155,9 +177,10 @@
     </objects>
     <resources>
         <image name="Ed Sheeran" width="170" height="172"/>
-        <image name="arrow.triangle.2.circlepath" catalog="system" width="128" height="101"/>
         <image name="backward.end.fill" catalog="system" width="128" height="102"/>
+        <image name="backward.fill" catalog="system" width="128" height="79"/>
         <image name="forward.end.fill" catalog="system" width="128" height="102"/>
+        <image name="forward.fill" catalog="system" width="128" height="79"/>
         <image name="heart" catalog="system" width="128" height="109"/>
         <image name="play.fill" catalog="system" width="116" height="128"/>
         <systemColor name="systemBackgroundColor">

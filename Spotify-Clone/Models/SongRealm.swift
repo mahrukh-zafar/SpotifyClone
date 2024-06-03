@@ -10,12 +10,9 @@ import RealmSwift
 
 class SongRealm : Object{
     
-   @Persisted var name: String = ""
-     @Persisted var  url : String = ""
-     @Persisted var  source : String = ""
-    
-    //var parentArtistRealm = LinkingObjects(fromType: ArtistRealm.self, property: "songs")
+    @Persisted var name: String = ""
+    @Persisted var  url : String = ""
+    @Persisted var  source : String = ""
     @Persisted(originProperty: "songs") var parentArtistRealm: LinkingObjects<ArtistRealm>
-    
     
 }

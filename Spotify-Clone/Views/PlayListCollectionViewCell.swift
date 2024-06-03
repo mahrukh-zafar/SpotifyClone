@@ -17,7 +17,7 @@ class PlayListCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         nextButtonImage.tintColor = Theme.current.textColor
-      
+       
     }
     
     

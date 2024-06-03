@@ -11,14 +11,10 @@ import RealmSwift
 class ArtistRealm : Object{
     
     @Persisted(primaryKey: true)  var name: String = ""
-     @Persisted var  url : String?
-   @Persisted var  createdAt : Double = 0.0
+    @Persisted var  url : String?
+    @Persisted var  createdAt : Double = 0.0
     @Persisted var songs = List<SongRealm>()
-    
-//    override class func primaryKey() -> String? {
-//        return "name"
-//    }
-//
+
 }
 
 
