@@ -24,7 +24,7 @@ class SignUpViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         applyTheme()
-        // Do any additional setup after loading the view.
+        
     }
     func applyTheme(){
         view.backgroundColor = Theme.current.background

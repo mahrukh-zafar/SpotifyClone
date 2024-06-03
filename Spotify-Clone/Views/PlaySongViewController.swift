@@ -19,6 +19,7 @@ class PlaySongViewController: UIViewController {
     var isLooping = false
     
     
+    @IBOutlet weak var loopButton: UIButton!
     @IBOutlet weak var favButton: UIButton!
     @IBOutlet weak var songNameLabel: UILabel!
     
@@ -27,11 +28,11 @@ class PlaySongViewController: UIViewController {
     @IBOutlet weak var playButton: UIButton!
     
     @IBOutlet weak var endTimeLabel: UILabel!
-  
+    
     @IBOutlet weak var backwordButton: UIButton!
     @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var prevButton: UIButton!
- 
+    
     @IBOutlet weak var forwardButton: UIButton!
     @IBOutlet weak var progressView: UIProgressView!
     var currentIndex : Int?
@@ -114,7 +115,7 @@ class PlaySongViewController: UIViewController {
                     self.starTimeLabel.text = String(format: "%0.0f", floor(time/60)) + "." + String(format: "%0.0f", time.truncatingRemainder(dividingBy: 60))
                     self.endTimeLabel.text = String(format: "%0.0f", floor(duration/60)) + "." + String(format: "%0.0f", duration.truncatingRemainder(dividingBy: 60))
                     self.progressView.progress = Float(time)/Float(duration)
-                    print(time)
+                    
                 }
                 setFavoriteButton(song: songs[index+1])
                 songNameLabel.text = songs[index+1].name.capitalizingFirstLetter()
@@ -135,7 +136,7 @@ class PlaySongViewController: UIViewController {
                     self.starTimeLabel.text = String(format: "%0.0f", floor(time/60)) + "." + String(format: "%0.0f", time.truncatingRemainder(dividingBy: 60))
                     self.endTimeLabel.text = String(format: "%0.0f", floor(duration/60)) + "." + String(format: "%0.0f", duration.truncatingRemainder(dividingBy: 60))
                     self.progressView.progress = Float(time)/Float(duration)
-                    print(time)
+                    
                 }
                 setFavoriteButton(song: songs[index-1])
                 songNameLabel.text = songs[index-1].name.capitalizingFirstLetter()
@@ -149,50 +150,49 @@ class PlaySongViewController: UIViewController {
     
     @IBAction func loopSong(_ sender: UIButton) {
         
-//        isLooping = !isLooping
-//        if isLooping{
-//           // playButton.setImage(UIImage(systemName: "pause.fill"), for: .normal)
-//            loopButton.tintColor = Theme.current.tint
-//            MediaPlayerManager.shared.addToLooper()
-//
-//        }
-//        else{
-//            loopButton.tintColor = Theme.current.textColor
-//            MediaPlayerManager.shared.removeFromLooper()
-//
-//        }
-//
-//        if playsongViewModel.isPaused() {
-//            playButton.setImage(UIImage(systemName: "play.fill"), for: .normal)
-//
-//        }else if playsongViewModel.isPlaying(){
-//            playButton.setImage(UIImage(systemName: "pause.fill"), for: .normal)
-//
-//        }
-//        MediaPlayerManager.shared.playMedia(songSource: songs![currentIndex!].source, shouldLoop: isLooping) { time, duration in
-//            if floor(time) == floor(duration){
-//                print("I am here")
-//                self.playButton.setImage(UIImage(systemName: "play.fill"), for: .normal)
-//                self.progressView.progress = 1
-//            }
-//
-//            if self.playsongViewModel.isPaused(){
-//                self.playButton.setImage(UIImage(systemName: "play.fill"), for: .normal)
-//            }
-//            if self.playsongViewModel.isPlaying(){
-//                self.playButton.setImage(UIImage(systemName: "pause.fill"), for: .normal)
-//            }
-//
-//            self.starTimeLabel.text = String(format: "%0.0f", floor(time/60)) + "." + String(format: "%0.0f", time.truncatingRemainder(dividingBy: 60))
-//            self.endTimeLabel.text = String(format: "%0.0f", floor(duration/60)) + "." + String(format: "%0.0f", duration.truncatingRemainder(dividingBy: 60))
-//            self.progressView.progress = Float(time)/Float(duration)
-//            print(time)
-//        }
+        isLooping = !isLooping
+        if isLooping{
+           // playButton.setImage(UIImage(systemName: "pause.fill"), for: .normal)
+            loopButton.tintColor = Theme.current.tint
+            MediaPlayerManager.shared.addToLooper()
+
+        }
+        else{
+            loopButton.tintColor = Theme.current.textColor
+            MediaPlayerManager.shared.removeFromLooper()
+
+        }
+
+        if playsongViewModel.isPaused() {
+            playButton.setImage(UIImage(systemName: "play.fill"), for: .normal)
+
+        }else if playsongViewModel.isPlaying(){
+            playButton.setImage(UIImage(systemName: "pause.fill"), for: .normal)
+
+        }
+        MediaPlayerManager.shared.playMedia(songSource: songs![currentIndex!].source, shouldLoop: isLooping) { time, duration in
+            if floor(time) == floor(duration){
+                print("I am here")
+                self.playButton.setImage(UIImage(systemName: "play.fill"), for: .normal)
+                self.progressView.progress = 1
+            }
+
+            if self.playsongViewModel.isPaused(){
+                self.playButton.setImage(UIImage(systemName: "play.fill"), for: .normal)
+            }
+            if self.playsongViewModel.isPlaying(){
+                self.playButton.setImage(UIImage(systemName: "pause.fill"), for: .normal)
+            }
+
+            self.starTimeLabel.text = String(format: "%0.0f", floor(time/60)) + "." + String(format: "%0.0f", time.truncatingRemainder(dividingBy: 60))
+            self.endTimeLabel.text = String(format: "%0.0f", floor(duration/60)) + "." + String(format: "%0.0f", duration.truncatingRemainder(dividingBy: 60))
+            self.progressView.progress = Float(time)/Float(duration)
+            print(time)
+        }
     }
     
     @IBAction func playButtonPressed(_ sender: UIButton) {
         
-        //progressView.progress = 0.0
         if playsongViewModel.isPaused() {
             playButton.setImage(UIImage(systemName: "pause.fill"), for: .normal)
             playsongViewModel.resume()
@@ -216,7 +216,7 @@ class PlaySongViewController: UIViewController {
                 self.starTimeLabel.text = String(format: "%0.0f", floor(time/60)) + "." + String(format: "%0.0f", time.truncatingRemainder(dividingBy: 60))
                 self.endTimeLabel.text = String(format: "%0.0f", floor(duration/60)) + "." + String(format: "%0.0f", duration.truncatingRemainder(dividingBy: 60))
                 self.progressView.progress = Float(time)/Float(duration)
-                print(time)
+                
                 
             }
         }

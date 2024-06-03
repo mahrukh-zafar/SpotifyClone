@@ -13,7 +13,6 @@ struct  PlayListViewModel{
     func favorite(_ artist: ArtistRealm) {
         let favArtist = FavoriteArtist()
         favArtist.name = artist.name
-        //favArtist.url = artist.url
         favArtist.createdAt = artist.createdAt
         
         do{

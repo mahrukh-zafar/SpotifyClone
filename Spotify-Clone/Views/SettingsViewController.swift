@@ -32,7 +32,7 @@ class SettingsViewController: UIViewController {
         let navigationController = UINavigationController(rootViewController: vc)
         UIApplication.shared.windows.first?.rootViewController = navigationController
         UIApplication.shared.windows.first?.makeKeyAndVisible()
-      
+        
     }
     
     func applyTheme(){

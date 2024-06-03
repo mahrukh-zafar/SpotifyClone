@@ -90,23 +90,7 @@ class SearchViewModel{
 
             }
         }
-        
-//        if artists.contains(where: { artist in
-//            if artist.name.capitalized.contains(searchQuery.capitalized){
-//                search_artists.append(artist)
-//                return true
-//            }
-//            else{
-//                if let index = search_artists.firstIndex(of: artist) {
-//                    search_artists.remove(at: index)
-//                    }
-//                return false
-//            }
-//        }){
-//
-//        }
-        print(search_artists)
-        //search_artists = artists
+
        return search_artists
     }
     

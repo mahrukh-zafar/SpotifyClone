@@ -9,13 +9,13 @@ import UIKit
 
 class CustomCollectionViewCell: UICollectionViewCell {
     
-   
+    
     @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var myimage: UIImageView!
     
     @IBOutlet weak var label: UILabel!
-
+    
     @IBOutlet weak var mylabel: UILabel!
-
+    
     
 }

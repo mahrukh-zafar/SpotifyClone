@@ -38,7 +38,7 @@ class PlaylistViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-    setPlayButton(name: "play.fill")
+        setPlayButton(name: "play.fill")
     }
     
     
@@ -88,7 +88,7 @@ class PlaylistViewController: UIViewController {
     
     func configurations(){
         navigationController?.navigationItem.backBarButtonItem?.image = UIImage(systemName: "chevron.backward")
-       
+        
         setPlaylistCV()
         
         if let artist = artistRealm{
@@ -141,11 +141,11 @@ class PlaylistViewController: UIViewController {
     func setPlayButton(name: String){
         playButton.setImage(UIImage(systemName: name), for: .normal)
         playButton.tintColor = .white
-                playButton.backgroundColor = .systemGreen
-                playButton.layer.cornerRadius = playButton.frame.height / 2
-                playButton.clipsToBounds = true
-                playButton.contentMode = .center
-                playButton.imageView?.contentMode = .scaleAspectFit
+        playButton.backgroundColor = .systemGreen
+        playButton.layer.cornerRadius = playButton.frame.height / 2
+        playButton.clipsToBounds = true
+        playButton.contentMode = .center
+        playButton.imageView?.contentMode = .scaleAspectFit
         
     }
     
@@ -164,7 +164,7 @@ extension PlaylistViewController : UICollectionViewDelegate, UICollectionViewDat
         cell.songName.applyThemeToLable()
         
         cell.artistImage.sd_setImage(with: URL(string: (songs[indexPath.row].url)), placeholderImage: UIImage(named: "placeholder.png"))
-    
+        
         return cell
     }
     
@@ -181,7 +181,7 @@ extension PlaylistViewController : UICollectionViewDelegate, UICollectionViewDat
         return 12
         
     }
-
+    
 }
 
 

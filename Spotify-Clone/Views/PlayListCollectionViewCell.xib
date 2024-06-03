@@ -19,7 +19,7 @@
                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="top" spacing="75" translatesAutoresizingMaskIntoConstraints="NO" id="gEI-wB-vNa" userLabel="Parent SV">
                         <rect key="frame" x="0.0" y="0.0" width="654" height="169"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleAspectFill" distribution="fillEqually" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Ztb-1d-FpN">
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Ztb-1d-FpN">
                                 <rect key="frame" x="0.0" y="0.0" width="348" height="169"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Ed Sheeran" translatesAutoresizingMaskIntoConstraints="NO" id="aSC-NS-qsu">

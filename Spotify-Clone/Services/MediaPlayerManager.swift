@@ -15,6 +15,7 @@ class MediaPlayerManager{
     var playLooper : AVPlayerLooper?
     var playerItem : AVPlayerItem?
     var playerItemList = [AVPlayerItem]()
+    var loop = false
     
     
     func makePlayerItems(songList: [SongRealm]){
@@ -63,6 +64,10 @@ class MediaPlayerManager{
                 using(time.seconds , duration.seconds)
                 if time.seconds == duration.seconds{
                     self?.stopMedia()
+                   
+//                    if self?.loop ?? false {
+//                        self?.playMedia(songSource: songSource, shouldLoop: false, using: using)
+//                    }
                 }
             }
             
@@ -116,18 +121,19 @@ class MediaPlayerManager{
     
     func stopMedia(){
         audioPlayer = nil
-        //audioPlayer?.replaceCurrentItem(with: nil)
         playLooper = nil
         
     }
     
     func addToLooper(){
+        loop = true
         guard let player = audioPlayer, let item = playerItem else{return}
         playLooper = AVPlayerLooper(player: player, templateItem: item)
         
     }
     
     func removeFromLooper(){
+        loop = false
         guard let looper = playLooper else{return }
       looper.disableLooping()
         

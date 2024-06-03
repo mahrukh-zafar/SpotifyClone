@@ -20,7 +20,7 @@ import SwiftUI
 class FirebaseManager{
     
     private let db = Firestore.firestore()
-    //let realmManager = RealmManager()
+
     static let shared = FirebaseManager()
     
     func loginWithEmail(email : String, password: String,  completion: @escaping (Bool) -> Void)  {
@@ -33,13 +33,8 @@ class FirebaseManager{
                 completion(false)
                 
             } else {
-                //print("User signs in successfully")
-                // let userInfo = Auth.auth().currentUser
-                
-                
+               
                 UserDefaults.standard.set(true, forKey: "logged In")
-                
-                
                 completion(true)
             }
             
@@ -77,11 +72,9 @@ class FirebaseManager{
     func authenticateWithGoogle(viewController: UIViewController, onComplete: @escaping (Bool) -> Void){
         guard let clientID = FirebaseApp.app()?.options.clientID else { return }
         
-        // Create Google Sign In configuration object.
         let config = GIDConfiguration(clientID: clientID)
         GIDSignIn.sharedInstance.configuration = config
         
-        // Start the sign in flow!
         GIDSignIn.sharedInstance.signIn(withPresenting: viewController) {  result, error in
             guard error == nil else {
                 print(error)
