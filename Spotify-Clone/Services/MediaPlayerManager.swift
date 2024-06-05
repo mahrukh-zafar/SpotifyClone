@@ -65,9 +65,9 @@ class MediaPlayerManager{
                 if time.seconds == duration.seconds{
                     self?.stopMedia()
                    
-//                    if self?.loop ?? false {
-//                        self?.playMedia(songSource: songSource, shouldLoop: false, using: using)
-//                    }
+                    if self?.loop ?? false {
+                        self?.playMedia(songSource: songSource, shouldLoop: false, using: using)
+                    }
                 }
             }
             
@@ -127,15 +127,15 @@ class MediaPlayerManager{
     
     func addToLooper(){
         loop = true
-        guard let player = audioPlayer, let item = playerItem else{return}
-        playLooper = AVPlayerLooper(player: player, templateItem: item)
+//        guard let player = audioPlayer, let item = playerItem else{return}
+//        playLooper = AVPlayerLooper(player: player, templateItem: item)
         
     }
     
     func removeFromLooper(){
         loop = false
-        guard let looper = playLooper else{return }
-      looper.disableLooping()
+//        guard let looper = playLooper else{return }
+//      looper.disableLooping()
         
     }
 }

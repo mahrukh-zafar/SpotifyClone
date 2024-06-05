@@ -104,6 +104,7 @@ class RealmManager {
         }
         
         realm.writeAsync {
+            print("writing to song")
             for (key, value) in dictionary {
                 object.setValue(value, forKey: key)
                 

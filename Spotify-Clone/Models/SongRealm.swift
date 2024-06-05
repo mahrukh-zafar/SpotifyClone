@@ -14,5 +14,5 @@ class SongRealm : Object{
     @Persisted var  url : String = ""
     @Persisted var  source : String = ""
     @Persisted(originProperty: "songs") var parentArtistRealm: LinkingObjects<ArtistRealm>
-    
+    @Persisted var favortie = false
 }

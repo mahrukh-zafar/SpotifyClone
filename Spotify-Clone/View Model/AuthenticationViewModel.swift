@@ -9,7 +9,7 @@ import UIKit
 
 class AuthenticationViewModel{
     
-    func login(email: String, password: String, onComplete: @escaping (Bool)-> Void){
+    func login(email: String, password: String, onComplete: @escaping (Bool,Error?)-> Void){
         
         FirebaseManager.shared.loginWithEmail(email: email, password: password, completion: onComplete)
     }

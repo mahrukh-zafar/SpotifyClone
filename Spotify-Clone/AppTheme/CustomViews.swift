@@ -48,7 +48,12 @@ extension UINavigationBar{
     }
 }
 
-
+extension UITableView{
+    
+    func applyThemeToTableView(){
+        backgroundColor = Theme.current.background
+    }
+}
 extension String{
     
     func capitalizingFirstLetter() -> String {
