@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="likedCell" rowHeight="73" id="KGk-i7-Jjw" customClass="LikedTableViewCell" customModule="Spotify_Clone" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="73"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="73"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sk4-Xf-LlT">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="270"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="w7B-xO-0pW">
+                                <rect key="frame" x="16" y="8" width="288" height="254"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Spotify" translatesAutoresizingMaskIntoConstraints="NO" id="N3M-kf-1c1">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="254"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="50" id="gW6-Jq-Mmx"/>
+                                            <constraint firstAttribute="height" constant="50" id="mik-RX-VlJ"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v9Z-6n-QpW">
+                                        <rect key="frame" x="58" y="0.0" width="230" height="254"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="w7B-xO-0pW" secondAttribute="bottom" constant="8" id="Ebf-b0-wzp"/>
+                            <constraint firstItem="w7B-xO-0pW" firstAttribute="top" secondItem="sk4-Xf-LlT" secondAttribute="top" constant="8" id="MUd-HU-UaM"/>
+                            <constraint firstAttribute="trailing" secondItem="w7B-xO-0pW" secondAttribute="trailing" constant="16" id="Ytl-1o-dXs"/>
+                            <constraint firstItem="w7B-xO-0pW" firstAttribute="leading" secondItem="sk4-Xf-LlT" secondAttribute="leading" constant="16" id="v4V-ro-LYd"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="sk4-Xf-LlT" secondAttribute="trailing" id="Ro5-KO-PUq"/>
+                    <constraint firstItem="sk4-Xf-LlT" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="q25-fa-eOz"/>
+                    <constraint firstAttribute="bottom" secondItem="sk4-Xf-LlT" secondAttribute="bottom" id="qs7-6T-Xdj"/>
+                    <constraint firstItem="sk4-Xf-LlT" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="xgt-68-z9Q"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="name" destination="v9Z-6n-QpW" id="HQU-by-txd"/>
+                <outlet property="songIV" destination="N3M-kf-1c1" id="1o5-fV-CQT"/>
+            </connections>
+            <point key="canvasLocation" x="137.68115942028987" y="103.45982142857143"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="Spotify" width="254" height="254"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

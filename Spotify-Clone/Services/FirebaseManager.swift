@@ -23,21 +23,18 @@ class FirebaseManager{
 
     static let shared = FirebaseManager()
     
-    func loginWithEmail(email : String, password: String,  completion: @escaping (Bool) -> Void)  {
+    func loginWithEmail(email : String, password: String,  completion: @escaping (Bool,Error?) -> Void)  {
         
         Auth.auth().signIn(withEmail: email, password: password) { (authResult, error) in
             
             if let error = error as? NSError {
-                print(error)
-                
-                completion(false)
-                
+               
             } else {
                
                 UserDefaults.standard.set(true, forKey: "logged In")
-                completion(true)
+                
             }
-            
+            completion(UserDefaults.standard.bool(forKey: "logged In"),error)
         }
     }
     

@@ -14,8 +14,6 @@ class ArtistRealm : Object{
     @Persisted var  url : String?
     @Persisted var  createdAt : Double = 0.0
     @Persisted var songs = List<SongRealm>()
+    @Persisted var favortie = false
 
 }
-
-
-

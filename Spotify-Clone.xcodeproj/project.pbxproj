@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		13448CF1B4CF0A5DA40AB4E7 /* Pods_Spotify_Clone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58BFD3D72065721F51934536 /* Pods_Spotify_Clone.framework */; };
+		D73260CB2C10A03A005DDDA1 /* MyFavoritesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73260CA2C10A03A005DDDA1 /* MyFavoritesTableViewController.swift */; };
+		D73260CD2C10A2B8005DDDA1 /* MyFavoritesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73260CC2C10A2B8005DDDA1 /* MyFavoritesViewModel.swift */; };
+		D73260D42C10BCD7005DDDA1 /* LikedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73260D22C10BCD7005DDDA1 /* LikedTableViewCell.swift */; };
+		D73260D52C10BCD7005DDDA1 /* LikedTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D73260D32C10BCD7005DDDA1 /* LikedTableViewCell.xib */; };
 		D737F49E2BE3CE9300230DA6 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D737F49D2BE3CE9300230DA6 /* HomeViewController.swift */; };
 		D737F4A82BE4202600230DA6 /* CustomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D737F4A72BE4202600230DA6 /* CustomCollectionViewCell.swift */; };
 		D737F4AA2BE4F34D00230DA6 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D737F4A92BE4F34C00230DA6 /* SearchViewController.swift */; };
@@ -34,10 +38,8 @@
 		D737F4DF2BEA6C2F00230DA6 /* PlayListCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D737F4DD2BEA6C2F00230DA6 /* PlayListCollectionViewCell.xib */; };
 		D737F4E62BEB7AB000230DA6 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D737F4E42BEB7AB000230DA6 /* SettingsViewController.swift */; };
 		D737F4E72BEB7AB000230DA6 /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D737F4E52BEB7AB000230DA6 /* SettingsViewController.xib */; };
-		D737F4E92BEB916E00230DA6 /* PlayListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D737F4E82BEB916E00230DA6 /* PlayListViewModel.swift */; };
 		D737F4EC2BEB9F4C00230DA6 /* PlaySongViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D737F4EA2BEB9F4C00230DA6 /* PlaySongViewController.swift */; };
 		D737F4ED2BEB9F4C00230DA6 /* PlaySongViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D737F4EB2BEB9F4C00230DA6 /* PlaySongViewController.xib */; };
-		D737F4EF2BEBA8F100230DA6 /* FavoriteSongs.swift in Sources */ = {isa = PBXBuildFile; fileRef = D737F4EE2BEBA8F100230DA6 /* FavoriteSongs.swift */; };
 		D737F4F32BEBEECC00230DA6 /* CustomViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = D737F4F22BEBEECC00230DA6 /* CustomViews.swift */; };
 		D737F4F52BECE85200230DA6 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D737F4F42BECE85200230DA6 /* SearchViewModel.swift */; };
 		D737F5012BEE299900230DA6 /* apple_macbook_ad.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D737F5002BEE299800230DA6 /* apple_macbook_ad.mp3 */; };
@@ -63,7 +65,6 @@
 		D7F911C12BF4AC9B001EBF60 /* MediaPlayerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F911BE2BF4AC9B001EBF60 /* MediaPlayerManager.swift */; };
 		D7F911C22BF4AC9B001EBF60 /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F911BF2BF4AC9B001EBF60 /* FirebaseManager.swift */; };
 		D7F911C32BF4AC9B001EBF60 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F911C02BF4AC9B001EBF60 /* RealmManager.swift */; };
-		D7F911C82BF64326001EBF60 /* FavoriteArtist.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F911C72BF64326001EBF60 /* FavoriteArtist.swift */; };
 		D7F911CB2BF78424001EBF60 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = D7F911CA2BF78424001EBF60 /* SDWebImage */; };
 /* End PBXBuildFile section */
 
@@ -71,6 +72,10 @@
 		58BFD3D72065721F51934536 /* Pods_Spotify_Clone.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Spotify_Clone.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B347FA558B42F7C46DA621B1 /* Pods-Spotify-Clone.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Spotify-Clone.release.xcconfig"; path = "Target Support Files/Pods-Spotify-Clone/Pods-Spotify-Clone.release.xcconfig"; sourceTree = "<group>"; };
 		C3228C18F6A29618E2EB07A1 /* Pods-Spotify-Clone.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Spotify-Clone.debug.xcconfig"; path = "Target Support Files/Pods-Spotify-Clone/Pods-Spotify-Clone.debug.xcconfig"; sourceTree = "<group>"; };
+		D73260CA2C10A03A005DDDA1 /* MyFavoritesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFavoritesTableViewController.swift; sourceTree = "<group>"; };
+		D73260CC2C10A2B8005DDDA1 /* MyFavoritesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFavoritesViewModel.swift; sourceTree = "<group>"; };
+		D73260D22C10BCD7005DDDA1 /* LikedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikedTableViewCell.swift; sourceTree = "<group>"; };
+		D73260D32C10BCD7005DDDA1 /* LikedTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LikedTableViewCell.xib; sourceTree = "<group>"; };
 		D737F49D2BE3CE9300230DA6 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		D737F4A72BE4202600230DA6 /* CustomCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewCell.swift; sourceTree = "<group>"; };
 		D737F4A92BE4F34C00230DA6 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -86,10 +91,8 @@
 		D737F4DD2BEA6C2F00230DA6 /* PlayListCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlayListCollectionViewCell.xib; sourceTree = "<group>"; };
 		D737F4E42BEB7AB000230DA6 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		D737F4E52BEB7AB000230DA6 /* SettingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
-		D737F4E82BEB916E00230DA6 /* PlayListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayListViewModel.swift; sourceTree = "<group>"; };
 		D737F4EA2BEB9F4C00230DA6 /* PlaySongViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaySongViewController.swift; sourceTree = "<group>"; };
 		D737F4EB2BEB9F4C00230DA6 /* PlaySongViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlaySongViewController.xib; sourceTree = "<group>"; };
-		D737F4EE2BEBA8F100230DA6 /* FavoriteSongs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteSongs.swift; sourceTree = "<group>"; };
 		D737F4F22BEBEECC00230DA6 /* CustomViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CustomViews.swift; path = "Spotify-Clone/AppTheme/CustomViews.swift"; sourceTree = SOURCE_ROOT; };
 		D737F4F42BECE85200230DA6 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		D737F5002BEE299800230DA6 /* apple_macbook_ad.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = apple_macbook_ad.mp3; sourceTree = "<group>"; };
@@ -118,7 +121,6 @@
 		D7F911BE2BF4AC9B001EBF60 /* MediaPlayerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaPlayerManager.swift; sourceTree = "<group>"; };
 		D7F911BF2BF4AC9B001EBF60 /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
 		D7F911C02BF4AC9B001EBF60 /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
-		D7F911C72BF64326001EBF60 /* FavoriteArtist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteArtist.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -234,6 +236,9 @@
 				D737F4E52BEB7AB000230DA6 /* SettingsViewController.xib */,
 				D737F4EA2BEB9F4C00230DA6 /* PlaySongViewController.swift */,
 				D737F4EB2BEB9F4C00230DA6 /* PlaySongViewController.xib */,
+				D73260CA2C10A03A005DDDA1 /* MyFavoritesTableViewController.swift */,
+				D73260D22C10BCD7005DDDA1 /* LikedTableViewCell.swift */,
+				D73260D32C10BCD7005DDDA1 /* LikedTableViewCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -251,11 +256,9 @@
 			isa = PBXGroup;
 			children = (
 				D737F4AB2BE515CF00230DA6 /* Artist.swift */,
-				D737F4EE2BEBA8F100230DA6 /* FavoriteSongs.swift */,
 				D737F5022BEE420700230DA6 /* Song.swift */,
 				D737F50A2BF2620400230DA6 /* ArtistRealm.swift */,
 				D737F50C2BF281E100230DA6 /* SongRealm.swift */,
-				D7F911C72BF64326001EBF60 /* FavoriteArtist.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -265,9 +268,9 @@
 			children = (
 				D7D49BE52BE3914C005C1BEA /* AuthenticationViewModel.swift */,
 				D737F4AD2BE52EB900230DA6 /* HomeViewModel.swift */,
-				D737F4E82BEB916E00230DA6 /* PlayListViewModel.swift */,
 				D737F4F42BECE85200230DA6 /* SearchViewModel.swift */,
 				D737F5042BEE55DA00230DA6 /* PlaySongModelView.swift */,
+				D73260CC2C10A2B8005DDDA1 /* MyFavoritesViewModel.swift */,
 			);
 			path = "View Model";
 			sourceTree = "<group>";
@@ -374,6 +377,7 @@
 				D7D49BCA2BE10F26005C1BEA /* SignUpViewController.xib in Resources */,
 				D7CDE8542BDF801F00A4AB8A /* Main.storyboard in Resources */,
 				D737F4C02BEA3E4500230DA6 /* GoogleService-Info.plist in Resources */,
+				D73260D52C10BCD7005DDDA1 /* LikedTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -429,8 +433,9 @@
 				D737F50D2BF281E100230DA6 /* SongRealm.swift in Sources */,
 				D737F4AE2BE52EB900230DA6 /* HomeViewModel.swift in Sources */,
 				D7D49BE42BE13761005C1BEA /* TabBarViewController.swift in Sources */,
-				D737F4EF2BEBA8F100230DA6 /* FavoriteSongs.swift in Sources */,
+				D73260D42C10BCD7005DDDA1 /* LikedTableViewCell.swift in Sources */,
 				D737F4F32BEBEECC00230DA6 /* CustomViews.swift in Sources */,
+				D73260CB2C10A03A005DDDA1 /* MyFavoritesTableViewController.swift in Sources */,
 				D737F4AA2BE4F34D00230DA6 /* SearchViewController.swift in Sources */,
 				D7D49BC52BE101AE005C1BEA /* LoginViewController.swift in Sources */,
 				D737F50B2BF2620500230DA6 /* ArtistRealm.swift in Sources */,
@@ -448,9 +453,9 @@
 				D737F4B82BE90EE900230DA6 /* LightTheme.swift in Sources */,
 				D7CDE8512BDF801F00A4AB8A /* GetStartedViewController.swift in Sources */,
 				D7F911C12BF4AC9B001EBF60 /* MediaPlayerManager.swift in Sources */,
-				D737F4E92BEB916E00230DA6 /* PlayListViewModel.swift in Sources */,
 				D7F911C22BF4AC9B001EBF60 /* FirebaseManager.swift in Sources */,
 				D737F4EC2BEB9F4C00230DA6 /* PlaySongViewController.swift in Sources */,
+				D73260CD2C10A2B8005DDDA1 /* MyFavoritesViewModel.swift in Sources */,
 				D7D49BE62BE3914C005C1BEA /* AuthenticationViewModel.swift in Sources */,
 				D737F4A82BE4202600230DA6 /* CustomCollectionViewCell.swift in Sources */,
 				D737F4B62BE90B7100230DA6 /* ThemeProtocol.swift in Sources */,
@@ -459,7 +464,6 @@
 				D737F5052BEE55DA00230DA6 /* PlaySongModelView.swift in Sources */,
 				D737F4E62BEB7AB000230DA6 /* SettingsViewController.swift in Sources */,
 				D7CDE8642BDF929800A4AB8A /* CustomButton.swift in Sources */,
-				D7F911C82BF64326001EBF60 /* FavoriteArtist.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

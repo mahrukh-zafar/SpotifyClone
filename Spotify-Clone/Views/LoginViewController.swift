@@ -13,9 +13,10 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
+    @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
     @IBOutlet weak var loadingLabel: UILabel!
     @IBOutlet weak var backButton: UIButton!
-    
+    var isloading = false
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var loginLabel: UILabel!
     let loginViewModel = AuthenticationViewModel()
@@ -33,11 +34,18 @@ class LoginViewController: UIViewController {
         loginLabel.applyThemeToLable()
         loginButton.applyThemeToFilledButton()
         loadingLabel.applyThemeToErrorLabel()
+        loadingIndicator.isHidden = true
     }
     
     @IBAction func loginButtonPressed(_ sender: UIButton)   {
+       isloading = true
+        loadingLabel.text = ""
+        if isloading{
+            loadingIndicator.isHidden = false
+            loginButton.isHidden = true
+            loadingIndicator.startAnimating()
+        }
        
-        
         guard let email = emailTextField.text else{
             return
         }
@@ -45,7 +53,7 @@ class LoginViewController: UIViewController {
             return
         }
 
-        loginViewModel.login(email: email, password: password) { result in
+        loginViewModel.login(email: email, password: password) { result, error in
             if result
 
             {
@@ -54,9 +62,12 @@ class LoginViewController: UIViewController {
                 }
             }
             else{
-                self.loadingLabel.text = "Invalid Credentials"
+                self.loadingIndicator.isHidden = true
+                self.loginButton.isHidden = false
+                self.loadingLabel.text = error?.localizedDescription
             }
         }
+       
     }
     
     
@@ -68,7 +79,6 @@ class LoginViewController: UIViewController {
         let navigationController = UINavigationController(rootViewController: vc)
         UIApplication.shared.windows.first?.rootViewController = navigationController
         UIApplication.shared.windows.first?.makeKeyAndVisible()
-        
         
     }
     

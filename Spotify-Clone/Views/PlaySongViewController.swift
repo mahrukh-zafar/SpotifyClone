@@ -42,22 +42,21 @@ class PlaySongViewController: UIViewController {
         super.viewDidLoad()
         applyTheme()
         progressView.progress = 0.0
-        
+    
         guard let songs = songs, let index = currentIndex else {
             return
         }
         let song = songs[index]
         
         songNameLabel.text = song.name.capitalizingFirstLetter()
-        
         songImageUrl.sd_setImage(with: URL(string: (song.url)), placeholderImage: UIImage(named: "placeholder.png"))
-        
         setFavoriteButton(song: song)
         setPlayButton(name: "play.fill")
         
     }
     override func viewWillDisappear(_ animated: Bool) {
         MediaPlayerManager.shared.stopMedia()
+     
     }
     
     func applyTheme(){
@@ -89,17 +88,22 @@ class PlaySongViewController: UIViewController {
     }
     
     @IBAction func favButtonPressed(_ sender: UIButton) {
-        
-        if let songs = songs, let index = currentIndex{
-            if let fav =  playsongViewModel.isFavorite(songName: songs[index].name){
-                if !fav{
-                    playsongViewModel.favorite(songs[index])
-                }else{
-                    playsongViewModel.unfavorite(songs[index])
-                }
+        if songs![currentIndex!].favortie{
+            favButton.setImage(UIImage(systemName: "heart"), for: .normal)
+            do{
+                try RealmManager.shared.updateObject(songs![currentIndex!], with: ["favortie" : false])
             }
-            setFavoriteButton(song: songs[index])
+            catch{}
         }
+        else{
+            favButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+            favButton.tintColor = Theme.current.error
+            do{
+                try RealmManager.shared.updateObject(songs![currentIndex!], with: ["favortie" : true])
+            }
+            catch{}
+        }
+        
         
     }
     
@@ -119,6 +123,7 @@ class PlaySongViewController: UIViewController {
                 }
                 setFavoriteButton(song: songs[index+1])
                 songNameLabel.text = songs[index+1].name.capitalizingFirstLetter()
+                songImageUrl.sd_setImage(with: URL(string: (songs[index+1].url)), placeholderImage: UIImage(named: "placeholder.png"))
             }
         }
         
@@ -140,6 +145,7 @@ class PlaySongViewController: UIViewController {
                 }
                 setFavoriteButton(song: songs[index-1])
                 songNameLabel.text = songs[index-1].name.capitalizingFirstLetter()
+                songImageUrl.sd_setImage(with: URL(string: (songs[index-1].url)), placeholderImage: UIImage(named: "placeholder.png"))
             }
         }
 
@@ -224,16 +230,14 @@ class PlaySongViewController: UIViewController {
     }
     
     func setFavoriteButton(song: SongRealm){
-        if let fav = playsongViewModel.isFavorite(songName: song.name){
-            if fav{
-                favButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
-                favButton.tintColor = Theme.current.error
-                
-            }else{
-                favButton.setImage(UIImage(systemName: "heart"), for: .normal)
-            }
-        }
         
+        if song.favortie{
+        favButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+        favButton.tintColor = Theme.current.error
+        }else{
+            favButton.setImage(UIImage(systemName: "heart"), for: .normal)
+        }
+
     }
     func setPlayButton(name: String){
         playButton.setImage(UIImage(systemName: name), for: .normal)

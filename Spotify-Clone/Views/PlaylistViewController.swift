@@ -24,7 +24,7 @@ class PlaylistViewController: UIViewController {
     
     @IBOutlet weak var playButton: UIButton!
     
-    let playListViewModel = PlayListViewModel()
+  
     
     var artistRealm : ArtistRealm?
     var songs = [SongRealm]()
@@ -45,16 +45,23 @@ class PlaylistViewController: UIViewController {
     @IBAction func favButtonPressed(_ sender: UIButton) {
         
         guard let artist = artistRealm else{return}
-        if let fav =  playListViewModel.isFavorite(artistName: artist.name){
-            if !fav{
-                playListViewModel.favorite(artistRealm!)
-            }else{
-                playListViewModel.unfavorite(artistRealm!)
+        if artist.favortie{
+            favButton.setImage(UIImage(systemName: "heart"), for: .normal)
+            do{
+                try RealmManager.shared.updateObject(artist, with: ["favortie" : false])
             }
-            
+            catch{}
+        }
+        else{
+            favButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+            favButton.tintColor = Theme.current.error
+            do{
+                try RealmManager.shared.updateObject(artist, with: ["favortie" : true])
+            }
+            catch{}
         }
         
-        setFavButton()
+      
         
     }
     
@@ -95,8 +102,8 @@ class PlaylistViewController: UIViewController {
             setArtist(artist: artist)
         }
         
-        setFavButton()
         
+        setFavButton()
         applyTheme()
         
         setPlayButton(name: "play.fill")
@@ -116,18 +123,13 @@ class PlaylistViewController: UIViewController {
         guard let artist = artistRealm else{
             return
         }
+        if artist.favortie{
+        favButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
         favButton.tintColor = Theme.current.error
-        
-        
-        if let fav = playListViewModel.isFavorite(artistName: artist.name){
-            if fav{
-                favButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
-                
-                
-            }else{
-                favButton.setImage(UIImage(systemName: "heart"), for: .normal)
-            }
+        }else{
+            favButton.setImage(UIImage(systemName: "heart"), for: .normal)
         }
+        
     }
     func applyTheme(){
         view.backgroundColor = Theme.current.background
